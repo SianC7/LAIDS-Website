@@ -12,55 +12,51 @@
       <h1 class="title">Lightweight AI Intrusion Detection System (LAIDS)</h1>
       <p class="subtitle">Honours Project — University of Cape Town · School of IT</p>
       <nav class="nav" aria-label="Primary">
-        <a href="#project">Project</a>
-        <a href="#documents">Documents</a>
+        <a href="#overview">Overview</a>
+        <a href="#project-docs">Proposal & Poster</a>
         <a href="#team">Team</a>
-        <a href="images/poster.png" download>Download Poster</a>
+        <a href="images/LAIDS_Poster.png" download>Download Poster</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section id="project" class="grid" aria-labelledby="project-title">
+    <section id="overview" class="section overview" aria-labelledby="project-title">
       <div class="card">
-        <h3 id="project-title">Overview</h3>
-        <p>LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems for resource‑constrained networks, targeting strong detection and efficient deployment on edge‑class hardware.</p>
+        <h2 id="project-title" class="section-title">Overview</h2>
+        <p>LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems for resource-constrained networks, targeting strong detection and efficient deployment on edge-class hardware.</p>
         <ul class="clean">
-          <li>Benchmarks CNN, CNN‑LSTM/GRU, DBN, PCA‑CNN, AE‑MLP, and GAN variants</li>
+          <li>Benchmarks CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, and GAN variants</li>
           <li>Evaluates quantisation (FP16, INT8 Dynamic, INT8 Full) and footprint</li>
-          <li>Assesses zero‑day generalisation at fixed false‑positive budgets</li>
+          <li>Assesses zero-day generalisation at fixed false-positive budgets</li>
         </ul>
         <span class="tag">Static HTML5</span>
         <span class="tag">Relative links only</span>
       </div>
-      <div class="card">
-        <figure class="poster">
-          <img src="images/poster.png" alt="LAIDS project poster"/>
-        </figure>
-        <div class="notice" style="margin-top:12px">
-          <strong>Note:</strong> This site is fully self‑contained for archival on the CS server. Any future external app links must be labelled as a <em>non‑permanent external link</em>.
-        </div>
-      </div>
     </section>
 
-    <section id="documents" style="margin-top:22px">
-      <h2 class="section-title">Project Documents (Group)</h2>
-      <div class="grid">
-        <article class="card">
+    <section id="project-docs" class="section split" aria-labelledby="docs-title">
+      <h2 id="docs-title" class="section-title">Project Proposal & Poster</h2>
+      <div class="split-grid">
+        <div class="col">
           <h3>Project Proposal</h3>
-          <p>Scope, objectives, models and evaluation plan for the LAIDS project.</p>
-          <div class="actions">
+          <div class="toolbar">
             <a class="button" href="docs/LAIDS Project Proposal .pdf">Open PDF</a>
+            <a class="button" href="docs/LAIDS Project Proposal .pdf" download>Download</a>
           </div>
-        </article>
-        <article class="card">
-          <h3>Group Final Paper</h3>
-          <p>Consolidated final report covering methodology, experiments and results.</p>
-          <div class="actions">
-            <a class="button" href="docs/LAIDS_Project_Final.pdf">Open PDF</a>
+          <embed class="pdf-frame" src="docs/LAIDS Project Proposal .pdf" type="application/pdf" />
+        </div>
+    
+        <div class="col">
+          <h3>Project Poster</h3>
+          <div class="toolbar">
+            <a class="button" href="images/LAIDS_Poster.png">Open Image</a>
+            <a class="button" href="images/LAIDS_Poster.png" download>Download</a>
           </div>
-          <p class="notice" style="margin-top:10px">If you have a combined final paper, place it at <kbd>docs/LAIDS_Project_Final.pdf</kbd>. Individual finals are under each person below.</p>
-        </article>
+          <div class="center" style="margin-top:10px">
+            <img src="images/LAIDS_Poster.png" alt="LAIDS project poster"/>
+          </div>
+        </div>
       </div>
     </section>
 
