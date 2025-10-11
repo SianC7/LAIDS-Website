@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAIDS — Project Website</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1 class="title">Lightweight AI Intrusion Detection System (LAIDS)</h1>
+      <p class="subtitle">Honours Project — University of Cape Town · School of IT</p>
+      <nav class="nav" aria-label="Primary">
+        <a href="#project">Project</a>
+        <a href="#documents">Documents</a>
+        <a href="#team">Team</a>
+        <a href="images/poster.png" download>Download Poster</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="project" class="grid" aria-labelledby="project-title">
+      <div class="card">
+        <h3 id="project-title">Overview</h3>
+        <p>LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems for resource‑constrained networks, targeting strong detection and efficient deployment on edge‑class hardware.</p>
+        <ul class="clean">
+          <li>Benchmarks CNN, CNN‑LSTM/GRU, DBN, PCA‑CNN, AE‑MLP, and GAN variants</li>
+          <li>Evaluates quantisation (FP16, INT8 Dynamic, INT8 Full) and footprint</li>
+          <li>Assesses zero‑day generalisation at fixed false‑positive budgets</li>
+        </ul>
+        <span class="tag">Static HTML5</span>
+        <span class="tag">Relative links only</span>
+      </div>
+      <div class="card">
+        <figure class="poster">
+          <img src="images/poster.png" alt="LAIDS project poster"/>
+        </figure>
+        <div class="notice" style="margin-top:12px">
+          <strong>Note:</strong> This site is fully self‑contained for archival on the CS server. Any future external app links must be labelled as a <em>non‑permanent external link</em>.
+        </div>
+      </div>
+    </section>
+
+    <section id="documents" style="margin-top:22px">
+      <h2 class="section-title">Project Documents (Group)</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Project Proposal</h3>
+          <p>Scope, objectives, models and evaluation plan for the LAIDS project.</p>
+          <div class="actions">
+            <a class="button" href="docs/LAIDS Project Proposal .pdf">Open PDF</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Group Final Paper</h3>
+          <p>Consolidated final report covering methodology, experiments and results.</p>
+          <div class="actions">
+            <a class="button" href="docs/LAIDS_Project_Final.pdf">Open PDF</a>
+          </div>
+          <p class="notice" style="margin-top:10px">If you have a combined final paper, place it at <kbd>docs/LAIDS_Project_Final.pdf</kbd>. Individual finals are under each person below.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="team" style="margin-top:22px">
+      <h2 class="section-title">Team & Individual Contributions</h2>
+      <div class="grid">
+        
+        <article class="card">
+          <h3>Claire Campbell</h3>
+          <p><a href="mailto:cmpcla004@myuct.ac.za">cmpcla004@myuct.ac.za</a></p>
+          <p>Individual page with literature review and final paper.</p>
+          <div class="actions">
+            <a class="button" href="claire.html">Open profile</a>
+            <a class="button secondary" href="docs/Final_Paper_Claire_Campbell.pdf">Final Paper (PDF)</a>
+          </div>
+          <div class="actions">
+            <a class="button" href="docs/Literature_Review_Claire_Campbell.pdf">Literature Review (PDF)</a>
+          </div>
+        </article>
+    
+        <article class="card">
+          <h3>Sian Caine</h3>
+          <p><a href="mailto:cnxsia001@myuct.ac.za">cnxsia001@myuct.ac.za</a></p>
+          <p>Individual page with literature review and final paper.</p>
+          <div class="actions">
+            <a class="button" href="sian.html">Open profile</a>
+            <a class="button secondary" href="docs/Final_Paper_Sian_Caine.pdf">Final Paper (PDF)</a>
+          </div>
+          <div class="actions">
+            <a class="button" href="docs/Literature_Review_Sian_Caine.pdf">Literature Review (PDF)</a>
+          </div>
+        </article>
+    
+        <article class="card">
+          <h3>Christopher Blignaut</h3>
+          <p><a href="mailto:blgchr003@myuct.ac.za">blgchr003@myuct.ac.za</a></p>
+          <p>Individual page with literature review and final paper.</p>
+          <div class="actions">
+            <a class="button" href="christopher.html">Open profile</a>
+            <a class="button secondary" href="docs/Final_Paper_Christopher_Blignaut.pdf">Final Paper (PDF)</a>
+          </div>
+          <div class="actions">
+            <a class="button" href="docs/Literature_Review_Christopher_Blignaut.pdf">Literature Review (PDF)</a>
+          </div>
+        </article>
+    
+      </div>
+    </section>
+
+    <hr/>
+
+    <section>
+      <h2 class="section-title">How to package & submit</h2>
+      <p>Zip the entire folder (including <code>index.html</code>) and submit the ZIP at the CS projects site. The site uses only relative links and contains all required PDFs and the poster image.</p>
+      <ul class="clean">
+        <li>Main entry page is <kbd>index.html</kbd> in the root.</li>
+        <li>All links are relative; no scripts or server‑side tech.</li>
+        <li>Source code, if any, should be included as compressed archives and linked from the relevant page.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2025 University of Cape Town — School of IT · LAIDS
+    </div>
+  </footer>
+</body>
+</html>
