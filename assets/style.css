@@ -85,4 +85,98 @@ ul.clean{padding-left:18px;margin:8px 0}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
 .toolbar .button{padding:8px 12px}
 
+/* ===== Full-screen hero with overlay, top-right nav, and centered title ===== */
+header.hero{
+  position: relative;
+  min-height: 100vh;                 /* full screen */
+  display: grid;
+  place-items: center;               /* center the hero content */
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url("../images/landing.png") center/cover no-repeat fixed;
+  /* Fallback gradient if the image is large/removed */
+  background-color: #1f2937;
+  margin: 0 0 0;                     /* remove bottom margin; sections add their own spacing */
+}
+
+/* Frosted topbar sitting over the hero image */
+.topbar{
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px clamp(16px, 3.5vw, 36px);
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(6px);
+}
+.brand{
+  font-weight: 800;
+  letter-spacing: .4px;
+  font-size: clamp(18px, 2.2vw, 22px);
+}
+.topbar .nav{
+  display: flex; gap: 16px; flex-wrap: wrap; margin: 0;
+}
+.topbar .nav a{
+  color: #fff;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.28);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+.topbar .nav a:hover{ background: rgba(255,255,255,.22); text-decoration: none }
+
+/* Centered hero text + CTA */
+.hero-content{
+  text-align: center;
+  padding: 0 clamp(16px, 3vw, 40px);
+}
+.hero .title{
+  font-size: clamp(36px, 7vw, 72px);   /* bigger than before */
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: .2px;
+  margin: 0 0 12px;
+}
+.hero .subtitle{ opacity: .95; margin: 0 0 22px }
+.hero-cta{ background: transparent; border:1.8px solid #fff; }
+.hero-cta:hover{ background: rgba(255,255,255,.1) }
+
+/* ===== Page-like blocks for each section ===== */
+.section{ padding: clamp(32px, 6vw, 80px) 0 }
+.section-block{
+  background: var(--card);
+  border: 1px solid #e5e7eb;
+  border-radius: 26px;
+  padding: clamp(18px, 3vw, 36px);
+  box-shadow: 0 18px 44px rgba(2,8,20,.10);
+}
+.section-title{
+  font-size: clamp(24px, 3.2vw, 34px);
+  border-left: 8px solid var(--teal);
+  padding-left: 12px;
+  margin: 0 0 16px;
+}
+
+/* Soft gradient separators between “pages” */
+.section + .section{
+  background:
+    linear-gradient(180deg, rgba(2,8,20,0) 0%, rgba(2,8,20,.04) 40%, rgba(2,8,20,0) 100%),
+    var(--bg);
+}
+
+/* Keep the container width you had */
+.container{ max-width:1100px; margin:0 auto; padding: clamp(16px,2.5vw,32px) }
+
+/* Make sure anchor jumps leave breathing room under the topbar */
+[id]{ scroll-margin-top: 96px }
+
+/* Optional: smoother anchor scrolling */
+html{ scroll-behavior: smooth }
+
+/* Tiny polish for buttons on dark hero and light sections */
+.button{ transition: transform .15s ease, box-shadow .15s ease }
+.button:hover{ transform: translateY(-1px) }
 
