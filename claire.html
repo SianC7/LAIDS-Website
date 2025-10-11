@@ -26,20 +26,57 @@
         <h3>Overview</h3>
         <!-- ENTER OVERVIRE OF YOUR PROJECT HERE -->
         <p>Summary of Sian Caine's contribution to the LAIDS PROJECT</p>
-        <ul class="clean">
+        <!--<ul class="clean">
           <li>Model focus & rationale</li>
           <li>Key experiments & metrics (e.g., accuracy, F1, latency, memory)</li>
           <li>Quantisation & deployment notes</li>
+        </ul> -->
+        <p>
+          For my contribution to the LAIDS Project, I developed and evaluated two lightweight AI-based Intrusion Detection Systems 
+          optimized for resource-constrained networks:
+        </p>
+        <ul>
+          <li>A hybrid Convolutional Neural Network/Gated Recurrent Unit (CNN-GRU) model.</li>
+          <li>A hybrid GAN-MLP Generative Adversarial Network/Multilayer Perceptron model.</li>
         </ul>
+        <p>
+          These models were benchmarked against a baseline 1D CNN-based IDS using the CICIDS 2017 dataset. To further investigate model efficiency, I also restructured the baseline 1D CNN into a 2D CNN to explore how introducing a second dimension would affect overall performance.
+        </p>
+        <p>
+          The results showed that both the 2D CNN and CNN-GRU models are viable for lightweight real-world deployment. The CNN-GRU achieved the best overall multi-class classification performance, while the 2D CNN excelled in detecting unseen attacks. However, the GAN-MLP model underperformed due to the limitations of its lightweight architecture.
+        </p>
       </article>
     </section>
 
     <section class="grid">
       <article class="card">
         <h3>Documents</h3>
-        <div class="actions">
-          <a class="button" href="docs/Final_Paper_Claire_Campbell.pdf">Final Paper (PDF)</a>
-          <a class="button secondary" href="docs/Literature_Review_Claire_Campbell.pdf">Literature Review (PDF)</a>
+        <div class="doc-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+    
+          <!-- Literature Paper -->
+          <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
+            <h4>Literature Review (PDF)</h4>
+            <iframe src="docs/Literature_Review_Claire_Campbell.pdf" 
+                    style="width: 100%; height: 300px; border: 1px solid #ccc;" 
+                    scrolling="yes">
+            </iframe>
+            <p style="margin-top: 10px;">
+              Summary: A detailed literature review covering prior work, AI-based intrusion detection systems, and resource-constrained network models.
+            </p>
+          </div>
+
+          <!-- Final Paper -->
+          <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
+            <h4>Final Paper (PDF)</h4>
+            <iframe src="docs/Final_Paper_Claire_Campbell.pdf" 
+                    style="width: 100%; height: 300px; border: 1px solid #ccc;" 
+                    scrolling="yes">
+            </iframe>
+            <p style="margin-top: 10px;">
+              Summary: This paper presents the full methodology, experiments, and results of my contribution to the LAIDS Project.
+            </p>
+          </div>
+    
         </div>
       </article>
     </section>
