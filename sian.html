@@ -22,14 +22,9 @@
 
     <section class="grid" style="margin-bottom: 30px;">
       <article class="card">
-        <h3>Final Paper Overview</h3>
+        <h2>Overview of Final Paper </h2>
         <!-- ENTER OVERVIRE OF YOUR PROJECT HERE -->
         <p>Summary of Sian Caine's contribution to the LAIDS PROJECT</p>
-        <!--<ul class="clean">
-          <li>Model focus & rationale</li>
-          <li>Key experiments & metrics (e.g., accuracy, F1, latency, memory)</li>
-          <li>Quantisation & deployment notes</li>
-        </ul> -->
         <p>
           For my contribution to the LAIDS Project, I developed and evaluated two lightweight AI-based Intrusion Detection Systems 
           optimized for resource-constrained networks:
@@ -49,31 +44,91 @@
 
     <section class="grid">
       <article class="card">
-        <h3>Documents</h3>
+        <h2>Documents</h2>
         <div class="doc-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
     
           <!-- Literature Paper -->
           <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
-            <h4>Literature Review (PDF)</h4>
+            <h3>Literature Review</h3>
             <iframe src="docs/Literature_Review_Sian_Caine.pdf" 
                     style="width: 100%; height: 300px; border: 1px solid #ccc;" 
                     scrolling="yes">
             </iframe>
-            <p style="margin-top: 10px;">
-              A detailed literature review covering prior work, AI-based intrusion detection systems, and resource-constrained network models.
+            <p style="margin-top: 10px; text-align: justify;">
+              This literature review examines developments, challenges, and breakthroughs in intrusion detection system (IDS) 
+              frameworks. It specifically investigates the feasibility of implementing lightweight AI-based IDSs in low-resource networks.
+              The findings of this review provided the foundation for the design and development of the lightweight AI-IDS models 
+              presented in the final study.
+              
+              This review examines both traditional and AI-based IDS methods, as well as existing datasets and commonly used 
+              evaluation metrics. It then provides a detailed comparison of traditional IDSs with AI-based IDSs, and of 
+              machine learning IDSs with deep learning IDSs. The feasibility of implementing a lightweight DL or ML-DL hybrid 
+              IDS is also assessed, along with the implications of the reviewed literature for the LAIDS project. Finally, 
+              conclusions are drawn, and a path forward for the LAIDS project is outlined.
             </p>
-          </div>
+            <!-- Open button -->
+            <a href="docs/Literature_Review_Sian_Caine.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+              display: inline-block;
+              margin-top: 8px;
+              width: 100%;
+              padding: 10px 18px;
+              background-color: #c488ba;
+              color: white;
+              text-align: center;
+              text-decoration: none;
+              border-radius: 6px;
+              font-weight: 500;
+              transition: background-color 0.2s ease;">
+          Open Literature Review
+          </a>
+          </div> 
+
 
           <!-- Final Paper -->
           <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
-            <h4>Final Paper (PDF)</h4>
+            <h3>Final Paper</h3>
             <iframe src="docs/Final_Paper_Sian_Caine.pdf" 
                     style="width: 100%; height: 300px; border: 1px solid #ccc;" 
                     scrolling="yes">
             </iframe>
-            <p style="margin-top: 10px;">
-              This paper presents the full methodology, experiments, and results of my contribution to the LAIDS Project.
+            <p style="margin-top: 10px; text-align: justify;">
+              Intrusion detection systems (IDSs) have become crucial to networks, particularly with the growth of IoT, 
+              rising cybercrime and increasingly sophisticated threats. Traditional intrusion detection
+              systems struggle to scale effectively with these increases and to
+              detect zero-day attacks. AI-based IDSs offer improved detection
+              accuracy and adaptability, but are often too resource-intensive. The
+              LAIDS (Lightweight AI-based Intrusion Detection System) project
+              aims to address this gap by designing and evaluating lightweight
+              AI-IDS models that balance strong detection capabilities with low
+              resource usage. Three core model architectures are explored in this paper: a
+              baseline CNN, a PCA-CNN and an AE-MLP, which are trained
+              and evaluated with the CICIDS2017 dataset. These models, along
+              with their quantised variants, are evaluated on their classification
+              performance, resource efficiency and their ability to generalise to
+              'zero-day attacks'. The paper advances AI-based IDS solutions and demonstrates their suitability
+              for resource-constrained environments.
             </p>
+            <!-- Open button -->
+            <a href="docs/Final_Paper_Sian_Caine.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+              display: inline-block;
+              margin-top: 8px; 
+              width: 100%;
+              padding: 10px 18px;
+              background-color: #c488ba;
+              color: white;
+              text-align: center;
+              text-decoration: none;
+              border-radius: 6px;
+              font-weight: 500;
+              transition: background-color 0.2s ease;">
+          Open Final Paper
+          </a>
           </div>
     
         </div>
@@ -81,6 +136,6 @@
     </section>
 
   </main>
-  <footer><div class="container">Copyright © - 2025 - University of Cape Town - All rights reserved.</div></footer>
+  <footer><div class="container">© 2025 University of Cape Town — School of IT · LAIDS</div></footer>
 </body>
 </html>
