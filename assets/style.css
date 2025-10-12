@@ -1,333 +1,228 @@
-
+/* ========== Theme tokens ========== */
 :root{
-  --bg: #eff9f9; /* #f6f8fb — very light gray background color */
-  --card:#ffffff;
+  --bg:#eff9f9;
+  --card:#fff;
   --ink:#334155;
   --muted:#64748b;
+
   --teal:#2e8b7c;
   --mint:#7fd6c6;
   --purple:#7b6dce;
+
   --ring:rgba(46,139,124,.25);
   --radius:16px;
-  --space:18px;
+
+  /* hero + pill navbar */
+  --pill-offset: clamp(20px, 3vh, 80px); /* vertical offset for the pill */
+  --pill-height: 45px;                   /* visual pill height (tweak) */
+  --overview-bg:#eaf7f3;
+  --overview-brd:#cfe8e1;
+
+  /* cards */
+  --tile:#eefaf7;        /* team tiles */
+  --mauve:#c488ba;       /* brand underline accent */
 }
-*{box-sizing: border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
-a{color:var(--teal);text-decoration: none}
-a:hover{text-decoration: underline}
-.container{max-width:1100px;margin:0 auto; padding: clamp(16px,2.5vw,32px);}
-header.hero{
-  background: linear-gradient(-90deg, var(--mint), var(--teal));
-  color:white;
-  padding: 48px 0;
-  margin:0 0 28px;
-}
-.hero .title{font-size: clamp(28px, 5vw, 44px);font-weight:800;letter-spacing:.3px;margin:0 0 8px}
-.hero .subtitle{opacity:.95;margin:0}
-.nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
-.nav a{background: rgba(255,255,255,.15);padding:8px 12px;border-radius:999px;color:white;border:1px solid rgba(255,255,255,.3)}
-.grid{display:grid;grid-template-columns: repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.card{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 28px rgba(2, 8, 20, 0.06);padding:20px;border:1px solid #e5e7eb}
+
+/* ========== Base ========== */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:clamp(16px,2.5vw,32px);}
+hr{border:none;height:1px;background:#e5e7eb;margin:18px 0}
+ul.clean{padding-left:18px;margin:8px 0}
+kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e1}
+
+/* ========== Buttons, tags, cards ========== */
+.button{display:inline-block;background:var(--teal);color:#fff;padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease}
+.button:hover{transform:translateY(-1px)}
+.button.secondary{background:var(--mauve)}
+.tag{display:inline-block;background:var(--mint);color:#064e3b;padding:4px 10px;border-radius:999px;font-weight:600;font-size:12px;border:1px solid rgba(6,78,59,.15)}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 28px rgba(2,8,20,.06);padding:20px;border:1px solid #e5e7eb;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(2,8,20,.12);border-color:rgba(196,136,186,.35)}
 .card h3{margin:0 0 8px}
 .card p{margin:0 0 12px;color:var(--muted)}
 .card .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-.tag{display:inline-block;background:var(--mint);color:#064e3b;padding:4px 10px;border-radius:999px;font-weight:600;font-size:12px;border:1px solid rgba(6,78,59,.15)}
-.section-title{font-size:22px;margin:6px 0 14px;border-left:6px solid var(--teal);padding-left:10px}
-footer{color:var(--muted);padding:24px 0;margin-top:24px}
-.button{display:inline-block;background:var(--teal);color:white;padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,.05)}
-.button.secondary{background:var(--purple)}
+
+/* images */
+.center{display:flex;justify-content:center;align-items:center}
+.center img{max-width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 10px 20px rgba(2,8,20,.08)}
 figure.poster{margin:0;display:flex;align-items:center;gap:16px}
 figure.poster img{width:100%;max-width:360px;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 10px 20px rgba(2,8,20,.08)}
-kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e1}
-hr{border:none;height:1px;background:#e5e7eb;margin:18px 0}
-ul.clean{padding-left:18px;margin:8px 0}
-.notice{background:#f8fafc;border:1px dashed #cbd5e1;padding:12px;border-radius:12px}
 
-/* --- Custom layout tweaks for full-width overview + two-column docs --- */
-.section{margin: 0 0 26px}
-.overview .card{padding:24px}
-
-.split .col{
-  background: var(--card);
-  border:1px solid #e5e7eb;
-  border-radius: var(--radius);
-  box-shadow:0 10px 28px rgba(2, 8, 20, 0.06);
-  padding: 18px;
+/* ========== Sections ========== */
+.section{padding:clamp(32px,6vw,80px) 0}
+.section + .section{
+  background:linear-gradient(180deg,rgba(2,8,20,0) 0%,rgba(2,8,20,.04) 40%,rgba(2,8,20,0) 100%),var(--bg);
 }
-.split .col h3{margin-top: 0}
-
-.split-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap:20px;
-}
-@media (min-width: 860px){
-  .split-grid{grid-template-columns: 1.2fr .8fr;}
+.section-title{font-size:clamp(24px,3.2vw,34px);border-left:8px solid var(--teal);padding-left:12px;margin:0 0 16px}
+.section-heading{ /* centered headings that sit OUTSIDE boxes */
+  text-align:center;font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:.2px;margin:0 0 24px;
 }
 
-.pdf-frame{
-  width:100%;
-  height: min(75vh, 800px);
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  background:#f8fafc;
-}
-
-.center{display:flex;justify-content:center;align-items:center}
-.center img{
-  max-width:100%;
-  height:auto;
-  border-radius:12px;
-  border:1px solid #e5e7eb;
-  box-shadow:0 10px 20px rgba(2,8,20,.08)
-}
-
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
-.toolbar .button{padding:8px 12px}
-
-/* ===== Full-screen hero with overlay, top-right nav, and centered title ===== */
+/* ========== Hero ========== */
 header.hero{
-  position: relative;
-  min-height: 100vh;                 /* full screen */
-  display: grid;
-  place-items: center;               /* center the hero content */
-  color: #fff;
+  position:relative;
+  min-height:calc(103vh - var(--pill-offset)); /* center in area below pill */
+  display:grid;
+  place-items:center;
+  color:#fff;
   background:
     linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.45)),
     url("../images/landing.png") center/cover no-repeat fixed;
-  /* Fallback gradient if the image is large/removed */
-  background-color: #1f2937;
-  margin: 0 0 0;                     /* remove bottom margin; sections add their own spacing */
+  background-color:#1f2937;
+  margin:0;
 }
+.hero-content{text-align:center;padding:0 clamp(16px,3vw,40px);transform:translateY(calc(-1 * var(--pill-height) / 2))}
+.hero .title{font-size:clamp(36px,7vw,72px);font-weight:800;line-height:1.05;letter-spacing:.2px;margin:0 0 12px}
+.hero .subtitle{opacity:.95;margin:0 0 22px}
+.hero-cta{background:transparent;border:1.8px solid #fff}
+.hero-cta:hover{background:rgba(255,255,255,.1)}
 
-/* Frosted topbar sitting over the hero image */
+/* anchor jumps leave room for pill */
+[id]{scroll-margin-top:calc(var(--pill-offset) + var(--pill-height) + 16px)}
+
+/* ========== Pill navbar (centered, rounded) ========== */
 .topbar{
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px clamp(16px, 3.5vw, 36px);
-  background: rgba(0,0,0,.25);
-  backdrop-filter: blur(6px);
-}
-.brand{
-  font-weight: 800;
-  letter-spacing: .4px;
-  font-size: clamp(18px, 2.2vw, 22px);
-}
-.topbar .nav{
-  display: flex; gap: 16px; flex-wrap: wrap; margin: 0;
-}
-.topbar .nav a{
-  color: #fff;
-  background: rgba(255,255,255,.14);
-  border: 1px solid rgba(255,255,255,.28);
-  padding: 8px 12px;
-  border-radius: 999px;
-}
-.topbar .nav a:hover{ background: rgba(255,255,255,.22); text-decoration: none }
+  position:fixed;
+  top:var(--pill-offset);
+  left:50%;
+  transform:translateX(-50%);
+  z-index:60;
 
-/* Centered hero text + CTA */
-.hero-content{
-  text-align: center;
-  padding: 0 clamp(16px, 3vw, 40px);
+  display:flex;align-items:center;justify-content:space-between;
+  width:min(1120px,calc(100% - 28px));
+  padding:12px 18px;
+
+  background:rgba(249,239,247,.65);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border:1px solid rgba(2,8,20,.10);
+  box-shadow:0 8px 22px rgba(2,8,20,.12);
+  border-radius:999px;
+  color:var(--ink);
 }
-.hero .title{
-  font-size: clamp(36px, 7vw, 72px);   /* bigger than before */
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: .2px;
+.topbar.scrolled{background:rgba(249,239,247,.90);box-shadow:0 10px 26px rgba(2,8,20,.16);border-color:rgba(2,8,20,.14)}
+.brand{font-weight:800;letter-spacing:.4px;font-size:clamp(18px,2.2vw,22px)}
+.topbar .nav{display:flex;gap:16px;flex-wrap:wrap;margin:0}
+.topbar .nav a{color:inherit;text-decoration:none;padding:6px 10px}
+.topbar .nav a:hover,
+.topbar .nav a:focus-visible,
+.topbar .nav a.active{
+  text-decoration-line:underline;
+  text-decoration-color:var(--mauve);
+  text-decoration-thickness:3px;
+  text-underline-offset:6px;
+}
+
+/* ========== Overview block ========== */
+.overview-block{
+  background:var(--overview-bg);
+  border:1px solid var(--overview-brd);
+  border-radius:22px;
+  box-shadow:0 14px 32px rgba(2,8,20,.07);
+  padding:clamp(18px,2.6vw,32px);
+}
+.overview-block .section-title{border-left:0;padding-left:0;margin:0 0 10px;font-size:clamp(20px,2.4vw,26px)}
+.overview-block .tag{background:#cfeee6;border-color:rgba(6,78,59,.12)}
+
+/* ========== Project docs ========== */
+.docs-block{ /* same family as overview */
+  background:var(--overview-bg);
+  border:1px solid var(--overview-brd);
+  border-radius:22px;
+  box-shadow:0 14px 32px rgba(2,8,20,.07);
+  padding:clamp(18px,2.6vw,32px);
+}
+.docs-block h3{margin-top:0}
+.pdf-frame{width:100%;height:min(75vh,800px);border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc}
+
+/* two-column layout */
+.split-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media (min-width:860px){.split-grid{grid-template-columns:1.2fr .8fr}}
+
+/* toolbar */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.toolbar .button{padding:8px 12px}
+
+/* --- Document cards grid --- */
+.doc-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 860px){
+  .doc-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+.doc-card{
+  background: var(--overview-bg);
+  border: 1px solid var(--overview-brd);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(2,8,20,.08);
+  padding: clamp(14px, 2vw, 18px);
+}
+
+.doc-card h3{ margin: 0 0 6px; }
+.doc-card p.meta{
   margin: 0 0 12px;
-}
-.hero .subtitle{ opacity: .95; margin: 0 0 22px }
-.hero-cta{ background: transparent; border:1.8px solid #fff; }
-.hero-cta:hover{ background: rgba(255,255,255,.1) }
-
-/* ===== Page-like blocks for each section ===== */
-.section{ padding: clamp(32px, 6vw, 80px) 0 }
-.section-block{
-  background: var(--card);
-  border: 1px solid #e5e7eb;
-  border-radius: 26px;
-  padding: clamp(18px, 3vw, 36px);
-  box-shadow: 0 18px 44px rgba(2,8,20,.10);
-}
-.section-title{
-  font-size: clamp(24px, 3.2vw, 34px);
-  border-left: 8px solid var(--teal);
-  padding-left: 12px;
-  margin: 0 0 16px;
-}
-
-/* Soft gradient separators between “pages” */
-.section + .section{
-  background:
-    linear-gradient(180deg, rgba(2,8,20,0) 0%, rgba(2,8,20,.04) 40%, rgba(2,8,20,0) 100%),
-    var(--bg);
-}
-
-/* Keep the container width you had */
-.container{ max-width:1100px; margin:0 auto; padding: clamp(16px,2.5vw,32px) }
-
-/* Make sure anchor jumps leave breathing room under the topbar */
-[id]{ scroll-margin-top: 96px }
-
-/* Optional: smoother anchor scrolling */
-html{ scroll-behavior: smooth }
-
-/* Tiny polish for buttons on dark hero and light sections */
-.button{ transition: transform .15s ease, box-shadow .15s ease }
-.button:hover{ transform: translateY(-1px) }
-
-/* --- Top bar links as plain text with thick colored underline on hover --- */
-
-/* 1) Make the bar decide the text color; links inherit it */
-.topbar{ color: #fff; }                  /* if your bar is dark */
- /* .topbar{ color: var(--ink); } */     /* swap to this if you use a light bar */
-
-.topbar .nav a{
-  color: inherit;                        /* inherit from .topbar */
-  background: none;                      /* remove pill look */
-  border: none;
-  border-radius: 0;
-  padding: 6px 10px;
-  text-decoration: none;                 /* no underline by default */
-  position: relative;
-  transition: color .15s ease;
-}
-
-/* Option A: native underline (simpler) */
-
-.topbar .nav a:hover,
-.topbar .nav a:focus-visible{
-  text-decoration-line: underline;
-  text-decoration-color: #c488ba;       
-  text-decoration-thickness: 3px;        /*thicker underline */
-  text-underline-offset: 6px;            /*pull it down a bit */
-  outline: none;                         
-}
-
-/* Transparent, blurred topbar — ensure this is LAST in the file */
-.topbar{
-  position: absolute;            /* stays over the hero */
-  top: 0; left: 0; right: 0;
-  z-index: 50;                   /* sit above hero content */
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 16px clamp(16px, 3.5vw, 36px);
-
-  /* transparency + blur */
-  background: rgba(249, 239, 247, 0.65) !important;  /* more see-through */
-  background-image: none !important;                  /* nuke any prior bg images */
-  -webkit-backdrop-filter: blur(8px);                 /* Safari */
-  backdrop-filter: blur(8px);                         /* Chrome/Edge/Firefox */
-
-  color: var(--ink);
-  border-bottom: 1px solid rgba(2,8,20,.08);
-  box-shadow: 0 6px 18px rgba(2,8,20,.10);
-}
-
-/* Make links plain text so transparency is obvious */
-.topbar .nav a{
-  color: var(--ink) !important;
-  background: none !important;
-  border: 0 !important;
-  border-radius: 0;
-  padding: 6px 10px;
-  text-decoration: none;
-}
-.topbar .nav a:hover,
-.topbar .nav a:focus-visible{
-  text-decoration-line: underline;
-  text-decoration-color: #c488ba;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
-}
-
-/* === Team section revamp === */
-:root{
-  --tile: #eefaf7;               /* soft minty tile bg (tweak if you like) */
-  --mauve:#c488ba;               /* your underline colour, for buttons too */
-}
-
-/* Centered heading outside any box */
-.section-heading{
-  text-align:center;
-  font-size: clamp(26px, 3.2vw, 40px);
-  font-weight: 800;
-  letter-spacing:.2px;
-  margin: 0 0 24px;
-}
-.section-sub{
-  text-align:center;
   color: var(--muted);
-  margin: -6px 0 24px;
+  font-size: 0.95rem;
 }
 
-/* People grid (no outer section-block) */
+/* the live preview frame */
+.doc-preview{
+  width: 100%;
+  height: 320px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+@media (min-width: 1020px){
+  .doc-preview{ height: 420px; }
+}
+
+/* actions under each card */
+.doc-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.doc-actions .button{ padding: 8px 12px; }
+
+/* ========== Team ========== */
 .people{
-  max-width:1100px;
-  margin: 0 auto;
-  padding: 0 clamp(16px,2.5vw,32px);
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
+  max-width:1100px;margin:0 auto;
+  padding:0 clamp(16px,2.5vw,32px);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;
 }
-
-/* Individual person tile */
 .card.person{
-  background: var(--tile);
-  border: 1px solid rgba(6,78,59,.08);
-  border-radius: 22px;
-  box-shadow: 0 14px 32px rgba(2,8,20,.06);
-  padding: 24px 18px;
-  text-align:center;
-  transition: transform .18s ease, box-shadow .18s ease;
+  background:var(--tile);
+  border:1px solid rgba(6,78,59,.08);
+  border-radius:22px;
+  box-shadow:0 14px 32px rgba(2,8,20,.06);
+  padding:24px 18px;text-align:center;
 }
-.card.person:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(2,8,20,.10);
-}
-
-/* Circular avatar */
 .person .avatar{
-  width: 110px;
-  height:110px;
-  border-radius:50%;
-  object-fit: cover;
-  object-position: center;
-  display:block;
-  margin: 4px auto 12px;
-  border: 4px solid #fff;
-  box-shadow: 0 6px 18px rgba(2,8,20,.12);
+  width:110px;height:110px;border-radius:50%;
+  object-fit:cover;object-position:center;display:block;margin:4px auto 12px;
+  border:4px solid #fff;box-shadow:0 6px 18px rgba(2,8,20,.12);
 }
+.person h3{margin:6px 0 4px;font-size:20px}
+.person p{margin:0 0 10px}
+.person p.email a{color:var(--teal)}
+.person .actions{justify-content:center}
 
-/* Name + email */
-.person h3{ margin: 6px 0 4px; font-size: 20px; }
-.person p{ margin: 0 0 10px; }
-.person p.email a{ color: var(--teal); }
+/* ========== Footer ========== */
+footer{color:var(--muted);padding:24px 0;margin-top:24px}
 
-/* Actions laid out nicely */
-.person .actions{ justify-content: center; }
-
-/* Buttons: retune secondary to mauve */
-.button.secondary{
-  background: var(--mauve);
-  border-color: rgba(0,0,0,.05);
-}
-.button.secondary:hover{
-  filter: saturate(1.05) brightness(0.98);
-}
-
-/* Optional: headings elsewhere keep their left bar,
-   but for the centered one we remove it */
-.section-title.centered{
-  border-left: 0;
-  padding-left: 0;
-  text-align: center;
-}
-
-
+/* ========== Simple reveal (optional) ========== */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal.left{transform:translateX(-22px)}
+.reveal.right{transform:translateX(22px)}
+.reveal.up{transform:translateY(22px)}
 
 
 

@@ -8,14 +8,16 @@
 </head>
 <body>
   <header class="hero">
-    <div class="topbar">
-      <div class="brand">LAIDS</div>
-      <nav class="nav">
-        <a href="#overview">Overview</a>
-        <a href="#project-docs">Proposal & Poster</a>
-        <a href="#team">Team</a>
-        <a href="images/LAIDS_Poster.png" download>Download Poster</a>
-      </nav>
+    <!-- Rounded pill navbar -->
+    <div class="topbar-rail">
+      <div class="topbar">
+        <div class="brand">Lightweight AI Intrusion Detection</div>
+        <nav class="nav">
+          <a href="#overview">Overview</a>
+          <a href="#project-docs">Proposal &amp; Poster</a>
+          <a href="#team">Team</a>
+        </nav>
+      </div>
     </div>
   
     <!-- Centered hero content -->
@@ -29,46 +31,79 @@
 
   <main>
     <section id="overview" class="section">
-      <div class="container section-block">
-        <div class="card">
-          <h2 id="project-title" class="section-title">Overview</h2>
-          <p>LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems for resource-constrained networks, targeting strong detection and efficient deployment on edge-class hardware.</p>
-          <ul class="clean">
-            <li>Benchmarks CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, and GAN variants</li>
-            <li>Evaluates quantisation (FP16, INT8 Dynamic, INT8 Full) and footprint</li>
-            <li>Assesses zero-day generalisation at fixed false-positive budgets</li>
-          </ul>
-          <span class="tag">Static HTML5</span>
-          <span class="tag">Relative links only</span>
-        </div>
+      <h2 class="section-heading">Overview</h2>
+      <div class="container overview-block">
+        <h3 class="section-title">Aims and goals</h3>
+        <p>
+          LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems for
+          resource-constrained networks, targeting strong detection and efficient deployment on edge-class hardware.
+        </p>
+    
+        <ul class="clean">
+          <li>Benchmarks CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, and GAN variants</li>
+          <li>Evaluates quantisation (FP16, INT8 Dynamic, INT8 Full) and footprint</li>
+          <li>Assesses zero-day generalisation at fixed false-positive budgets</li>
+        </ul>
+  
       </div>
     </section>
     
-
     <section id="project-docs" class="section">
-      <div class="container section-block">
-        <h2 id="docs-title" class="section-title">Project Proposal & Poster</h2>
-        <div class="split-grid">
-          <div class="col">
-            <h3>Project Proposal</h3>
-            <div class="toolbar">
-              <a class="button" href="docs/LAIDS Project Proposal .pdf">Open PDF</a>
-              <a class="button" href="docs/LAIDS Project Proposal .pdf" download>Download</a>
+      <!-- Centered heading OUTSIDE the box -->
+      <h2 id="docs-title" class="section-heading">Project Proposal &amp; Poster</h2>
+    
+      <div class="container docs-block">
+        <div class="doc-grid">
+      
+          <!-- Proposal card -->
+          <article class="doc-card">
+            <h3>Project Proposal (PDF)</h3>
+            <p class="meta">
+              Short overview of the problem, objectives, baseline methods, datasets, and evaluation plan.
+            </p>
+      
+            <!-- PDF preview (use iframe OR embed; both work for PDFs) -->
+            <iframe
+              class="doc-preview"
+              src="docs/LAIDS Project Proposal .pdf#toolbar=0"
+              title="Project Proposal preview"
+              loading="lazy">
+            </iframe>
+      
+            <div class="doc-actions">
+              <a class="button secondary" href="docs/LAIDS Project Proposal .pdf">Open Proposal</a>
             </div>
-            <embed class="pdf-frame" src="docs/LAIDS Project Proposal .pdf" type="application/pdf" />
-          </div>
-          <div class="col">
-            <h3>Project Poster</h3>
-            <div class="toolbar">
-              <a class="button" href="images/LAIDS_Poster.png">Open Image</a>
-              <a class="button" href="images/LAIDS_Poster.png" download>Download</a>
+          </article>
+      
+          <!-- Poster card -->
+          <article class="doc-card">
+            <h3>Project Poster (PDF)</h3>
+            <p class="meta">
+              One-page visual summary covering motivation, approach, experiments, and key results.
+            </p>
+      
+            <!-- If your poster is PDF: -->
+            <iframe
+              class="doc-preview"
+              src="docs/LAIDS_Poster.pdf#toolbar=0"
+              title="Project Poster preview"
+              loading="lazy">
+            </iframe>
+      
+            <!-- If your poster is a PNG instead, swap the iframe above for this: 
+            <div class="center">
+              <img class="doc-preview" src="images/LAIDS_Poster.png" alt="LAIDS poster preview"/>
             </div>
-            <div class="center" style="margin-top:10px">
-              <img src="images/LAIDS_Poster.png" alt="LAIDS project poster"/>
+            -->
+      
+            <div class="doc-actions">
+              <a class="button secondary" href="docs/LAIDS_Poster.pdf">Open Poster</a>
             </div>
-          </div>
+          </article>
+      
         </div>
       </div>
+      
     </section>
 
     <section id="team" class="section">
@@ -79,7 +114,7 @@
       <!-- Just the three tiles; no big wrapper box -->
       <div class="people">
         <article class="card person">
-          <img class="avatar" src="images/team/claire.jpg" alt="Photo of Claire Campbell" />
+          <img class="avatar" src="images/claire3.jpg" alt="Photo of Claire Campbell" />
           <h3>Claire Campbell</h3>
           <p class="email"><a href="mailto:cmpcla004@myuct.ac.za">cmpcla004@myuct.ac.za</a></p>
           <p>Individual page with literature review and final paper.</p>
@@ -91,7 +126,7 @@
         </article>
     
         <article class="card person">
-          <img class="avatar" src="images/team/sian.jpg" alt="Photo of Sian Caine" />
+          <img class="avatar" src="images/sian_profile.jpeg" alt="Photo of Sian Caine" />
           <h3>Sian Caine</h3>
           <p class="email"><a href="mailto:cnxsia001@myuct.ac.za">cnxsia001@myuct.ac.za</a></p>
           <p>Individual page with literature review and final paper.</p>
@@ -124,5 +159,65 @@
       © 2025 University of Cape Town — School of IT · LAIDS
     </div>
   </footer>
+
+  <script>
+    // Scroll-spy: highlight the section that crosses a pivot line in the viewport
+    const links = Array.from(document.querySelectorAll('.topbar .nav a[href^="#"]'));
+    const sections = links
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+  
+    const bySection = new Map(sections.map((s, i) => [s, links[i]]));
+  
+    const clearActive = () => links.forEach(l => l.classList.remove('active'));
+    const setActive = (link) => {
+      clearActive();
+      link && link.classList.add('active');
+    };
+  
+    let ticking = false;
+    function updateActive() {
+      ticking = false;
+  
+      // line ~1/3 down the viewport from the top
+      const pivot = window.innerHeight * 0.33;
+      let winner = null;
+  
+      for (const sec of sections) {
+        const r = sec.getBoundingClientRect();
+        if (r.top <= pivot && r.bottom > pivot) {
+          winner = sec;
+          break;
+        }
+      }
+  
+      // If nothing crosses the pivot (e.g., above #overview), clear highlight
+      setActive(winner ? bySection.get(winner) : null);
+    }
+  
+    // run on load + scroll (throttled with rAF)
+    updateActive();
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateActive);
+        ticking = true;
+      }
+    }, { passive: true });
+  
+    // also run on resize (viewport height changes the pivot)
+    window.addEventListener('resize', updateActive);
+  
+    // if page loads with a hash, jump and then compute
+    window.addEventListener('load', updateActive);
+  </script>  
+
+  <script>
+    // Make the pill slightly more solid after a tiny scroll
+    const pill = document.querySelector('.topbar');
+    const onScrollBar = () => pill && pill.classList.toggle('scrolled', window.scrollY > 24);
+    onScrollBar();
+    addEventListener('scroll', onScrollBar, { passive: true });
+  </script>
+
 </body>
 </html>
