@@ -130,6 +130,13 @@ header.hero{
 .overview-block .section-title{border-left:0;padding-left:0;margin:0 0 10px;font-size:clamp(20px,2.4vw,26px)}
 .overview-block .tag{background:#cfeee6;border-color:rgba(6,78,59,.12)}
 
+/* Setting the text colour */
+.overview-block p,
+.overview-block ul,
+.overview-block li {
+  color: #777;
+}
+
 /* ========== Project docs ========== */
 .docs-block{ /* same family as overview */
   background:var(--overview-bg);
