@@ -41,6 +41,10 @@ figure.poster img{width:100%;max-width:360px;border-radius:12px;border:1px solid
 kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e1}
 hr{border:none;height:1px;background:#e5e7eb;margin:18px 0}
 ul.clean{padding-left:18px;margin:8px 0}
+.card ul.clean,
+.card ul.clean li {
+    color: var(--muted); /* set all list items to be the ink colour */
+}
 .notice{background:#f8fafc;border:1px dashed #cbd5e1;padding:12px;border-radius:12px}
 
 /* --- Custom layout tweaks for full-width overview + two-column docs --- */
