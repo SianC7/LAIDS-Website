@@ -81,7 +81,7 @@
         <div class="exp_meth-block">
           <!-- Block 1 -->
           <div class="exp-sub-block">
-            <h3 style="text-align: center;">Benchmarking</h3>
+            <h2 style="text-align: center;">Benchmarking</h2>
             <p style="text-align: justify;color: white;">
               The purpose of this experiment is to establish a performance and
               resource baseline by benchmarking the initial full precision (FP32)
@@ -95,22 +95,22 @@
     
           <!-- Block 2 -->
           <div class="exp-sub-block">
-            <h3 style="text-align: center;">Quantisation</h3>
+            <h2 style="text-align: center;">Quantisation</h2>
             <p style="text-align: justify;color: white;">
               This experiment investigates the impact of quantisation on the
               performance and resource efficiency of the FP32 baseline CNN,
               PCA-CNN and AE-MLP models, addressing the second research
               question of this study. This experiment evaluates the performance
               and resource consumption of the quantised variants (FP16, dynamic
-              INT8 and full INT8) of the full precision (FP32) PCA-CNN and AE-
-              MLP models. These quantised models are subsequently compared
+              INT8 and full INT8) of the full precision (FP32) PCA-CNN and AE-MLP models. 
+              These quantised models are subsequently compared
               to the corresponding quantised versions of the baseline CNN.
             </p>
           </div>
     
           <!-- Block 3 -->
           <div class="exp-sub-block">
-            <h3 style="text-align: center;">Generalisation</h3>
+            <h2 style="text-align: center;">Generalisation</h2>
             <p style="text-align: justify;color: white;">
               This experiment evaluates the ability of the models and their quantised variants to 
               generalise to previously unseen, zero-day attacks,
@@ -132,7 +132,7 @@
         <div class="findings-block">
           <!-- Benchmarking -->
           <div class="findings-subblock">
-            <h3 style="text-align: center;">Benchmarking</h3>
+            <h2 style="text-align: center;">Benchmarking</h2>
             <p style="text-align: justify;color: white;">
               The Baseline CNN achieved the highest accuracy and the lowest false positive rate. 
               However, the PCA-CNN provided a better recall rate along with faster CPU processing and inference times. 
@@ -142,7 +142,7 @@
 
           <!-- Quantisation-->
           <div class="findings-subblock">
-            <h3 style="text-align: center;">Quantisation</h3>
+            <h2 style="text-align: center;">Quantisation</h2>
             <p style="text-align: justify;color: white;">
               As the models were reduced in size, their overall performance decreased. 
               The quantised PCA models, however, continued to offer faster CPU processing and inference times compared to the Baseline CNN models. 
@@ -152,7 +152,7 @@
 
           <!-- Generalisation -->
           <div class="findings-subblock" >
-            <h3 style="text-align: center;">Generalisation</h3>
+            <h2 style="text-align: center;">Generalisation</h2>
             <p style="text-align: justify;color: white;">
               The PCA-CNN models generally showed slightly better detection performance than the Baseline CNN models, particularly for unknown DoS attacks.
               However, the semi-supervised AE-MLP achieved detection rates for both DoS and Bot attacks that were comparable to the PCA-CNN's DoS detection rate. 
