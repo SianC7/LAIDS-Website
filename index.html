@@ -13,8 +13,10 @@
       <div class="topbar">
         <div class="brand">Lightweight AI Intrusion Detection</div>
         <nav class="nav">
+          <a href="#background">Background</a>
           <a href="#overview">Overview</a>
-          <a href="#project-docs">Proposal &amp; Poster</a>
+          <a href="#proposal">Proposal</a>
+          <a href="#pipeline">Pipeline</a>
           <a href="#team">Team</a>
         </nav>
       </div>
@@ -30,6 +32,26 @@
   
 
   <main>
+    <section id="background" class="section">
+      <div class="container">
+        <p class="eyebrow">Project Background</p>
+        <h2 class="display">Why Lightweight AI-IDS?</h2>
+    
+        <p class="prose">
+          Resource-constrained networks (edge/IoT) need threat detection that’s accurate <em>and</em> deployable.
+          LAIDS explores architectures and compression techniques that keep performance high while shrinking
+          memory and compute cost.
+        </p>
+    
+        <ul class="checklist light">
+          <li>Motivation: real-time detection on edge-class hardware</li>
+          <li>Scope: supervised CNN/LSTM variants + unsupervised baselines</li>
+          <li>Constraints: memory, latency, energy</li>
+          <li>Evaluation: accuracy &amp; zero-day generalisation at fixed FP budgets</li>
+        </ul>
+      </div>
+    </section>
+    
     <section id="overview" class="section overview-split">
       <div class="container">
         <div class="overview-grid">
@@ -65,66 +87,72 @@
       </div>
     </section>
     
-    <section id="project-docs" class="section">
-      <!-- Centered heading OUTSIDE the box -->
-      <!--<p class="eyebrow">Project Proposal &amp; Poster</p>-->
-      <h2 id="docs-title" class="section-heading">Group Contributions</h2>
+    <section id="proposal" class="section proposal-split">
+      <div class="container">
+        <div class="split-grid">
+          <!-- LEFT: copy -->
+          <div class="copy">
+            <p class="eyebrow">Summary</p>
+            <h2 class="display">Project Proposal</h2>
     
-      <div class="container docs-block">
-        <div class="doc-grid">
-      
-          <!-- Proposal card -->
-          <article class="doc-card">
-            <h3>Project Proposal (PDF)</h3>
-            <p class="meta">
-              The LAIDS Project aimed to develop lightweight AI-based Intrusion Detection Systems (AI-IDSs) for 
-              resource-constrained networks. The project proposal outlines the motivation, research questions, 
-              proposed model architectures, resource trimming techniques and the evaluation plan of the proposed models.
+            <p class="lede">
+              The proposal outlines objectives, candidate model families, compression/quantisation plan,
+              datasets, and the evaluation approach for LAIDS.
             </p>
-      
-            <!-- PDF preview (use iframe OR embed; both work for PDFs) -->
+    
+            <ul class="checklist light">
+              <li>Architectures: CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, GAN variants</li>
+              <li>Compression: FP16, INT8 (dynamic &amp; full calibration)</li>
+              <li>Metrics: per-class accuracy, ROC/PR, FP-budgeted generalisation</li>
+              <li>Deliverables: trained &amp; compressed models + reproducible pipeline</li>
+            </ul>
+    
+            <div class="actions">
+              <a class="button" href="docs/LAIDS Project Proposal .pdf">Open Proposal (PDF)</a>
+            </div>
+          </div>
+    
+          <!-- RIGHT: visual -->
+          <figure class="visual">
             <iframe
-              class="doc-preview"
               src="docs/LAIDS Project Proposal .pdf#toolbar=0"
               title="Project Proposal preview"
               loading="lazy">
             </iframe>
-      
-            <div class="doc-actions">
-              <a class="button" href="docs/LAIDS Project Proposal .pdf">Open Proposal</a>
-            </div>
-          </article>
-      
-          <!-- Poster card -->
-          <article class="doc-card">
-            <h3>Project Poster (PDF)</h3>
-           <p class="meta" style="text-align: justify;">
-            Below is our research poster which provides an overview of the LAIDS project's objectives, methodology 
-            and results. 
-            The poster includes: model development & evaluation pipeline and the findings & conclusions of our research. 
-          </p>
-      
-            <!-- If your poster is PDF: -->
-            <iframe
-              class="doc-preview"
-              src="docs/LAIDS_Poster.pdf#toolbar=0"
-              title="Project Poster preview"
-              loading="lazy">
-            </iframe>
-      
-            <!-- If your poster is a PNG instead, swap the iframe above for this: 
-            <div class="center">
-              <img class="doc-preview" src="images/LAIDS_Poster.png" alt="LAIDS poster preview"/>
-            </div>
-            -->
-      
-            <div class="doc-actions">
-              <a class="button secondary" href="docs/LAIDS_Poster.pdf">Open Poster</a>
-            </div>
-          </article>
-      
+          </figure>
         </div>
       </div>
+    </section>
+    
+    
+    <section id="pipeline" class="section">
+      <div class="container">
+        <h2 class="section-heading">General Model Pipeline</h2>
+        <div class="pipeline-grid">
+          <div class="step">
+            <h4>Preprocess Data</h4>
+            <p>Clean, normalise, split; address class imbalance; extract salient flow features.</p>
+          </div>
+          <div class="step">
+            <h4>Train Model</h4>
+            <p>Train CNN / CNN-LSTM/GRU and baselines with stratified folds and early stopping.</p>
+          </div>
+          <div class="step">
+            <h4>Test Model</h4>
+            <p>Evaluate on held-out sets; track class-wise metrics and confusion trends.</p>
+          </div>
+          <div class="step">
+            <h4>Perform Quantisation</h4>
+            <p>Apply FP16 / INT8 (dynamic &amp; full); measure speed, memory, and accuracy deltas.</p>
+          </div>
+          <div class="step">
+            <h4>Test Generalisation</h4>
+            <p>Zero-day style holdouts; compare at fixed false-positive budgets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
       
     </section>
 
@@ -139,7 +167,7 @@
           <img class="avatar" src="images/claire_profile.jpg" alt="Photo of Claire Campbell" />
           <h3>Claire Campbell</h3>
           <p class="email"><a href="mailto:cmpcla004@myuct.ac.za">cmpcla004@myuct.ac.za</a></p>
-          <p>Individual page with literature review and final paper.</p>
+          <p>Claire's work primarily focused on the development of a lightweight CNN-LSTM based IDS and a DBN based IDS.</p>
           <div class="actions">
             <a class="button" href="claire.html">Open profile</a>
             <a class="button secondary" href="docs/Final_Paper_Claire_Campbell.pdf">Final Paper (PDF)</a>
@@ -151,7 +179,7 @@
           <img class="avatar" src="images/sian_profile.jpeg" alt="Photo of Sian Caine" />
           <h3>Sian Caine</h3>
           <p class="email"><a href="mailto:cnxsia001@myuct.ac.za">cnxsia001@myuct.ac.za</a></p>
-          <p>Individual page with literature review and final paper.</p>
+          <p>Sian's work primarily focused on the development of a lightweight PCA-CNN based IDS and an AE-MLP based IDS.</p>
           <div class="actions">
             <a class="button" href="sian.html">Open profile</a>
             <a class="button secondary" href="docs/Final_Paper_Sian_Caine.pdf">Final Paper (PDF)</a>
@@ -163,24 +191,42 @@
           <img class="avatar" src="images/chris_profile.jpg" alt="Photo of Christopher Blignaut" />
           <h3>Christopher Blignaut</h3>
           <p class="email"><a href="mailto:blgchr003@myuct.ac.za">blgchr003@myuct.ac.za</a></p>
-          <p>Individual page with literature review and final paper.</p>
+          <p>Christopher's work primarily focused on the development of a lightweight CNN-GRU based IDS and a GAN-MLP based IDS.</p>
           <div class="actions">
             <a class="button" href="christopher.html">Open profile</a>
             <a class="button secondary" href="docs/Final_Paper_Christopher_Blignaut.pdf">Final Paper (PDF)</a>
             <a class="button" href="docs/Literature_Review_Christopher_Blignaut.pdf">Literature Review (PDF)</a>
           </div>
         </article>
+
+        <article class="card person supervisor">
+          <h3>Dr. Josiah Chavula</h3>
+          <p class="email"><a href="mailto:dept@cs.uct.ac.za">dept@cs.uct.ac.za</a></p>
+          <p>Supervisor of LAIDS Project.</p>
+          <p>Department of Computer Science, University of Cape Town.</p>
+        </article>
       </div>
     </section>
-    
 
-    <hr/>
-
-  <footer>
-    <div class="container">
-      © 2025 University of Cape Town — School of IT · LAIDS
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/UCT.png" alt="UCT logo">
+        <div>
+          <strong>University of Cape Town</strong><br>
+          School of IT · Department of Computer Science
+        </div>
+      </div>
+  
+      <div class="footer-meta">
+        <div>Tel: <a href="tel:+27216502663">+27 21 650 2663</a></div>
+        <div>Email: <a href="mailto:dept@cs.uct.ac.za">dept@cs.uct.ac.za</a></div>
+        <div>Website: <a href="https://sit.uct.ac.za">sit.uct.ac.za</a></div>
+        <div class="footer-copy">© 2025 University of Cape Town — School of IT · LAIDS</div>
+      </div>
     </div>
   </footer>
+    
 
   <script>
     // Scroll-spy: highlight the section that crosses a pivot line in the viewport
