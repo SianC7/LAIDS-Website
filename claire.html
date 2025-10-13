@@ -4,116 +4,154 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Claire Campbell — LAIDS</title>
-  <link rel="stylesheet" href="assets/memProfStyle.css" />
+  <link rel="stylesheet" href="assets/member.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <h1 class="title">Claire Campbell</h1>
-      <p class="subtitle">cmpcla004@myuct.ac.za</p>
-      <nav class="nav">
-        <a href="index.html">← Homepage</a>
-        <a href="christopher.html">Christopher Blignaut</a>
-        <a href="sian.html">Sian Caine</a>
-      </nav>
+  <!-- Hero banner with image + mauve glass pill nav -->
+  <header class="hero hero--short">
+    <!-- Top-left pills (homepage + peers) -->
+    <nav class="hero-topline">
+      <a class="pill mauve" href="index.html">← Homepage</a>
+      <a class="pill light" href="christopher.html">Christopher Blignaut's work</a>
+      <a class="pill light" href="sian.html">Sian Caine's work</a>
+    </nav>
+  
+    <div class="container hero-grid">
+      <!-- LEFT: text -->
+      <div class="hero-copy">
+        <h1 class="title">Claire Campbell</h1>
+        <p class="subtitle">cmpcla004@myuct.ac.za</p>
+  
+        <!-- primary actions (white-glow pills) -->
+        <div class="actions">
+          <a class="button glass" href="#resources">Jump to resources</a>
+          <a class="button glass" href="#results">See results</a>
+        </div>
+      </div>
+  
+      <!-- RIGHT: picture -->
+      <figure class="hero-art">
+        <img src="images/claire_profile.jpg" alt="Claire Campbell">
+      </figure>
     </div>
   </header>
 
-  <main class="container" style="background-color: #eff9f9;">
+  <main>
 
-    <section class="grid" style="margin-bottom: 30px;">
-      <article class="card">
-        <h2>Overview of My Final Paper </h2>
-        <!-- ENTER OVERVIRE OF YOUR PROJECT HERE -->
-        <p>A summary of my contributions and key findings in the LAIDS Study:</p>
-        <p style="text-align: justify">
-          My contribution to the LAIDS Project...
-        </p>
-        <p>These models developed were:</pp>
-        <ul class="clean">
-          <li>A baseline one-dimensional Convolutional Neural Network model (CNN), which was co-developed with my fellow LAIDS project members</li>
-          <li>A </li>
-          <li>A </li>
-        </ul>
-        <p style="text-align: justify;">
-          The models were trained and evaluated...
-        </p>
-        <p style="text-align: justify;">
-          The findings suggested....
-        </p>
-      </article>
+    <!-- Abstract -->
+    <section id="abstract" class="section">
+      <div class="container">
+        <article class="card">
+          <p class="eyebrow">Abstract</p>
+          <h2 class="display">Overview of my final paper</h2>
+          <p class="prose">
+            Many Internet of Things (IoT) based edge devices remain constrained in compute, memory and energy and thus, their deployment of conventional, resource-intensive Artificial Intelligence (AI) based Intrusion Detection Systems is limited. This study investigates whether lightweight deep models can meet device constraints without sacrificing detection, and how post-training quantisation affects that trade-off. A Baseline Convolution Neural Network (CNN), a hybrid CNN-Long Short Term Memory (CNN-LSTM), and a Deep Belief Network (DBN) are evaluated on CICIDS2017 under edge-realistic conditions (batch size=1), reporting accuracy and F1 alongside latency, throughput, and memory footprint. Three post-training precisions, Float16, INT8 Dynamic (weight-only), and full INT8, are applied and zero-day generalisation is assessed by holding out one attack class and operating at a fixed false-positive rate (FPR) on Normal Traffic. Results demonstrate that Float16 presents as a safe, overall quantisation default. INT8 Dynamic achieves the largest reductions and, CNN-LSTM, improves speed with no accuracy loss, thus making it the most-balanced candidate. While INT8 degrades performance and requires Quantisation-Aware Training. Generalisation was strongly dependent on the false-positive rate selected. At $FPR=30 (Bots)$, the CNN is most sensitive and at $FPR=0.15 (DoS)$, the DBN is most sensitive. Overall, the CNN-LSTM INT8 Dynamic offers a strong balance between accuracy, latency, and size. 
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <h2>Documents</h2>
-        <div class="doc-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
-    
-          <!-- Literature Paper -->
-          <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
-            <h3>Literature Review</h3>
-            <iframe src="docs/Literature_Review_Claire_Campbell.pdf" 
-                    style="width: 100%; height: 300px; border: 1px solid #ccc;" 
-                    scrolling="yes">
-            </iframe>
-            <p style="margin-top: 10px; text-align: justify;">
-              This literature review...
-            </p>
-            <!-- Open button -->
-            <a href="docs/Literature_Review_Claire_Campbell.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="
-              display: inline-block;
-              margin-top: 8px;
-              width: 100%;
-              padding: 10px 18px;
-              background-color: #c488ba;
-              color: white;
-              text-align: center;
-              border-radius: 6px;
-              font-weight: 500;
-              transition: background-color 0.2s ease;">
-          Open Literature Review
-          </a>
-          </div> 
+    <!-- Model designs -->
+    <section id="models" class="section">
+      <div class="container">
+        <h2 class="section-heading">Model Designs</h2>
 
-
-          <!-- Final Paper -->
-          <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
-            <h3>Final Paper</h3>
-            <iframe src="docs/Final_Paper_Claire_Campbell.pdf" 
-                    style="width: 100%; height: 300px; border: 1px solid #ccc;" 
-                    scrolling="yes">
-            </iframe>
-            <p style="margin-top: 10px; text-align: justify;">
-              Intrusion detection systems (IDSs)...
-            </p>
-            <!-- Open button -->
-            <a href="docs/Final_Paper_Claire_Campbell.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="
-              display: inline-block;
-              margin-top: 8px; 
-              width: 100%;
-              padding: 10px 18px;
-              background-color: #c488ba;
-              color: white;
-              text-align: center;
-              border-radius: 6px;
-              font-weight: 500;
-              transition: background-color 0.2s ease;">
-          Open Final Paper
-          </a>
-          </div>
-    
+        <div class="model-grid">
+          <article class="card">
+            <h3>DBN Architecture</h3>
+            <img class="model-img" src="images/DBN_arch.png" alt="DBN architecture">
+          </article>
+          <article class="card">
+            <h3>Baseline CNN</h3>
+            <img class="model-img" src="images/CNN_arch.png" alt="CNN architecture">
+          </article>
+          <article class="card">
+            <h3>CNN-LSTM</h3>
+            <img class="model-img" src="images/CNN-LSTM_arch.png" alt="CNN-LSTM architecture">
+          </article>
         </div>
-      </article>
+      </div>
+    </section>
+
+    <!-- Experimentation: 3 tiles like your pipeline -->
+    <section id="experiments" class="section">
+      <div class="container">
+        <h2 class="section-heading">Experimentation</h2>
+        <div class="exp-tiles">
+          <div class="exp-tile">
+            <h4>Benchmarking</h4>
+            <p>Dataset, splits, metrics, early stopping.</p>
+          </div>
+          <div class="exp-tile">
+            <h4>Quantisation</h4>
+            <p>FP16, INT8 dynamic/full; memory & latency deltas.</p>
+          </div>
+          <div class="exp-tile">
+            <h4>Generalisation</h4>
+            <p>Zero-day holds; fixed FP budgets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="section">
+      <div class="container">
+        <h2 class="section-heading">Results</h2>
+        <div class="result-grid">
+          <!-- drop your charts/images here -->
+          <figure class="card">
+            <img src="images/results_accuracy.png" alt="Accuracy results">
+            <figcaption>Multi-class accuracy across models.</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="images/results_quant.png" alt="Quantisation results">
+            <figcaption>Storage & latency after quantisation.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources (Docs) -->
+    <section id="resources" class="section">
+      <div class="container">
+        <h2 class="section-heading">Resources</h2>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Literature Review</h3>
+            <iframe class="doc-preview" src="docs/Literature_Review_Claire_Campbell.pdf#toolbar=0" title="Literature Review"></iframe>
+            <div class="doc-actions">
+              <a class="button secondary" href="docs/Literature_Review_Claire_Campbell.pdf">Open PDF</a>
+            </div>
+          </article>
+
+          <article class="doc-card">
+            <h3>Final Paper</h3>
+            <iframe class="doc-preview" src="docs/Final_Paper_Claire_Campbell.pdf#toolbar=0" title="Final Paper"></iframe>
+            <div class="doc-actions">
+              <a class="button secondary" href="docs/Final_Paper_Claire_Campbell.pdf">Open PDF</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section id="conclusion" class="section">
+      <div class="container">
+        <article class="card">
+          <p class="eyebrow">Conclusion</p>
+          <h2 class="display">Key Takeaways</h2>
+          <p class="prose">
+            <!-- Your concluding remarks -->
+          </p>
+        </article>
+      </div>
     </section>
 
   </main>
-  <footer><div class="container">© 2025 University of Cape Town — School of IT · LAIDS</div></footer>
-</body>
-</html>
 
+  <footer class="site-footer">
+    <div class="container">© 2025 University of Cape Town — School of IT · LAIDS</div>
+  </footer>
+</body>
