@@ -26,7 +26,7 @@
 
     <!-- OVERVIEW SECTION -->
     <section class="grid">
-      <article class="card">
+      <article class="card" style="box-shadow: 0 6px 18px #22594a">
         
         <h2>Overview of My Final Paper </h2> 
         <p style="text-align: justify">
@@ -49,7 +49,7 @@
 
     <!-- RESEARCH QUESTIONS -->
     <section class="grid">
-      <article class="card">
+      <article class="card" style="box-shadow: 0 6px 18px #22594a">
         <h2>Research Questions</h2>
         
         <p style="text-align: justify;">
@@ -75,13 +75,13 @@
     
     <!-- METHODOLOGY #5c1bc9-->
     <section class="grid"> 
-      <article class="card">
+      <article class="card" style="box-shadow: 0 6px 18px #22594a">
         <h2> Experiment Methodology </h2>
         <div class="exp_meth-block">
           <!-- Block 1 -->
           <div class="exp-sub-block">
             <h2 style="text-align: center;">Benchmarking</h2>
-            <p style="text-align: justify;color: white;font-size: 16px">
+            <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
               The purpose of this experiment is to establish a performance and
               resource baseline by benchmarking the initial full precision (FP32)
               models against the baseline CNN. Benchmarking provides a fair
@@ -95,7 +95,7 @@
           <!-- Block 2 -->
           <div class="exp-sub-block">
             <h2 style="text-align: center;">Quantisation</h2>
-            <p style="text-align: justify;color: white;font-size: 16px">
+            <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
               This experiment investigates the impact of quantisation on the
               performance and resource efficiency of the FP32 baseline CNN,
               PCA-CNN and AE-MLP models, addressing the second research
@@ -110,7 +110,7 @@
           <!-- Block 3 -->
           <div class="exp-sub-block">
             <h2 style="text-align: center;">Generalisation</h2>
-            <p style="text-align: justify;color: white;font-size: 16px">
+            <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
               This experiment evaluates the ability of the models and their quantised variants to 
               generalise to previously unseen, zero-day attacks,
               addressing the third research question of this study. The objective
@@ -125,14 +125,14 @@
 
     <!-- RESULTS -->
     <section class="grid"> 
-      <article class="card">
+      <article class="card" style="box-shadow: 0 6px 18px #287361">
         <h2>Key Findings</h2>
 
         <div class="findings-block">
           <!-- Benchmarking -->
           <div class="findings-subblock">
             <h2 style="text-align: center;">Benchmarking</h2>
-            <p style="text-align: justify;color: white;font-size: 16px">
+            <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
               The Baseline CNN achieved the highest accuracy and the lowest false positive rate. 
               However, the PCA-CNN provided a better recall rate along with faster CPU processing and inference times. 
               Finally, the AE-MLP offered the highest precision while using the least amount of memory.
@@ -142,7 +142,7 @@
           <!-- Quantisation-->
           <div class="findings-subblock">
             <h2 style="text-align: center;">Quantisation</h2>
-            <p style="text-align: justify;color: white;font-size: 16px">
+            <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
               As the models were reduced in size, their overall performance decreased. 
               The quantised PCA models, however, continued to offer faster CPU processing and inference times compared to the Baseline CNN models. 
               The FP16 AE-MLP model achieved the lowest memory usage.
@@ -152,7 +152,7 @@
           <!-- Generalisation -->
           <div class="findings-subblock" >
             <h2 style="text-align: center;">Generalisation</h2>
-            <p style="text-align: justify;color: white;font-size: 16px">
+            <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
               The PCA-CNN models generally showed slightly better detection performance than the Baseline CNN models, particularly for unknown DoS attacks.
               However, the semi-supervised AE-MLP achieved detection rates for both DoS and Bot attacks that were comparable to the PCA-CNN's DoS detection rate. 
               This indicates that the AE-MLP can provide more consistent detection performance across different attack types.
@@ -273,6 +273,25 @@
     </section>
 
   </main>
-  <footer><div class="container">© 2025 University of Cape Town — School of IT · LAIDS</div></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="images/UCT.png" alt="UCT logo">
+        <div>
+          <strong>University of Cape Town</strong><br>
+          School of IT · Department of Computer Science
+        </div>
+      </div>
+  
+      <div class="footer-meta">
+        <div>Tel: <a href="tel:+27216502663">+27 21 650 2663</a></div>
+        <div>Email: <a href="mailto:dept@cs.uct.ac.za">dept@cs.uct.ac.za</a></div>
+        <div>Website: <a href="https://sit.uct.ac.za">sit.uct.ac.za</a></div>
+        <div class="footer-copy">© 2025 University of Cape Town — School of IT · LAIDS</div>
+      </div>
+    </div>
+  </footer>
+  
 </body>
 </html>
