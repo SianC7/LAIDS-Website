@@ -1,8 +1,7 @@
 
 /* GLOBAL VARIABLES */
 :root{
-    --bg: #eff9f9;
-    --card:#ffffff;
+    --bg: rgba(255, 255, 255, 0.877);
     --ink:#334155;
     --muted:#64748b;
     --teal:#2e8b7c;
@@ -19,8 +18,13 @@
   html, body {
     margin: 0;
     padding: 0;
-    background: var(--bg);  /* Uses the light teal background defined above */
-    color: var(--ink);      /* Sets all text to the main ink color */
+    /* Vertical gradient from teal to mint to white */
+    background: linear-gradient(
+        to bottom,      /* vertical gradient */
+        #2e8b7c,        /* teal */
+        #7fd6c6,        /* mint */
+        #ffffff         /* white */
+    );
     font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 
           "Apple Color Emoji","Segoe UI Emoji"; /* Sets font stack with fallbacks */
   }
@@ -44,67 +48,88 @@
     padding: clamp(16px, 2.5vw, 32px); /* Responsive padding: min 16px, scales with viewport */
   }
 
-  /* --- HEADER SECTION (HERO) ---*/
-  header.hero{
-    background: linear-gradient(-90deg, var(--mint), var(--teal));
-    color:white; /* White font */
-    padding: 48px 0;
-    margin:0 0 28px;
+  header.hero {
+    position: relative;
+    background: url("../images/sians_banner2.png") center/cover no-repeat;
+    color: white;
+    padding: 80px 0;  /* taller header */
+    margin: 0 0 28px;
+
+    /* mask fade in bottom 30% */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    mask-repeat: no-repeat;
+    mask-size: cover;
   }
+ 
   /* Title style*/
   .hero .title {
-    font-size: clamp(28px, 5vw, 44px); /* Scales with viewport */
-    font-weight: 800;                  /* old */
-    letter-spacing: .3px;              /* letters slightly spaced */
-    margin: 0 0 8px;
+    font-size: clamp(36px, 8vw, 72px); /* bigger and scales with viewport */
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin: 0 0 2px;
   }
-  /* Subtitle style */
+ /* Subtitle style */
   .hero .subtitle {
-    opacity: .95;
-    margin: 0;
+    font-size: clamp(18px, 3vw, 24px); /* scale subtitle too */
+    opacity: 0.95;
+    margin: 0 0 30px; /* add spacing below */
   }
 
   /* Navigation bar inside hero */
   .nav {
-    display: flex;           /* Horizontally align nav links */
-    gap: 14px;               /* Add space between them */
-    flex-wrap: wrap;         /* Allow text wrapping on smaller screens */
-    margin-top: 14px;
+    display: flex;
+    gap: 16px;       /* slightly larger gap */
+    flex-wrap: wrap;
+    margin-top: 20px; /* move nav closer to subtitle */
   }
 
   /* individual navigation links */
   .nav a {
-    background: rgba(255,255,255,.15); /* semi-transparent white background */
-    padding: 8px 12px;                 /* padding */
-    border-radius: 999px;              /* rounded pill shape */
-    color: white;                      /* white text */
-    border: 1px solid rgba(255,255,255,.3); /* white border */
+    background: rgba(255,255,255,0.2);  /* slightly stronger contrast */
+    padding: 10px 16px;                 /* bigger clickable area */
+    border-radius: 999px;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4); /* more visible border */
+    font-size: 1rem;                     /* bigger text */
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .nav a:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-2px);
   }
   
-  /* --- GRID LAYOUT (FOR CARDS) --- */
+  /* --- GRID STYLE --- */
 
   .grid {
     display: grid; /* CSS Grid layout for flexible content alignment */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* responsive column sizing */
     gap: 20px; /* Space between grid items */
-    margin-bottom: 30px; /* add a gap between cards */
+    margin-bottom: 60px; /* add a gap between cards */
   }
 
-  /* --- CARD ELEMENTS --- */
+  /* --- CARD STYLE--- */
   .card {
-    background: var(--card);                 /* White background */
-    color: var(--muted);
+    background: #eff9f9;            
+    color: black;
     border-radius: var(--radius);            /* Rounded corners */
-    box-shadow: 0 10px 28px rgba(2, 8, 20, 0.06); /* shadow */
+    box-shadow: 0 6px 18px #2e8b7c; /* shadow */ 
     padding: 10px 50px; /* vertical | horizontal */
-    border: 1px solid #e5e7eb;               /* Subtle border around card */
+    border: 1px solid #2e8b7c;               /* Subtle border around card */
   }
 
   /* Style card paragraphs*/
   .card p {
     margin: 0 0 12px;
-    color: var(--muted);
-    line-height: 1.7;
+    color: black;
+    text-align: justify;
+    line-height: 2;
+    font-size: 18px
   }
 
   /* Container for card buttons or actions */
@@ -123,28 +148,31 @@
   }
 
   /* --- STYLE LISTS --- */
-  ul.clean, ol.clean {
+  ul.list, ol.list {
     padding-left: 18px;
     margin: 8px 0;
+    text-align: justify;
+    line-height: 2;
+    font-size: 18px
   }
 
   /* Muted color for lists inside cards */
-  .card ul.clean,
-  .card ul.clean li,
-  .card ol.clean,
-  .card ol.clean li {
-    color: var(--muted);
+  .card ul.list,
+  .card ul.list li,
+  .card ol.list,
+  .card ol.list li {
+    color: black;
   }
 
   /* Add space between list items */
-  ul.clean li,
-  ol.clean li {
-    margin-bottom: 10px;   /* spacing between bullet points */
+  ul.list li,
+  ol.list li {
+    margin-bottom: 10px; /* spacing between bullet points */
   }
 
   /* Optional: remove extra margin from last item */
-  ul.clean li:last-child,
-  ol.clean li:last-child {
+  ul.list li:last-child,
+  ol.list li:last-child {
     margin-bottom: 0;
   }
   /* --- EXPERIMENT METHODOLOGY --- */
@@ -204,9 +232,83 @@
     background: #F9EFF7;          /* light card background */
     padding: 15px;                /* spacing inside the card */
     border-radius: 8px;           /* rounded corners */
+    border-color: #c488ba; /* Color of the border */
+    border-width: 1px;     /* Thickness */
+    border-style: solid; 
   }
 
   /* Ensures "Open" button stays at the bottom */
   .doc-subblock a {
     margin-top: auto;
+  }
+  /* --- FOOTER --- */
+  .site-footer {
+    background: #F9EFF7;
+    border-top: 1px solid var(--white); /* give the border a visible color */
+    padding: clamp(24px, 4vw, 40px) 0;
+    text-align: center; /* center text by default */
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* single column */
+    gap: 14px;
+    align-items: center;
+    justify-items: center; /* center items horizontally */
+  }
+
+  @media (min-width: 760px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* keep single column on wide screens */
+        gap: 20px;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center brand row */
+    gap: 12px;
+    color: black;
+  }
+
+  .footer-brand img {
+    width: 48px;
+    height: auto;
+  }
+
+  .footer-meta {
+    display: grid;
+    gap: 6px;
+    font-size: 15px;
+    color: black;
+    justify-items: center; /* center meta links/text */
+  }
+
+  .footer-meta a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .footer-meta a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-copy {
+    margin-top: 12px;
+    color: black;
+    font-size: 14px;
+  }
+
+  /* Optional tweaks */
+  .section:last-of-type {
+    padding-bottom: clamp(12px, 2vw, 28px);
+  }
+
+  hr {
+    display: none;
+  }
+
+  footer {
+    margin-top: 0;
   }
