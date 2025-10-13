@@ -38,16 +38,19 @@
         <h2 class="display">Why Lightweight AI-IDS?</h2>
     
         <p class="prose">
-          Resource-constrained networks (edge/IoT) need threat detection that’s accurate <em>and</em> deployable.
-          LAIDS explores architectures and compression techniques that keep performance high while shrinking
-          memory and compute cost.
+          The rapid growth of Internet of Things (IoT) devices and increased network interconnectivity have led to higher 
+          network traffic and more complex cyber threats. This has left low-resource environments like edge devices and 
+          embedded systems especially vulnerable. While AI-based Intrusion Detection Systems (AI-IDSs) offer high detection 
+          accuracy and adaptability, they are often too computationally expensive for such environments, creating 
+          significant security gaps.
+          
+          The LAIDS (Lightweight AI-based Intrusion Detection System) project aims to address these challenges by:
         </p>
     
         <ul class="checklist light">
-          <li>Motivation: real-time detection on edge-class hardware</li>
-          <li>Scope: supervised CNN/LSTM variants + unsupervised baselines</li>
-          <li>Constraints: memory, latency, energy</li>
-          <li>Evaluation: accuracy &amp; zero-day generalisation at fixed FP budgets</li>
+          <li>Proposing and developing a series of lightweight AI-IDS architectures</li>
+          <li>Evaluating their performance in low-resource network environments</li>
+          <li>Contributing a real-time IDS framework that balances strong threat detection with computational efficiency</li>
         </ul>
       </div>
     </section>
@@ -61,14 +64,17 @@
             <h2 class="display">Overview</h2>
     
             <p class="lede">
-              LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems
-              for resource-constrained networks, targeting strong detection and efficient deployment on edge-class hardware.
+              The rapid growth of network interconnectivity has resulted in increased network traffic and cyber threat complexity. 
+              This has left low-resource networks such as  edge devices and embedded systems especially vulnerable. 
+              The LAIDS addresses this problem by producing a lightweight Intrusion Detection System (IDS) for real-world deployment.
+
+              To do this we proposed, investigated, developed and evaluated a series of lightweight AI-based Intrusion Detection Systems, boasting both strong detection performance and low resource consumption. We evaluate
             </p>
     
             <ul class="checklist">
-              <li>Benchmark CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, and GAN variants</li>
-              <li>Evaluate quantisation (FP16, INT8 Dynamic, INT8 Full) and footprint</li>
-              <li>Assess zero-day generalisation at fixed false-positive budgets</li>
+              <li>The multi-classification performance of the proposed CNN, CNN-LSTM, CNN-GRU, DBN, PCA-CNN, AE-MLP, and GAN-MLP IDSs.</li>
+              <li>The resource consumption of the IDSs after dynamic and full post training quantisation was applied.</li>
+              <li>The ability of the IDSs to detect unknown (zero-day) attacks.</li>
             </ul>
     
             <div class="actions">
@@ -96,15 +102,18 @@
             <h2 class="display">Project Proposal</h2>
     
             <p class="lede">
-              The proposal outlines objectives, candidate model families, compression/quantisation plan,
-              datasets, and the evaluation approach for LAIDS.
+              The LAIDS Project aimed to design and evaluate a series of lightweight IDSs to strengthen the security of resource-constrained networks such as IoT and edge computing environments. The project sought to address this gap by proposing a series of lightweight AI-based IDS, specifically deep learning architectures to develop efficient, accurate and effective IDS models capable of operating in resource constrained network environments.
+We proposed six model architectures: 
+
             </p>
     
             <ul class="checklist light">
-              <li>Architectures: CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, GAN variants</li>
-              <li>Compression: FP16, INT8 (dynamic &amp; full calibration)</li>
-              <li>Metrics: per-class accuracy, ROC/PR, FP-budgeted generalisation</li>
-              <li>Deliverables: trained &amp; compressed models + reproducible pipeline</li>
+              <li>A hybrid Convolutional Neural Network/Gated Recurrent Unit (CNN-GRU) model.</li>
+              <li>A hybrid GAN-MLP Generative Adversarial Network/Multilayer Perceptron (GAN-MLP) model.</li>
+              <li>A 1D CNN model enhanced with Principle Component Analysis (CNN-PCA).</li>
+              <li>A hybrid Autoencoder/Multilayer Perceptron (AE-MLP) model.</li>
+              <li>A hybrid Convolutional Neural Network/Long Short-Term Memory (CNN-LSTM) model. </li>
+              <li>A Deep Belief Network (DBN) model.</li>
             </ul>
     
             <div class="actions">
@@ -131,23 +140,26 @@
         <div class="pipeline-grid">
           <div class="step">
             <h4>Preprocess Data</h4>
-            <p>Clean, normalise, split; address class imbalance; extract salient flow features.</p>
+            <p>All models were trained and evaluated on the CICIDS2017 network dataset.  Data was cleaned, normalised 
+              and ADASYN was employed to address class imbalance.</p>
           </div>
           <div class="step">
             <h4>Train Model</h4>
-            <p>Train CNN / CNN-LSTM/GRU and baselines with stratified folds and early stopping.</p>
+            <p>All models were trained as a baseline for the architectures.</p>
           </div>
           <div class="step">
             <h4>Test Model</h4>
-            <p>Evaluate on held-out sets; track class-wise metrics and confusion trends.</p>
+            <p>All models were evaluated on unseen testing data to evaluate their multi-classification performance.</p>
           </div>
           <div class="step">
             <h4>Perform Quantisation</h4>
-            <p>Apply FP16 / INT8 (dynamic &amp; full); measure speed, memory, and accuracy deltas.</p>
+            <p>Applied dynamic and full post training quantisation, reducing the models  to FP32, 
+              FP16 and INT8 precisions, before measuring their resource usage.</p>
           </div>
           <div class="step">
             <h4>Test Generalisation</h4>
-            <p>Zero-day style holdouts; compare at fixed false-positive budgets.</p>
+            <p>Retrain the models, using zero-day attack class holdouts. 
+              The retrained models are then evaluated on the amount of unseen attack class flagged from these holdouts.</p>
           </div>
         </div>
       </div>
