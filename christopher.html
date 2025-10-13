@@ -5,27 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Christopher Blignaut — LAIDS</title>
   <link rel="stylesheet" href="assets/Chris_Prof_Style_Sheet.css" />
+  <style>
+    .hero-grid {
+      display: flex;
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 2rem; 
+    }
+
+    .hero-copy {
+      flex: 1; 
+    }
+
+    .hero-art img {
+      width: 280px; 
+      border-radius: 12%; 
+      object-fit: cover;
+    }
+  </style>
 </head>
+
 <body>
-  <header class="hero">
-    <div class="container">
-      <h1 class="title">Christopher Blignaut</h1>
-      <p class="subtitle">blgchr003@myuct.ac.za</p>
-      <nav class="nav">
-        <a href="index.html">← Homepage</a>
-        <a href="sian.html">Sian Caine</a>
-        <a href="claire.html">Claire Campbell</a>
-      </nav>
+  <!-- Top banner with photo and links to other peeps -->
+  <header class="hero hero--short">
+    <nav class="hero-topline">
+      <a class="pill mauve" href="index.html">← Homepage</a>
+      <a class="pill mauve" href="claire.html">Claire Campbell</a>
+      <a class="pill mauve" href="sian.html">Sian Caine</a>
+    </nav>
+
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 class="title">Christopher Blignaut</h1>
+        <p class="subtitle">blgchr003@myuct.ac.za</p>
+      </div>
+
+      <figure class="hero-art">
+        <img src="images/chris_profile.jpg" alt="Christopher Blignaut">
+      </figure>
     </div>
   </header>
 
-  <!-- match background colour of Chris' page -->
-  <main class="container" style="background-color: #eff9f9;">
 
-    <section class="grid" style="margin-bottom: 30px;">
-      <article class="card">
-        <h2>Overview of My Final Paper</h2>
-        <p>A summary of my contributions and key findings in the LAIDS Project:</p>
+  <main>
+
+    <!-- Overview of paper -->
+    <section id="overview" class="section">
+      <div class="container">
+        <article class="card">
+          <p class="eyebrow">Overview</p>
+          <h2 class="display">Overview of my final paper</h2>
+          <p>A summary of my contributions and key findings in the LAIDS Project:</p>
 
         <p style="text-align: justify;">
           My contribution to the LAIDS Project involved developing and evaluating two
@@ -35,7 +65,7 @@
           strong detection capabilities.
         </p>
 
-        <ul class="clean">
+        <ul class="checklist light">
           <li>A hybrid Convolutional Neural Network / Gated Recurrent Unit (CNN-GRU) model</li>
           <li>A hybrid Generative Adversarial Network / Multilayer Perceptron (GAN-MLP) model</li>
         </ul>
@@ -57,76 +87,178 @@
       </article>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <h2>Documents</h2>
-        <div class="doc-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
 
-          <!-- Literature Review -->
-          <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
-            <h3>Literature Review</h3>
-            <iframe src="docs/Literature_Review_Christopher_Blignaut.pdf"
-                    style="width: 100%; height: 300px; border: 1px solid #ccc;"
-                    scrolling="yes">
-            </iframe>
-           <p style="text-align: justify;">
-            The rise of Internet of Things devices has increased cybersecurity risks in resource-limited networks. 
-            This literature review summarises the current academic research AI-Based Intrusion Detection Systems (IDSs) 
-            as a viable solution in resource-constrained networks and served as the basis for the project's 
-            CNN implementations as well as the CNN-GRU and GAN-MLP model implementations.
-            Traditional IDSs are compared with their AI-based counterparts. Machine learning methods such as 
-            Support Vector Machines (SVM), Logistic Regression (LR) and K-means clustering are evaluated for e
-            fficient preprocessing, while deep learning models including CNNs, 
-            Autoencoders and GANs enhance detection accuracy. 
-            The review finds that hybrid models as the most effective for balancing performance and efficiency, 
-            and concludes that optimised AI techniques can enable real-time intrusion detection in low-resource 
-            network environments.
-          </p>
-            <a href="docs/Literature_Review_Christopher_Blignaut.pdf"
-               target="_blank" rel="noopener noreferrer"
-               style="display: inline-block; margin-top: 8px; width: 100%;
-                      padding: 10px 18px; background-color: #c488ba; color: white;
-                      text-align: center; border-radius: 6px;
-                      font-weight: 500; transition: background-color 0.2s ease;">
-              Open Literature Review
-            </a>
-          </div>
+        <!-- Research Quation of paper -->
+    <section id="research_question" class="section">
+      <div class="container">
+        <article class="card">
+          <p class="eyebrow">Research Question</p>
+          <h2 class="display">Problem Statement & Research Question</h2>
 
-          <!-- Final Paper -->
-          <div class="doc-card" style="flex: 1 1 400px; background: #F9EFF7; padding: 15px; border-radius: 8px;">
-            <h3>Final Paper</h3>
-            <iframe src="docs/Final_Paper_Christopher_Blignaut.pdf"
-                    style="width: 100%; height: 300px; border: 1px solid #ccc;"
-                    scrolling="yes"></iframe>
-            <p style="margin-top: 10px; text-align: justify;">
-              My final paper presents the LAIDS project's completed methodology of the development and evaluation of the proposed lightweight AI-IDSs. 
-              The paper evaluates model performance across three metrics: multi-classification ability, resource usage, and their ability to detect unknown attacks. 
-              The CNN-GRU achieved 99% accuracy, precision, and recall with a 0.003% false positive rate, demonstrating exceptional threat detection with minimal false alarms. 
-              The 2D CNN was the most effective at detecting unknown attacks, detecting 65.7% of DoS and 63.3% of DDoS zero-day threats. Post-training quantization successfully reduced the memory footprints of the models, 
-              from 64MB to as low as 0.2MB while preserving their multi-classification performance. CPU utilisation was influenced more by architectural constraints than by quantization. 
-              The paper demonstrates that both the 2D CNN and CNN-GRU models are viable for lightweight real-world deployment.
-            </p>
-            <a href="docs/Final_Paper_Christopher_Blignaut.pdf"
-               target="_blank" rel="noopener noreferrer"
-               style="display: inline-block; margin-top: 8px; width: 100%;
-                      padding: 10px 18px; background-color: #c488ba; color: white;
-                      text-align: center; border-radius: 6px;
-                      font-weight: 500; transition: background-color 0.2s ease;">
-              Open Final Paper
-            </a>
-          </div>
+        <p style="text-align: justify;">
+          The LAIDS project addresses the vulnerability of low-resource environments such as IoT networks and edge devices to cyberattacks. 
+          Existing IDSs are either too resource-intensive or lack the ability to detect zero-day attacks. 
+          I chose to explore the application of a GAN-MLP and CNN-GRU based IDS. 
+          As such my paper sought to answer the question:
+        </p>
 
-        </div>
+        <p style="text-align: justify;">
+          <b>
+            How can a Hybrid CNN-GRU or GAN-based IDS outperform a CNN-based IDS in terms of zero-day attack detection, 
+            detection accuracy, false positive rate, and computational resource usage in a resource-constrained network 
+            environment?
+          </b>
+        </p>
+
       </article>
+    </section>
+
+        <!-- Experiment Overview-->
+    <section id="Experiment Overvieww" class="section">
+      <div class="container">
+        <h2 class="section-heading">Experiment Overview</h2>
+        <div class="exp-tiles">
+          <div class="exp-tile">
+            <h4>Experiment 1: Multi Classification Performance</h4>
+            <p style="text-align: justify">
+              This experiment evaluates the multi-classification performance of proposed models and 
+              establishes a baseline benchmark for each of the architectures. The models were trained 
+              with preprocessing, early stopping, and validation monitoring, while GANs required manual selection. 
+              The models were evaluated on their: accuracy, precision, recall, F1 score and false positive rate.
+
+            </p>
+          </div>
+          <div class="exp-tile">
+            <h4>Experiment 2: Post-Training Quantisation</h4>
+            <p style="text-align: justify;">
+              This experiment assesses the impact of post-training quantization on model performance and resource use. 
+              The baseline models underwent dynamic and full quantization including FP32, FP16 and INT8 precisions. 
+              They were then evaluated on their multi-classification performance and computational efficiency. 
+              The models’ CPU utilization and resident set size were measured to quantify their resource requirements.
+            </p>
+          </div>
+          <div class="exp-tile">
+            <h4>Experiment 3: Zero-Day Attack Detection</h4>
+            <p style="text-align: justify;">
+              This experiment evaluates the models’ ability to generalise towards zero-day attacks. 
+              The baseline models were retrained with the DoS and DDoS attack types  removed from training and validation sets. 
+              They were evaluated based on the amount of zero-day attacks they were able to flag. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiments Results -->
+    <section id="models" class="section">
+      <div class="container">
+        <h2 class="section-heading">Results</h2>
+
+        <!-- Experiment 1 -->
+        <figure class="card model-card reverse">
+          <h3>Experiment 1: Multi Classification Performance</h3>
+          <div class="model-body">
+            <img class="model-img" src="images/Chris-Multi-class.png" alt="Multi-classification Experiment">
+            <figcaption class="model-notes">
+              <ul class="clean">
+                <li>All of the models achieve a strong accuracy and precision, apart from the GAN-MLP.</li>
+                <li>The CNN-GRU was the best performing model and the GAN-MLP was the overall worst performing model.</li>
+                <li>The 2D CNN outperformed the 1D CNN in all metrics.</li>
+                <li>The GAN-MLP and 1D CNN achieved a higher false positive rate limiting their real-world deployment viability.</li>
+              </ul>
+            </figcaption>
+          </div>
+        </figure>
+
+        <!-- Experiment 2 -->
+        <figure class="card model-card reverse">
+          <h3>Experiment 2: Post-Training Quantisation</h3>
+          <div class="model-body">
+            <img class="model-img" src="images/Chris-Memory.png" alt="Quantisation Experiment">
+            <figcaption class="model-notes">
+              <ul class="clean">
+                <li>Post-training quantisation resulted in a  large reduction in RSS. 
+                  Which can be attributed to the pre-allocated tensor arenas.</li>
+                <li>RSS is influenced by model architecture rather than post-training quantisation 
+                  as all quantised models of the same architecture achieve a similar RSS. </li>
+                <li>Post-training quantisation does not have an effect on CPU utilization.</li>
+                <li>Softmax layer produces the final multiclass output.</li>
+              </ul>
+            </figcaption>
+          </div>
+        </figure>
+
+        <!-- Experiment 3 -->
+        <figure class="card model-card reverse">
+          <h3>Experiment 3: Zero-Day Attack Detection</h3>
+          <div class="model-body">
+            <img class="model-img" src="images/Chris_Zero-day.png" alt="Generalisation Experiment">
+            <figcaption class="model-notes">
+              <ul class="clean">
+                <li>All of the models were able to detect zero-day attacks to some extent.</li>
+                <li>The 2D CNN was the best performing model and the 1D CNN was the worst performing model.</li>
+                <li>The 2D CNN outperformed the 1D CNN in both attack classes due to the 1D CNN only being able to capture 
+                  one-dimensional spatial patterns in the traffic compared to the 2D which could capture 
+                  localised correlations and hierarchical spatial patterns.</li>
+                <li>The GAN-MLP  model achieved  a similar performance to the CNN-GRU model, on different attacks.</li>
+              </ul>
+            </figcaption>
+          </div>
+        </figure>    
+      </div>
+    </section>
+    
+
+    <!-- Actual Documents -->
+    <section id="resources" class="section">
+      <div class="container">
+        <h2 class="section-heading">Literature Review & Final Paper</h2>
+        <div class="doc-grid">
+          <article class="doc-card">
+            <h3>Literature Review</h3>
+            <iframe class="doc-preview" src="docs/Literature_Review_Christopher_Blignaut.pdf#toolbar=0" title="Literature Review"></iframe>
+             <p style="text-align: justify;">
+              <b>Summary:</b>
+             </p>
+            <p style="text-align: justify;">
+            My literature review summarises current academic research on AI-IDSs for resource-constrained networks. 
+            It compares traditional IDSs with AI-based methods by evaluating machine learning such as Support Vector 
+            Machines, Logistic Regression and K-means clustering for preprocessing and deep learning architectures 
+            such as CNNs, Autoencoders and GANs for improved detection. In this review I note that hybrid models 
+            strike a more effective balance between accuracy and efficiency, forming the foundation for the project’s 
+            CNN, CNN-GRU, and GAN-MLP implementations.
+          </p>
+            <div class="doc-actions">
+              <a class="button secondary" href="docs/Literature_Review_Christopher_Blignaut.pdf">Open PDF</a>
+            </div>
+          </article>
+
+          <article class="doc-card">
+            <h3>Final Paper</h3>
+            <iframe class="doc-preview" src="docs/Final_Paper_Christopher_Blignaut.pdf#toolbar=0" title="Final Paper"></iframe>
+             <p style="text-align: justify;">
+              <b>Summary:</b>
+             </p>
+            <p style="text-align: justify;">
+            My final paper outlines the LAIDS project’s complete methodology for developing and evaluating the proposed
+             CNN-GRU and GAN-MLP models. It details the evaluation framework used to assess model performance across 
+             multiple criteria, including multi-classification ability, resource efficiency and ability to detect 
+             zero-day attacks. My paper also examines post-training quantization techniques and their impact on model 
+             size and computational performance, providing a comprehensive summary of the LAIDS project’s experimental 
+             design and implementation process for the 1D and 2D CNNs as well as the proposed CNN-GRU and GAN-MLP 
+             models.
+          </p>
+            <div class="doc-actions">
+              <a class="button secondary" href="docs/Final_Paper_Christopher_Blignaut.pdf">Open PDF</a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <footer>
-    <div class="container">
-      © 2025 University of Cape Town — School of IT · LAIDS
-    </div>
+  <footer class="site-footer">
+    <div class="container">© 2025 University of Cape Town — School of IT · LAIDS</div>
   </footer>
 </body>
-</html>
-
