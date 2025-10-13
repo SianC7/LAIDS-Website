@@ -35,10 +35,11 @@
   a:hover {
     text-decoration: underline;
   }
-  /* --- FOR CONTAINERS ---*/
-  /* main content container:*/
+
+  /* --- CONTAINERS ---*/
+
   .container {
-    max-width: 1100px;               /* Prevent wide lines */
+    max-width: 1300px;               /* Prevent wide lines */
     margin: 0 auto;                  /* Center container */
     padding: clamp(16px, 2.5vw, 32px); /* Responsive padding: min 16px, scales with viewport */
   }
@@ -81,6 +82,7 @@
   }
   
   /* --- GRID LAYOUT (FOR CARDS) --- */
+
   .grid {
     display: grid; /* CSS Grid layout for flexible content alignment */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* responsive column sizing */
@@ -146,7 +148,7 @@
     margin-bottom: 0;
   }
   /* --- EXPERIMENT METHODOLOGY --- */
-  .exp_meth-container {
+  .exp_meth-block {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -155,7 +157,7 @@
     padding: 20px;
   }
 
-  .exp-block {
+  .exp-sub-block{
     flex: 1 1 250px; 
     background: #c488ba; 
     color: white;
@@ -163,7 +165,7 @@
     border-radius: 8px;
   }
   /* --- FINDINGS STYLE --- */
-  .findings-container {
+  .findings-block {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -172,7 +174,7 @@
     padding: 20px;
   }
 
-  .findings-block {
+  .findings-subblock {
     flex: 1 1 250px; 
     background: #c488ba; 
     color: white;
@@ -182,7 +184,7 @@
 
   /* --- DOCUMENT CARD --- */
   
-  .doc-container {
+  .doc-block {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
