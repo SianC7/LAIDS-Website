@@ -5,22 +5,33 @@
   --ink:#334155;
   --muted:#64748b;
 
+  --lightteal:#7bb9b9;
   --teal:#48a3a3;
   --mint:#7fd6c6;
-  --purple:#7b6dce;
+  --white:#fff;
 
   --ring:rgba(46,139,124,.25);
   --radius:16px;
 
   /* hero + pill navbar */
-  --pill-offset: clamp(20px, 3vh, 80px); /* vertical offset for the pill */
-  --pill-height: 45px;                   /* visual pill height (tweak) */
-  --overview-bg:#eaf7f3;
-  --overview-brd:#cfe8e1;
+  --pill-offset:clamp(20px,3vh,80px);
+  --pill-height:45px;
 
-  /* cards */
-  --tile:#eefaf7;        /* team tiles */
-  --mauve:#c488ba;       /* brand underline accent */
+  /* surface tones */
+  --overview-bg:#334155;
+  --overview-brd:#334155;
+  --tile:#eefaf7;
+  --mauve:#c488ba;
+  --lightmauve:rgba(249,239,247,.65);
+
+  /* mauve hover helpers */
+  --mauve-dark:color-mix(in srgb, var(--mauve) 70%, #000 30%);
+  --mauve-shadow-strong:color-mix(in srgb, var(--mauve-dark) 42%, transparent);
+  --mauve-shadow-soft:color-mix(in srgb, var(--mauve-dark) 22%, transparent);
+
+  /* optional brand */
+  --deep-navy:#0f1b25;
+  --uct-blue:#003865;
 }
 
 /* ========== Base ========== */
@@ -32,10 +43,6 @@ a:hover{text-decoration:underline}
 .container{max-width:1100px;margin:0 auto;padding:clamp(16px,2.5vw,32px);}
 hr{border:none;height:1px;background:#e5e7eb;margin:18px 0}
 ul.clean{padding-left:18px;margin:8px 0}
-.card ul.clean,
-.card ul.clean li {
-    color: var(--muted); /* set all list items to be the ink colour */
-}
 kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e1}
 
 /* ========== Buttons, tags, cards ========== */
@@ -49,34 +56,24 @@ kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e
 .card p{margin:0 0 12px;color:var(--muted)}
 .card .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
 
-/* images */
-.center{display:flex;justify-content:center;align-items:center}
-.center img{max-width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 10px 20px rgba(2,8,20,.08)}
-figure.poster{margin:0;display:flex;align-items:center;gap:16px}
-figure.poster img{width:100%;max-width:360px;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 10px 20px rgba(2,8,20,.08)}
-
 /* ========== Sections ========== */
 .section{padding:clamp(32px,6vw,80px) 0}
 .section + .section{
   background:linear-gradient(180deg,rgba(2,8,20,0) 0%,rgba(2,8,20,.04) 40%,rgba(2,8,20,0) 100%),var(--bg);
 }
 .section-title{font-size:clamp(24px,3.2vw,34px);border-left:8px solid var(--teal);padding-left:12px;margin:0 0 16px}
-.section-heading{ /* centered headings that sit OUTSIDE boxes */
-  text-align:center;font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:.2px;margin:0 0 24px;
-}
+.section-heading{text-align:center;font-size:clamp(26px,3.2vw,40px);font-weight:800;letter-spacing:.2px;margin:0 0 24px}
 
 /* ========== Hero ========== */
 header.hero{
   position:relative;
-  min-height:calc(103vh - var(--pill-offset)); /* center in area below pill */
-  display:grid;
-  place-items:center;
+  min-height:calc(103vh - var(--pill-offset));
+  display:grid;place-items:center;
   color:#fff;
   background:
     linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url("../images/landing.png") center/cover no-repeat fixed;
-  background-color:#1f2937;
-  margin:0;
+    url("../images/landing6.png") center/cover no-repeat fixed;
+  background-color:#1f2937;margin:0;
 }
 .hero-content{text-align:center;padding:0 clamp(16px,3vw,40px);transform:translateY(calc(-1 * var(--pill-height) / 2))}
 .hero .title{font-size:clamp(36px,7vw,72px);font-weight:800;line-height:1.05;letter-spacing:.2px;margin:0 0 12px}
@@ -89,22 +86,13 @@ header.hero{
 
 /* ========== Pill navbar (centered, rounded) ========== */
 .topbar{
-  position:fixed;
-  top:var(--pill-offset);
-  left:50%;
-  transform:translateX(-50%);
-  z-index:60;
-
+  position:fixed;top:var(--pill-offset);left:50%;transform:translateX(-50%);z-index:60;
   display:flex;align-items:center;justify-content:space-between;
-  width:min(1120px,calc(100% - 28px));
-  padding:12px 18px;
-
+  width:min(1120px,calc(100% - 28px));padding:12px 18px;
   background:rgba(249,239,247,.65);
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  border:1px solid rgba(2,8,20,.10);
-  box-shadow:0 8px 22px rgba(2,8,20,.12);
-  border-radius:999px;
-  color:var(--ink);
+  border:1px solid rgba(2,8,20,.10);box-shadow:0 8px 22px rgba(2,8,20,.12);
+  border-radius:999px;color:var(--ink);
 }
 .topbar.scrolled{background:rgba(249,239,247,.90);box-shadow:0 10px 26px rgba(2,8,20,.16);border-color:rgba(2,8,20,.14)}
 .brand{font-weight:800;letter-spacing:.4px;font-size:clamp(18px,2.2vw,22px)}
@@ -119,267 +107,172 @@ header.hero{
   text-underline-offset:6px;
 }
 
-/* ========== Overview block ========== */
-.overview-block{
-  background:var(--overview-bg);
-  border:1px solid var(--overview-brd);
-  border-radius:22px;
-  box-shadow:0 14px 32px rgba(2,8,20,.07);
-  padding:clamp(18px,2.6vw,32px);
+/* ========== Overview (dark split) ========== */
+.overview-split{
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(10, 28, 32, 0.35), rgba(10, 31, 32, 0)),
+    linear-gradient(180deg, #0d1620 0%, #0f1b25 100%);
+  color:#fff;
+  padding:clamp(40px,7vw,100px) 0;
 }
-.overview-block .section-title{border-left:0;padding-left:0;margin:0 0 10px;font-size:clamp(20px,2.4vw,26px)}
-.overview-block .tag{background:#cfeee6;border-color:rgba(6,78,59,.12)}
+.overview-grid{display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,48px);align-items:center}
+@media (min-width:980px){.overview-grid{grid-template-columns:1.1fr 1fr}}
+.overview-copy .eyebrow{margin:0 0 6px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:#48a3a3}
+.overview-copy .display{margin:0 0 10px;font-size:clamp(28px,4.2vw,48px);line-height:1.1;color:#fff}
+.overview-copy .lede{margin:0 0 14px;font-size:clamp(16px,1.4vw,18px);color:rgba(255,255,255,.88)}
+.checklist{list-style:none;padding:0;margin:14px 0 20px}
+.checklist li{position:relative;padding-left:34px;margin:8px 0;color:rgba(255,255,255,.9)}
+.checklist li::before{content:"✓";position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:999px;display:grid;place-items:center;font-size:13px;background:#338989;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.overview-copy .actions{display:flex;gap:12px;flex-wrap:wrap}
+.overview-visual{margin:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:0 18px 48px rgba(2,8,20,.35);padding:clamp(8px,1.2vw,14px)}
+.overview-visual img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(255,255,255,.18)}
+#overview{scroll-margin-top:calc(var(--pill-offset,20px) + 80px)}
 
-/* Setting the text colour */
-.overview-block p,
-.overview-block ul,
-.overview-block li {
-  color: #777;
+/* Checklist variant for light backgrounds */
+.checklist.light li{color:var(--ink)}
+.checklist.light li::before{background:#338989;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+
+/* ========== Background section (light teal wash) ========== */
+#background{
+  background:
+    radial-gradient(900px 420px at 15% -10%, rgba(123,185,185,.18), rgba(123,185,185,0) 60%),
+    linear-gradient(180deg, var(--bg) 0%, rgba(123,185,185,.12) 100%);
+  color:var(--ink);
 }
-
-/* ========== Project docs ========== */
-.docs-block{ /* same family as overview */
-  background:var(--overview-bg);
-  border:1px solid var(--overview-brd);
-  border-radius:22px;
-  box-shadow:0 14px 32px rgba(2,8,20,.07);
-  padding:clamp(18px,2.6vw,32px);
-}
-.docs-block h3{margin-top:0}
-.pdf-frame{width:100%;height:min(75vh,800px);border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc}
-
-/* two-column layout */
-.split-grid{display:grid;grid-template-columns:1fr;gap:20px}
-@media (min-width:860px){.split-grid{grid-template-columns:1.2fr .8fr}}
-
-/* toolbar */
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
-.toolbar .button{padding:8px 12px}
-
-/* --- Document cards grid --- */
-.doc-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-@media (min-width: 860px){
-  .doc-grid{ grid-template-columns: 1fr 1fr; }
+#background .display{color:var(--ink)}
+#background .prose{color:var(--ink)}
+#background .checklist li{color:var(--ink)}
+#background .checklist li::before{background:#338989;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+#background.bg-image{
+  background:
+    radial-gradient(900px 420px at 15% -10%, rgba(123,185,185,.18), rgba(123,185,185,0) 60%),
+    linear-gradient(180deg, var(--bg) 0%, rgba(123,185,185,.12) 100%);
+  color:var(--ink);
 }
 
-.doc-card{
-  background: var(--overview-bg);
-  border: 1px solid var(--overview-brd);
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(2,8,20,.08);
-  padding: clamp(14px, 2vw, 18px);
+/* ========== Proposal (team gradient + layout from .proposal-split) ========== */
+#proposal{
+  background:linear-gradient(180deg, var(--lightmauve) 0%, var(--mauve) 100%);
+  color:#fff;
+  padding:clamp(40px,7vw,100px) 0;
 }
+.proposal-split .split-grid{display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,48px);align-items:center}
+@media (min-width:980px){.proposal-split .split-grid{grid-template-columns:1.1fr 1fr}}
+.proposal-split .copy .eyebrow{margin:0 0 6px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:var(--teal)}
+.proposal-split .copy .display{margin:0 0 10px;font-size:clamp(28px,4.2vw,48px);line-height:1.1}
+.proposal-split .copy .lede{margin:0 0 14px;font-size:clamp(16px,1.4vw,18px);color:rgba(255,255,255,.88)}
+.proposal-split .actions{display:flex;gap:12px;flex-wrap:wrap}
+.proposal-split .visual{margin:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:18px;box-shadow:0 18px 48px rgba(2,8,20,.35);padding:clamp(8px,1.2vw,14px)}
+.proposal-split .visual iframe{width:100%;height:min(72vh,720px);border:1px solid rgba(255,255,255,.22);border-radius:12px;background:rgba(248,250,252, .06);display:block}
 
-.doc-card h3{ margin: 0 0 6px; }
-.doc-card p.meta{
-  margin: 0 0 12px;
-  color: var(--muted);
-  font-size: 0.95rem;
+/* ========== Pipeline ========== */
+#pipeline{background:var(--bg);padding:clamp(40px,7vw,90px) 0}
+.pipeline-grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media (min-width:900px){.pipeline-grid{grid-template-columns:repeat(5,1fr)}}
+.step{background:#fff;border:1px solid #e6eef0;border-radius:16px;padding:16px 14px;box-shadow:0 8px 22px rgba(2,8,20,.08)}
+.step h4{margin:0 0 6px;font-size:16px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;color:#338989}
+.step p{margin:0;color:var(--muted);font-size:14.5px}
+@media (min-width:900px){
+  .step{position:relative}
+  .step:not(:last-child)::after{content:"";position:absolute;right:-10px;top:50%;translate:0 -50%;width:20px;height:2px;background:#b7d9d5;border-radius:2px}
 }
-
-/* the live preview frame */
-.doc-preview{
-  width: 100%;
-  height: 320px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #f8fafc;
-}
-@media (min-width: 1020px){
-  .doc-preview{ height: 420px; }
-}
-
-/* actions under each card */
-.doc-actions{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-.doc-actions .button{ padding: 8px 12px; }
 
 /* ========== Team ========== */
-.people{
-  max-width:1100px;margin:0 auto;
-  padding:0 clamp(16px,2.5vw,32px);
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;
-}
-.card.person{
-  background:var(--tile);
-  border:1px solid rgba(6,78,59,.08);
-  border-radius:22px;
-  box-shadow:0 14px 32px rgba(2,8,20,.06);
-  padding:24px 18px;text-align:center;
-}
-.person .avatar{
-  width:110px;height:110px;border-radius:50%;
-  object-fit:cover;object-position:center;display:block;margin:4px auto 12px;
-  border:4px solid #fff;box-shadow:0 6px 18px rgba(2,8,20,.12);
-}
+#team{background:linear-gradient(180deg,var(--lightmauve) 0%, var(--mauve) 100%)}
+.people{max-width:1100px;margin:0 auto;padding:0 clamp(16px,2.5vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.card.person{background:var(--tile);border:1px solid rgba(6,78,59,.08);border-radius:22px;box-shadow:0 14px 32px rgba(2,8,20,.06);padding:24px 18px;text-align:center}
+.person .avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:center;display:block;margin:4px auto 12px;border:4px solid #fff;box-shadow:0 6px 18px rgba(2,8,20,.12)}
 .person h3{margin:6px 0 4px;font-size:20px}
 .person p{margin:0 0 10px}
 .person p.email a{color:var(--teal)}
 .person .actions{justify-content:center}
+@media (min-width:860px){
+  .people .person.supervisor{grid-column:1 / -1;justify-self:center;max-width:360px}
+}
+
+/* Team heading on gradient */
+#team .section-heading{color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.18)}
+#team .section-sub{color:rgba(255,255,255,.9)}
+
+/* Darker mauve hover glow for team cards */
+.people .card.person{transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
+.people .card.person:hover{
+  transform:translateY(-6px);
+  border-color:color-mix(in srgb, var(--mauve-dark) 55%, #fff);
+  box-shadow:
+    0 22px 54px var(--mauve-shadow-strong),
+    0 10px 28px var(--mauve-shadow-soft);
+}
+
+/* Simple doc card (used on member pages) */
+.doc-card{
+  background:var(--overview-bg);
+  border:1px solid var(--overview-brd);
+  border-radius:18px;
+  box-shadow:0 10px 24px rgba(2,8,20,.08);
+  padding:clamp(14px, 2vw, 18px);
+}
+.doc-card h3{margin:0 0 6px}
+.doc-card p.meta{margin:0 0 12px;color:var(--muted);font-size:.95rem}
 
 /* ========== Footer ========== */
+/* Member pages use a plain <footer> */
 footer{color:var(--muted);padding:24px 0;margin-top:24px}
 
-/* ========== Simple reveal (optional) ========== */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
-.reveal.in{opacity:1;transform:none}
-.reveal.left{transform:translateX(-22px)}
-.reveal.right{transform:translateX(22px)}
-.reveal.up{transform:translateY(22px)}
+/* Main site footer */
+.site-footer{background:
+              radial-gradient(1200px 600px at 20% 0%,rgba(10,28,32,0.35), rgba(10,31,32,0)),
+              linear-gradient(180deg, #0d1620 0%, #0f1b25 100%);
+            border-top:1px solid var(--ink);padding:clamp(24px,4vw,40px) 0}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:center}
+.site-footer .footer-grid{justify-items:center;text-align:center}
+.site-footer .footer-brand{display:flex;align-items:center;gap:12px;color:var(--white);justify-content:center}
+.site-footer .footer-brand img{width:48px;height:auto}
+.site-footer .footer-meta{display:grid;gap:6px;font-size:15px;color:var(--white);justify-items:center}
+.site-footer .footer-meta a{color:var(--mint);text-decoration:none}
+.site-footer .footer-meta a:hover{text-decoration:underline}
+.site-footer .footer-copy{margin-top:12px;color:var(--white);font-size:14px}
 
-/* Turquoise “Aims and goals” box */
-#overview{
-  /* poster-matched turquoise + teal border */
-  /*--overview-bg: #79c7c7;   /* fill */
-  /*--overview-brd: #79c7c7;  /* border */
+/* small tidies */
+.section:last-of-type{padding-bottom:clamp(12px,2vw,28px)}
+hr{display:none}
+footer{margin-top:0}
 
-  /* optional: slightly softer version (uncomment one line) */
-  --overview-bg: color-mix(in srgb, #79c7c7 88%, #ffffff 12%); 
-}
-
-#overview .overview-block{
-  /* keep the same look but it’ll now use the new vars */
-  background: var(--overview-bg);
-  border: 1px solid var(--overview-brd);
-  /* subtle polish so text stays crisp on the brighter fill */
-  box-shadow: 0 14px 32px rgba(2,8,20,.07);
-}
-
-/* optional: match the left bar/accent inside that box */
-#overview .overview-block .section-title{
-  border-left-color: #338989;
-}
-
-/* ==== Overview split (dark section) ==== */
-.overview-split{
-  /* subtle dark backdrop that lets white text pop */
+/* Divider background ONLY for sections that aren't these */
+.section + .section:not(#overview):not(#proposal):not(#team){
   background:
-    radial-gradient(1200px 600px at 20% 0%, rgba(10, 28, 32, 0.35), rgba(10, 31, 32, 0)),
+    linear-gradient(180deg,
+      rgba(2,8,20,0) 0%,
+      rgba(2,8,20,.04) 40%,
+      rgba(2,8,20,0) 100%),
+    var(--bg);
+}
+
+/* Force the inky gradient on Overview */
+#overview.overview-split{
+  background:
+    radial-gradient(1200px 600px at 20% 0%,
+      rgba(10,28,32,0.35), rgba(10,31,32,0)),
     linear-gradient(180deg, #0d1620 0%, #0f1b25 100%);
-  color: #fff;
-  padding: clamp(40px, 7vw, 100px) 0;
+  color:#fff;
 }
 
-.overview-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(20px, 4vw, 48px);
-  align-items: center;
-}
-@media (min-width: 980px){
-  .overview-grid{ grid-template-columns: 1.1fr 1fr; }
+/* Keep Team’s mauve gradient intact */
+#team{
+  background: linear-gradient(180deg, var(--lightmauve) 0%, var(--mauve) 100%);
 }
 
-/* left column */
-.overview-copy .eyebrow{
-  margin: 0 0 6px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: 13px;
-  color: #48a3a3;              /* poster teal */
-}
-
-.overview-copy .display{
-  margin: 0 0 10px;
-  font-size: clamp(28px, 4.2vw, 48px);
-  line-height: 1.1;
-  color: #fff;
-}
-
-.overview-copy .lede{
-  margin: 0 0 14px;
-  font-size: clamp(16px, 1.4vw, 18px);
-  color: rgba(255,255,255,.88);
-}
-
-/* checklist bullets with teal ticks */
-.checklist{
-  list-style: none;
-  padding: 0;
-  margin: 14px 0 20px;
-}
-.checklist li{
-  position: relative;
-  padding-left: 34px;
-  margin: 8px 0;
-  color: rgba(255,255,255,.9);
-}
-.checklist li::before{
-  content: "✓";
-  position: absolute; left: 0; top: 2px;
-  width: 22px; height: 22px;
-  border-radius: 999px;
-  display: grid; place-items: center;
-  font-size: 13px;
-  background: #338989;         /* deeper poster teal */
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,.18);
-}
-
-/* CTA alignment */
-.overview-copy .actions{
-  display: flex; gap: 12px; flex-wrap: wrap;
-}
-
-/* right column visual */
+/* Make the Overview poster box white */
 .overview-visual{
-  margin: 0;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 18px;
-  box-shadow: 0 18px 48px rgba(2,8,20,.35);
-  padding: clamp(8px, 1.2vw, 14px);
-}
-.overview-visual img{
-  width: 100%; height: auto; display: block;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.18);
+  background:#fff;
+  border:1px solid #e5e7eb;
+  box-shadow:0 18px 48px rgba(2,8,20,.35);
 }
 
-/* make sure anchor jumps clear the pill navbar on this dark section too */
-#overview{ scroll-margin-top: calc(var(--pill-offset, 20px) + 80px); }
-
-/* Mauve section wrapper for Project Proposal & Poster */
-#project-docs{
-  /* deep mauve backdrop that still feels soft */
-  background:
-    radial-gradient(1100px 520px at 15% -10%, rgba(196,136,186,.20), transparent 60%),
-    linear-gradient(180deg, #c488ba 0%, #82557a 100%);
-  padding: clamp(40px, 7vw, 90px) 0;  /* a bit roomier */
-  color: #fff;                        /* default text color in the section */
+/* Make the Proposal PDF box white too */
+.proposal-split .visual{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  box-shadow:0 18px 48px rgba(2,8,20,.35);
 }
-
-/* White title on the mauve background */
-#project-docs .section-heading{
-  color: #fff;
-  text-shadow: 0 2px 0 rgba(0,0,0,.08);
-  margin-bottom: clamp(16px, 3vw, 28px);
-}
-
-/* The big container stays white and uses normal ink colors inside */
-#project-docs .docs-block{
-  background: #fff;                   /* override the mint look here */
-  border: 1px solid #e7e3ea;          /* soft mauve-ish border */
-  color: var(--ink);                  /* reset text inside to dark ink */
-  box-shadow:
-    0 18px 44px rgba(2,8,20,.16),
-    0 1px 0 rgba(255,255,255,.4) inset;
-}
-
-/* Ensure buttons on the mauve section title area (if any) are visible */
-#project-docs > .container .button{
-  /* only affects buttons placed directly under the title on the mauve bg */
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-}
-
-
-
+.proposal-split .visual iframe{ background:#fff; }
