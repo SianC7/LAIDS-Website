@@ -1,7 +1,7 @@
 
 /* GLOBAL VARIABLES */
 :root{
-    --bg: #eff9f9; /* #f6f8fb — very light gray background color */
+    --bg: #eff9f9;
     --card:#ffffff;
     --ink:#334155;
     --muted:#64748b;
@@ -98,7 +98,7 @@
     border: 1px solid #e5e7eb;               /* Subtle border around card */
   }
 
-  /* Paragraphs inside cards use muted color */
+  /* Style card paragraphs*/
   .card p {
     margin: 0 0 12px;
     color: var(--muted);
@@ -121,33 +121,32 @@
   }
 
   /* --- STYLE LISTS --- */
-  ul.clean {
+  ul.clean, ol.clean {
     padding-left: 18px;
     margin: 8px 0;
   }
 
-  /* Ensures unnumbered lists inside cards have muted text color */
+  /* Muted color for lists inside cards */
   .card ul.clean,
-  .card ul.clean li {
-    color: var(--muted);
-  }
-
-  ol.clean {
-    padding-left: 18px;
-    margin: 8px 0;
-  }
-
-  /* Ensures numbered lists inside cards have muted text color */
+  .card ul.clean li,
   .card ol.clean,
   .card ol.clean li {
     color: var(--muted);
   }
 
-  /* 
-    ---------------------------
-    DOCUMENT CARD ALIGNMENT FIX
-    ---------------------------
-  */
+  /* Add space between list items */
+  ul.clean li,
+  ol.clean li {
+    margin-bottom: 10px;   /* spacing between bullet points */
+  }
+
+  /* Optional: remove extra margin from last item */
+  ul.clean li:last-child,
+  ol.clean li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- DOCUMENT CARD --- */
 
   /* Makes document cards stretch and keep button at bottom */
   .doc-card {
