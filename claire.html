@@ -182,7 +182,7 @@
                   <li><strong>1D CNN</strong>: very sensitive. Achieving a high attack recall but a lot of Normal traffic misclassified as attacks.</li>
                   <li><strong>DBN</strong>: strong detection on major classes but higher false-alarm rate.</li>
                 </ul>
-                <p class="muted-key">Takeaway: CNN-LSTM is most reliable; CNN/DBN need better Normal filtering.</p>
+                <p class="muted-key">Takeaway: CNN-LSTM is the most reliable, while CNN/DBN need better Normal filtering.</p>
               </div>
             </div>
           </article>
@@ -231,7 +231,7 @@
                   <li><strong>DBN</strong>: relatively better at detecting DoS than Bot attacks.</li>
                   <li><strong>2D CNN (exploratory)</strong>: best unknown detection likely due to cross-feature filters.</li>
                 </ul>
-                <p class="muted-key">Takeaway: Unknown detection depends on both the model and the selected FPR threshold.</p>
+                <p class="muted-key">Takeaway: Unknown detection depends on both the model and the selected false positive rate threshold.</p>
               </div>
             </div>
           </article>
@@ -247,8 +247,8 @@
     <section id="conclusion" class="section">
       <div class="container">
         <article class="card">
-          <p class="eyebrow">Conclusion</p>
-          <h2 class="display">Key Takeaways</h2>
+          <p class="eyebrow">Key Takeaways</p>
+          <h2 class="display">Conclusion</h2>
 
           <ul class="checklist light">
             <li><strong>Best overall.</strong> Across full-precision and quantised variants, the <strong>CNN–LSTM</strong> offered the 
