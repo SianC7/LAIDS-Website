@@ -1,7 +1,7 @@
 
 /* GLOBAL VARIABLES */
 :root{
-    --bg: white;
+    --bg: rgba(255, 255, 255, 0.877);
     --ink:#334155;
     --muted:#64748b;
     --teal:#2e8b7c;
@@ -93,7 +93,7 @@
     display: grid; /* CSS Grid layout for flexible content alignment */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* responsive column sizing */
     gap: 20px; /* Space between grid items */
-    margin-bottom: 30px; /* add a gap between cards */
+    margin-bottom: 60px; /* add a gap between cards */
   }
 
   /* --- CARD STYLE--- */
@@ -110,7 +110,9 @@
   .card p {
     margin: 0 0 12px;
     color: black;
-    line-height: 1.8;
+    text-align: justify;
+    line-height: 2;
+    font-size: 18px
   }
 
   /* Container for card buttons or actions */
@@ -132,6 +134,9 @@
   ul.list, ol.list {
     padding-left: 18px;
     margin: 8px 0;
+    text-align: justify;
+    line-height: 2;
+    font-size: 18px
   }
 
   /* Muted color for lists inside cards */
@@ -210,6 +215,9 @@
     background: #F9EFF7;          /* light card background */
     padding: 15px;                /* spacing inside the card */
     border-radius: 8px;           /* rounded corners */
+    border-color: #c488ba; /* Color of the border */
+    border-width: 1px;     /* Thickness */
+    border-style: solid; 
   }
 
   /* Ensures "Open" button stays at the bottom */
