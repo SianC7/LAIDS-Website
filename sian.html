@@ -28,9 +28,9 @@
     <section class="grid">
       <article class="card" style="box-shadow: 0 6px 18px #22594a">
         
-        <h2>Overview of My Final Paper </h2> 
+        <h2>Contributions to the LAIDS Study</h2> 
         <p style="text-align: justify">
-          My contribution to the LAIDS Project involved developing, quantising, and 
+          My contributions to the LAIDS Project involved developing, quantising, and 
           evaluating three lightweight AI-based intrusion detection system models 
           optimised for resource-constrained networks. The objective of this study was to investigate 
           whether these models and their quantised variants could perform as well as or better than the 
@@ -38,7 +38,7 @@
           Additionally, the study examined the models' ability to detect previously unseen attack 
           classes in comparison to the baseline model.
         </p>
-        <p style="font-weight: bold">These models developed were:</pp>
+        <p style="font-weight: bold">The models developed in this study:</pp>
         <ul class="list">
           <li>A baseline one-dimensional Convolutional Neural Network model (CNN), which was co-developed with my fellow LAIDS project members</li>
           <li>A Principle Component Analysis enhanced Convolutional Neural Network model (PCA-CNN)</li>
@@ -53,7 +53,7 @@
         <h2>Research Questions</h2>
         
         <p style="text-align: justify;">
-          <ol class="list" style="text-align: justify; line-height: 1.8; margin-left: 20px;">
+          <ol class="list" style="text-align: justify; line-height: 1.8; margin-left: 5px;">
             <li>
               Can a PCA-CNN or AE-MLP IDS achieve higher resource efficiency 
               than a baseline 1D-CNN IDS, while maintaining comparable or 
@@ -65,8 +65,7 @@
               while maintaining comparable or superior performance in a resource-constrained environment?
             </li>
             <li>
-              Can PCA-CNN or AE-MLP IDS generalise effectively to previously unseen attack classes to unseen data
-              more effectively than a baseline 1D-CNN?
+              Can a PCA-CNN or AE-MLP IDS generalise to unseen data more effectively than a baseline 1D-CNN?
             </li>
           </ol>
         </p>
@@ -76,18 +75,21 @@
     <!-- METHODOLOGY #5c1bc9-->
     <section class="grid"> 
       <article class="card" style="box-shadow: 0 6px 18px #22594a">
-        <h2> Experiment Methodology </h2>
+        <h2> Experiments</h2>
         <div class="exp_meth-block">
           <!-- Block 1 -->
           <div class="exp-sub-block">
             <h2 style="text-align: center;">Benchmarking</h2>
             <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
-              The purpose of this experiment is to establish a performance and
-              resource baseline by benchmarking the initial full precision (FP32)
-              models against the baseline CNN. Benchmarking provides a fair
-              comparison across the different model architectures and aids in
-              answering the first research question of this study. Additionally,
-              benchmarking determines whether the quantised versions of the
+              The purpose of this experiment was to establish a performance and resource baseline by benchmarking the initial full precision 
+              (FP32) models against the baseline CNN. 
+              <br>
+              <br>
+              Benchmarking provided a fair comparison across the different model architectures and helped
+              in answering the first research question of this study. 
+              <br>
+              <br>
+              Additionally, benchmarking determined whether the quantised versions of the 
               models maintained comparable performance while improving resource efficiency.
             </p>
           </div>
@@ -96,14 +98,13 @@
           <div class="exp-sub-block">
             <h2 style="text-align: center;">Quantisation</h2>
             <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
-              This experiment investigates the impact of quantisation on the
-              performance and resource efficiency of the FP32 baseline CNN,
-              PCA-CNN and AE-MLP models, addressing the second research
-              question of this study. This experiment evaluates the performance
-              and resource consumption of the quantised variants (FP16, dynamic
-              INT8 and full INT8) of the full precision (FP32) PCA-CNN and AE-MLP models. 
-              These quantised models are subsequently compared
-              to the corresponding quantised versions of the baseline CNN.
+              This experiment investigated the impact of quantisation on the performance and resource efficiency of the FP32 baseline CNN, PCA-CNN, and 
+              AE-MLP models, addressing the second research question of this study. 
+              <br>
+              <br>
+              It evaluated the performance and resource consumption of the quantised 
+              variants (FP16, dynamic INT8, and full INT8) of the full precision (FP32) PCA-CNN and AE-MLP models.These quantised models were subsequently 
+              compared to the corresponding quantised versions of the baseline CNN.
             </p>
           </div>
     
@@ -111,12 +112,12 @@
           <div class="exp-sub-block">
             <h2 style="text-align: center;">Generalisation</h2>
             <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
-              This experiment evaluates the ability of the models and their quantised variants to 
-              generalise to previously unseen, zero-day attacks,
-              addressing the third research question of this study. The objective
-              of this experiment is to simulate realistic zero-day attack scenarios
-              and assess whether the models can learn generalisable patterns of
-              malicious behaviour rather than memorising known attack signatures. 
+              This experiment evaluated the ability of the models and their quantised variants to generalise to previously unseen, zero-day attacks, 
+              addressing the third research question of this study. 
+              <br>
+              <br>
+              The objective of the experiment was to simulate realistic zero-day attack scenarios 
+              and assess whether the models could learn generalisable patterns of malicious behaviour rather than memorising known attack signatures.
             </p>
           </div>
         </div>
@@ -133,9 +134,9 @@
           <div class="findings-subblock">
             <h2 style="text-align: center;">Benchmarking</h2>
             <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
-              The Baseline CNN achieved the highest accuracy and the lowest false positive rate. 
-              However, the PCA-CNN provided a better recall rate along with faster CPU processing and inference times. 
-              Finally, the AE-MLP offered the highest precision while using the least amount of memory.
+              The baseline CNN achieved the highest accuracy (95.39%) and the lowest false positive rate (5.89%). 
+              However, the PCA-CNN provided a better recall rate (99.71%) along with faster CPU processing and inference times (0.048 ms and 0.0493 ms, respectively). 
+              Finally, the AE-MLP offered higher precision (90.53%) than the baseline model as well as the use of less memory (2.627 KB).
             </p>
           </div>
 
@@ -143,9 +144,9 @@
           <div class="findings-subblock">
             <h2 style="text-align: center;">Quantisation</h2>
             <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
-              As the models were reduced in size, their overall performance decreased. 
-              The quantised PCA models, however, continued to offer faster CPU processing and inference times compared to the Baseline CNN models. 
-              The FP16 AE-MLP model achieved the lowest memory usage.
+              As the models underwent quantisation and were reduced in size, their overall performance decreased. The quantised PCA models, however, 
+              still continued to offer faster CPU processing and inference times compared to the baseline CNN models. Notably, the FP16 AE-MLP model 
+              achieved the lowest memory usage.
             </p>
           </div>
 
@@ -153,9 +154,10 @@
           <div class="findings-subblock" >
             <h2 style="text-align: center;">Generalisation</h2>
             <p style="text-align: justify;color: white;font-size: 16px; font-weight:500;">
-              The PCA-CNN models generally showed slightly better detection performance than the Baseline CNN models, particularly for unknown DoS attacks.
-              However, the semi-supervised AE-MLP achieved detection rates for both DoS and Bot attacks that were comparable to the PCA-CNN's DoS detection rate. 
-              This indicates that the AE-MLP can provide more consistent detection performance across different attack types.
+              The PCA-CNN models generally showed slightly better detection performance than the baseline CNN models (approximately 2-3% higher). 
+              However, the semi-supervised AE-MLP achieved detection rates of around 60% for both DoS and Bot attacks, which were comparable to the PCA-CNN's DoS detection rate.
+              This indicated that the AE-MLP could provide more consistent detection performance across different attack types. 
+              Overall, the models were able to detect DoS attacks more effectively than previously unseen Bot attacks. 
             </p>
           </div>
         </div>
@@ -169,10 +171,14 @@
         <h2>Conclusion</h2> 
         <p style="text-align: justify">
           The findings suggested that no model consistently outperformed the baseline in terms of detection performance and resource efficiency. 
-          However, each model demonstrated targeted performance gains over the baseline. Notably, the dynamically INT8-quantised PCA-CNN demonstrated 
-          the most promise for deployment as a lightweight intrusion detection system. The model achieved some of the lowest CPU processing times, 
-          inference latency, and false negative rates. Furthermore, the model attained one of the highest detection rate for DoS samples when 
-          they were given as zero-day attacks.
+          However, each model demonstrated specific performance gains over the baseline. Notably, the dynamically INT8-quantised PCA-CNN showed the 
+          most promise for deployment as a lightweight intrusion detection system, achieving some of the lowest CPU processing times, inference latency, 
+          and false negative rates. Furthermore, it attained one of the highest detection rates for DoS samples when presented as zero-day attacks. 
+          <br>
+          <br>
+          Overall, the findings indicated that developing a lightweight, effective IDS for resource-constrained networks may require combining feature 
+          reduction techniques, such as PCA, with semi-supervised learning approaches. This balance could help achieve strong detection accuracy, efficient 
+          resource usage, and improved detection of novel threats.
           </p>
         
       </article>
@@ -188,20 +194,17 @@
           <div class="doc-subblock" >
             <h3>Literature Review</h3>
             <iframe src="docs/Literature_Review_Sian_Caine.pdf" 
-                    style="width: 100%; height: 540px; border: 1px solid #ccc;" 
+                    style="width: 100%; height: 640px; border: 1px solid #ccc;" 
                     scrolling="yes">
             </iframe>
             <p style="margin-top: 10px; text-align: justify;font-size: 16px">
-              This literature review examines developments, challenges, and breakthroughs in intrusion detection system (IDS) 
-              frameworks. It specifically investigates the feasibility of implementing lightweight AI-based IDSs in low-resource networks.
-              The findings of this review provided the foundation for the design and development of the lightweight AI-IDS models 
-              presented in the final study.
-              
-              This review examines both traditional and AI-based IDS methods, as well as existing datasets and commonly used 
-              evaluation metrics. It then provides a detailed comparison of traditional IDSs with AI-based IDSs, and of 
-              machine learning IDSs with deep learning IDSs. The feasibility of implementing a lightweight DL or ML-DL hybrid 
-              IDS is also assessed, along with the implications of the reviewed literature for the LAIDS project. Finally, 
-              conclusions are drawn, and a path forward for the LAIDS project is outlined.
+              <b>Abstract:</b> This literature review examined developments, challenges, and breakthroughs in intrusion detection system (IDS) frameworks. 
+              It specifically investigated the feasibility of implementing lightweight AI-based IDSs in low-resource networks. The findings of this review 
+              provided the foundation for the design and development of the lightweight AI-IDS models presented in the final study. The review covered both 
+              traditional and AI-based IDS methods, as well as existing datasets and commonly used evaluation metrics. It then provided a detailed comparison 
+              of traditional IDSs with AI-based IDSs, and of machine learning IDSs with deep learning IDSs. The feasibility of implementing a lightweight DL or 
+              ML-DL hybrid IDS was also assessed, along with the implications of the reviewed literature for the LAIDS project. Finally, conclusions were drawn, 
+              and a path forward for the LAIDS project was outlined.
               <br>
               <br>
               <br>
@@ -229,7 +232,7 @@
           <div class="doc-subblock">
             <h3>Final Paper</h3>
             <iframe src="docs/Final_Paper_Sian_Caine.pdf" 
-                    style="width: 100%; height: 540px; border: 1px solid #ccc;" 
+                    style="width: 100%; height: 640px; border: 1px solid #ccc;" 
                     scrolling="yes">
             </iframe>
             <p style="margin-top: 10px; text-align: justify;font-size: 16px">
