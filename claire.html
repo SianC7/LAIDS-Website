@@ -20,7 +20,7 @@
       <!-- LEFT: text -->
       <div class="hero-copy">
         <h1 class="title">Claire Campbell</h1>
-        <p class="subtitle">cmpcla004@myuct.ac.za</p>
+        <p class="subtitle">CMPCLA004</p>
   
         <!-- primary actions (white-glow pills) -->
         <div class="actions">
@@ -163,78 +163,81 @@
     <section id="results" class="section">
       <div class="container">
         <h2 class="section-heading">Results</h2>
-    
-        <!-- Benchmarking -->
-        <article class="card result-panel">
-          <header class="result-head">
-            <p class="eyebrow">Benchmarking</p>
-            <h3 class="display">Multiclassification performance</h3>
-          </header>
-          <div class="result-body">
-            <figure class="result-media">
-              <img src="images/benchmark_claire.png"
-                   alt="Multiclassification performance of models">
-              <figcaption>Multiclassification performance of models.</figcaption>
-            </figure>
-            <div class="result-notes">
-              <ul class="clean">
-                <li><strong>CNN-LSTM</strong>: strongest overall. Achieving a high accuracy, lower false alarms, and most stable across classes.</li>
-                <li><strong>1D CNN</strong>: very sensitive. Achieving a high attack recall but a lot of Normal traffic misclassified as attacks.</li>
-                <li><strong>DBN</strong>: strong detection on major classes but higher false-alarm rate.</li>
-              </ul>
-              <p class="muted-key">Takeaway: CNN-LSTM is most reliable; CNN/DBN need better Normal filtering.</p>
+        <div class="results-stack">
+          <!-- Benchmarking -->
+          <article class="card result-panel">
+            <header class="result-head">
+              <p class="eyebrow">Benchmarking</p>
+              <h3 class="display">Multiclassification performance</h3>
+            </header>
+            <div class="result-body">
+              <figure class="result-media">
+                <img src="images/benchmark_claire.png"
+                    alt="Multiclassification performance of models">
+                <figcaption>Multiclassification performance of models.</figcaption>
+              </figure>
+              <div class="result-notes">
+                <ul class="clean">
+                  <li><strong>CNN-LSTM</strong>: strongest overall. Achieving a high accuracy, lower false alarms, and most stable across classes.</li>
+                  <li><strong>1D CNN</strong>: very sensitive. Achieving a high attack recall but a lot of Normal traffic misclassified as attacks.</li>
+                  <li><strong>DBN</strong>: strong detection on major classes but higher false-alarm rate.</li>
+                </ul>
+                <p class="muted-key">Takeaway: CNN-LSTM is most reliable; CNN/DBN need better Normal filtering.</p>
+              </div>
             </div>
-          </div>
-        </article>
-    
-        <!-- Quantisation (flip layout) -->
-        <article class="card result-panel reverse">
-          <header class="result-head">
-            <p class="eyebrow">Quantisation</p>
-            <h3 class="display">Latency & storage vs precision</h3>
-          </header>
-          <div class="result-body">
-            <figure class="result-media">
-              <img src="images/Storage vs Precision.png"
-                   alt="Storage vs precision normalised to Float32 = 1.0 for each model and quantisation scheme">
-              <figcaption>Normalised storage across Float32, Float16, INT8 Dynamic, INT8 Full.</figcaption>
-            </figure>
-            <div class="result-notes">
-              <ul class="clean">
-                <li><strong>Float16 & INT8 Dynamic</strong> keep <em>CNN-LSTM</em> near-lossless; INT8 Dynamic, however, is faster.</li>
-                <li><strong>DBN</strong> accuracy remains steady for Float32, Float16, and INT8 Dynamic. 
-                  Latency rises which is likely due to quant overheads on small layers.</li>
-                <li><strong>CNN</strong> INT8 Dynamic lowers false negatives but increases false alarms.</li>
-                <li><strong>INT8 Full</strong> causes the CNN to fail, a slight decline in the CNN-LSTM's detection, and is not supported for DBN in this stack.</li>
-              </ul>
-              <p class="muted-key">Takeaway: <strong>INT8 Dynamic</strong> is a strong candidate for lightweight deployment.</p>
+          </article>
+      
+          <!-- Quantisation (flip layout) -->
+          <article class="card result-panel reverse">
+            <header class="result-head">
+              <p class="eyebrow">Quantisation</p>
+              <h3 class="display">Latency & storage vs precision</h3>
+            </header>
+            <div class="result-body">
+              <figure class="result-media">
+                <img src="images/Storage vs Precision.png"
+                    alt="Storage vs precision normalised to Float32 = 1.0 for each model and quantisation scheme">
+                <figcaption>Normalised storage across Float32, Float16, INT8 Dynamic, INT8 Full.</figcaption>
+              </figure>
+              <div class="result-notes">
+                <ul class="clean">
+                  <li><strong>Float16 & INT8 Dynamic</strong> keep <em>CNN-LSTM</em> near-lossless; INT8 Dynamic, however, is faster.</li>
+                  <li><strong>DBN</strong> accuracy remains steady for Float32, Float16, and INT8 Dynamic. 
+                    Latency rises which is likely due to quant overheads on small layers.</li>
+                  <li><strong>CNN</strong> INT8 Dynamic lowers false negatives but increases false alarms.</li>
+                  <li><strong>INT8 Full</strong> causes the CNN to fail, a slight decline in the CNN-LSTM's detection, and is not supported for DBN in this stack.</li>
+                </ul>
+                <p class="muted-key">Takeaway: <strong>INT8 Dynamic</strong> is a strong candidate for lightweight deployment.</p>
+              </div>
             </div>
-          </div>
-        </article>
-    
-        <!-- Generalisation -->
-        <article class="card result-panel">
-          <header class="result-head">
-            <p class="eyebrow">Generalisation</p>
-            <h3 class="display">Zero-day detection</h3>
-          </header>
-          <div class="result-body">
-            <figure class="result-media">
-              <img src="images/Percentage Unseen Predicted as Malicious .png"
-                   alt="Zero-day generalisation comparison across models">
-              <figcaption>Unseen DoS and Bots detection.</figcaption>
-            </figure>
-            <div class="result-notes">
-              <ul class="clean">
-                <li><strong>1D CNN</strong>: strong on Bots (~91%), weaker on DoS (~68%).</li>
-                <li><strong>CNN-LSTM</strong>: less sensitive to detecting DoS and Bot attacks.</li>
-                <li><strong>DBN</strong>: relatively better at detecting DoS than Bot attacks.</li>
-                <li><strong>2D CNN (exploratory)</strong>: best unknown detection likely due to cross-feature filters.</li>
-              </ul>
-              <p class="muted-key">Takeaway: Unknown detection depends on both the model and the selected FPR threshold.</p>
+          </article>
+
+          <!-- Generalisation -->
+          <article class="card result-panel">
+            <header class="result-head">
+              <p class="eyebrow">Generalisation</p>
+              <h3 class="display">Zero-day detection</h3>
+            </header>
+            <div class="result-body">
+              <figure class="result-media">
+                <img src="images/Percentage Unseen Predicted as Malicious .png"
+                    alt="Zero-day generalisation comparison across models">
+                <figcaption>Unseen DoS and Bots detection.</figcaption>
+              </figure>
+              <div class="result-notes">
+                <ul class="clean">
+                  <li><strong>1D CNN</strong>: strong on Bots (~91%), weaker on DoS (~68%).</li>
+                  <li><strong>CNN-LSTM</strong>: less sensitive to detecting DoS and Bot attacks.</li>
+                  <li><strong>DBN</strong>: relatively better at detecting DoS than Bot attacks.</li>
+                  <li><strong>2D CNN (exploratory)</strong>: best unknown detection likely due to cross-feature filters.</li>
+                </ul>
+                <p class="muted-key">Takeaway: Unknown detection depends on both the model and the selected FPR threshold.</p>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+      </div>
+    
+        
     
       </div>
     </section>

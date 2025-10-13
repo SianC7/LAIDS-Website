@@ -369,8 +369,9 @@
 .doc-abs > summary::-webkit-details-marker{ display: none; }
 .doc-abs[open]{ margin-bottom: 4px; }
 .doc-abs[open] > summary{ color: var(--ink); }
-.doc-teaser{ margin:10px 0 6px; color:var(--muted); } /* optional if you add teasers */
+.doc-teaser{ margin:10px 0 6px; color:var(--muted); } 
 
-
-
-  
+.results-stack{
+    display: grid;
+    gap: clamp(16px, 2.6vw, 28px); /* space between tiles */
+  }
