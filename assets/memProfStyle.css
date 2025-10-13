@@ -194,7 +194,7 @@
   }
 
   /* Makes document cards stretch and keep button at bottom */
-  .doc-card {
+  .doc-subblock{
     display: flex;                /* Stack content vertically */
     flex-direction: column;       /* Arrange child elements top-to-bottom */
     justify-content: space-between; /* Push last item (button) to bottom */
@@ -207,6 +207,6 @@
   }
 
   /* Ensures "Open" button stays at the bottom */
-  .doc-card a {
+  .doc-subblock a {
     margin-top: auto;
   }
