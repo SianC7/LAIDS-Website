@@ -145,15 +145,63 @@
   ol.clean li:last-child {
     margin-bottom: 0;
   }
+  /* --- EXPERIMENT METHODOLOGY --- */
+  .exp_meth-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: stretch; /* Makes all children stretch to same height */
+    align-content: stretch; /* stretch all rows equally */
+    padding: 20px;
+  }
+
+  .exp-block {
+    flex: 1 1 250px; 
+    background: #c488ba; 
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  /* --- FINDINGS STYLE --- */
+  .findings-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: stretch; /* Makes all children stretch to same height */
+    align-content: stretch; /* stretch all rows equally */
+    padding: 20px;
+  }
+
+  .findings-block {
+    flex: 1 1 250px; 
+    background: #c488ba; 
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+  }
 
   /* --- DOCUMENT CARD --- */
+  
+  .doc-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: stretch; /* Makes all children stretch to same height */
+    align-content: stretch; /* stretch all rows equally */
+    padding: 20px;
+  }
 
   /* Makes document cards stretch and keep button at bottom */
   .doc-card {
     display: flex;                /* Stack content vertically */
     flex-direction: column;       /* Arrange child elements top-to-bottom */
     justify-content: space-between; /* Push last item (button) to bottom */
-    height: 100%;                 /* Fill full available height */
+    height: 100%;                 /*Fill full available height */
+
+    flex: 1 1 0;                 /* Grow & shrink equally, base size ignored */
+    background: #F9EFF7;          /* light card background */
+    padding: 15px;                /* spacing inside the card */
+    border-radius: 8px;           /* rounded corners */
   }
 
   /* Ensures "Open" button stays at the bottom */
