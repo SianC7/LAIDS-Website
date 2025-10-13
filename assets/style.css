@@ -336,3 +336,40 @@ a.button.secondary:focus-visible,
     0 0 0 4px color-mix(in srgb, var(--mauve) 28%, transparent),
     0 12px 28px rgba(2,8,20,.12);
 }
+
+/* === Proposal: use dark text on the mauve gradient === */
+#proposal { color: var(--ink); }
+/* Headings + lede + body copy */
+#proposal .display,
+#proposal .proposal-split .copy .lede,
+#proposal p,
+#proposal .section-heading,
+#proposal .checklist li,
+#proposal .checklist.light li,
+#proposal a {
+  color: var(--ink) !important;
+}
+
+/* Keep the teal tick look */
+#proposal .checklist li::before {
+  background: #338989;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+/* Proposal: keep dark body copy, but… */
+#proposal .eyebrow{
+  color: var(--teal) !important;            /* teal "Summary" line */
+}
+
+/* Buttons inside proposal should stay white text */
+#proposal a.button,
+#proposal .button{
+  color: #fff !important;                   /* force white label */
+  text-decoration: none;                    /* no underline on hover focus */
+}
+
+/* (optional) make plain links in proposal copy still ink */
+#proposal .copy a:not(.button){ color: var(--ink); }
+
+
