@@ -30,27 +30,45 @@
   
 
   <main>
-    <section id="overview" class="section">
-      <h2 class="section-heading">Overview</h2>
-      <div class="container overview-block">
-        <h3 class="section-title">Aims and goals</h3>
-        <p>
-          LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems for
-          resource-constrained networks, targeting strong detection and efficient deployment on edge-class hardware.
-        </p>
+    <section id="overview" class="section overview-split">
+      <div class="container">
+        <div class="overview-grid">
+          <!-- LEFT: copy -->
+          <div class="overview-copy">
+            <p class="eyebrow">Aims &amp; goals</p>
+            <h2 class="display">Overview</h2>
     
-        <ul class="clean">
-          <li>Benchmarks CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, and GAN variants</li>
-          <li>Evaluates quantisation (FP16, INT8 Dynamic, INT8 Full) and footprint</li>
-          <li>Assesses zero-day generalisation at fixed false-positive budgets</li>
-        </ul>
-  
+            <p class="lede">
+              LAIDS investigates, develops, and evaluates lightweight AI-based Intrusion Detection Systems
+              for resource-constrained networks, targeting strong detection and efficient deployment on edge-class hardware.
+            </p>
+    
+            <ul class="checklist">
+              <li>Benchmark CNN, CNN-LSTM/GRU, DBN, PCA-CNN, AE-MLP, and GAN variants</li>
+              <li>Evaluate quantisation (FP16, INT8 Dynamic, INT8 Full) and footprint</li>
+              <li>Assess zero-day generalisation at fixed false-positive budgets</li>
+            </ul>
+    
+            <div class="actions">
+              <a class="button" href="docs/LAIDS_Poster.pdf">Open Poster</a>
+              <a class="button secondary" href="#team">Meet the Team</a>
+            </div>
+          </div>
+    
+          <!-- RIGHT: poster visual -->
+          <figure class="overview-visual">
+            <a href="docs/LAIDS_Poster.pdf" aria-label="Open Poster (PDF)">
+              <img src="images/LAIDS_Poster.png" alt="LAIDS project poster preview">
+            </a>
+          </figure>
+        </div>
       </div>
     </section>
     
     <section id="project-docs" class="section">
       <!-- Centered heading OUTSIDE the box -->
-      <h2 id="docs-title" class="section-heading">Project Proposal &amp; Poster</h2>
+      <!--<p class="eyebrow">Project Proposal &amp; Poster</p>-->
+      <h2 id="docs-title" class="section-heading">Group Contributions</h2>
     
       <div class="container docs-block">
         <div class="doc-grid">
@@ -71,7 +89,7 @@
             </iframe>
       
             <div class="doc-actions">
-              <a class="button secondary" href="docs/LAIDS Project Proposal .pdf">Open Proposal</a>
+              <a class="button" href="docs/LAIDS Project Proposal .pdf">Open Proposal</a>
             </div>
           </article>
       

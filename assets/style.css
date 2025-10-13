@@ -5,7 +5,7 @@
   --ink:#334155;
   --muted:#64748b;
 
-  --teal:#2e8b7c;
+  --teal:#48a3a3;
   --mint:#7fd6c6;
   --purple:#7b6dce;
 
@@ -223,6 +223,152 @@ footer{color:var(--muted);padding:24px 0;margin-top:24px}
 .reveal.left{transform:translateX(-22px)}
 .reveal.right{transform:translateX(22px)}
 .reveal.up{transform:translateY(22px)}
+
+/* Turquoise “Aims and goals” box */
+#overview{
+  /* poster-matched turquoise + teal border */
+  /*--overview-bg: #79c7c7;   /* fill */
+  /*--overview-brd: #79c7c7;  /* border */
+
+  /* optional: slightly softer version (uncomment one line) */
+  --overview-bg: color-mix(in srgb, #79c7c7 88%, #ffffff 12%); 
+}
+
+#overview .overview-block{
+  /* keep the same look but it’ll now use the new vars */
+  background: var(--overview-bg);
+  border: 1px solid var(--overview-brd);
+  /* subtle polish so text stays crisp on the brighter fill */
+  box-shadow: 0 14px 32px rgba(2,8,20,.07);
+}
+
+/* optional: match the left bar/accent inside that box */
+#overview .overview-block .section-title{
+  border-left-color: #338989;
+}
+
+/* ==== Overview split (dark section) ==== */
+.overview-split{
+  /* subtle dark backdrop that lets white text pop */
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(10, 28, 32, 0.35), rgba(10, 31, 32, 0)),
+    linear-gradient(180deg, #0d1620 0%, #0f1b25 100%);
+  color: #fff;
+  padding: clamp(40px, 7vw, 100px) 0;
+}
+
+.overview-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+}
+@media (min-width: 980px){
+  .overview-grid{ grid-template-columns: 1.1fr 1fr; }
+}
+
+/* left column */
+.overview-copy .eyebrow{
+  margin: 0 0 6px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #48a3a3;              /* poster teal */
+}
+
+.overview-copy .display{
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4.2vw, 48px);
+  line-height: 1.1;
+  color: #fff;
+}
+
+.overview-copy .lede{
+  margin: 0 0 14px;
+  font-size: clamp(16px, 1.4vw, 18px);
+  color: rgba(255,255,255,.88);
+}
+
+/* checklist bullets with teal ticks */
+.checklist{
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 20px;
+}
+.checklist li{
+  position: relative;
+  padding-left: 34px;
+  margin: 8px 0;
+  color: rgba(255,255,255,.9);
+}
+.checklist li::before{
+  content: "✓";
+  position: absolute; left: 0; top: 2px;
+  width: 22px; height: 22px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  font-size: 13px;
+  background: #338989;         /* deeper poster teal */
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.18);
+}
+
+/* CTA alignment */
+.overview-copy .actions{
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+
+/* right column visual */
+.overview-visual{
+  margin: 0;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(2,8,20,.35);
+  padding: clamp(8px, 1.2vw, 14px);
+}
+.overview-visual img{
+  width: 100%; height: auto; display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+/* make sure anchor jumps clear the pill navbar on this dark section too */
+#overview{ scroll-margin-top: calc(var(--pill-offset, 20px) + 80px); }
+
+/* Mauve section wrapper for Project Proposal & Poster */
+#project-docs{
+  /* deep mauve backdrop that still feels soft */
+  background:
+    radial-gradient(1100px 520px at 15% -10%, rgba(196,136,186,.20), transparent 60%),
+    linear-gradient(180deg, #c488ba 0%, #82557a 100%);
+  padding: clamp(40px, 7vw, 90px) 0;  /* a bit roomier */
+  color: #fff;                        /* default text color in the section */
+}
+
+/* White title on the mauve background */
+#project-docs .section-heading{
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0,0,0,.08);
+  margin-bottom: clamp(16px, 3vw, 28px);
+}
+
+/* The big container stays white and uses normal ink colors inside */
+#project-docs .docs-block{
+  background: #fff;                   /* override the mint look here */
+  border: 1px solid #e7e3ea;          /* soft mauve-ish border */
+  color: var(--ink);                  /* reset text inside to dark ink */
+  box-shadow:
+    0 18px 44px rgba(2,8,20,.16),
+    0 1px 0 rgba(255,255,255,.4) inset;
+}
+
+/* Ensure buttons on the mauve section title area (if any) are visible */
+#project-docs > .container .button{
+  /* only affects buttons placed directly under the title on the mauve bg */
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+}
 
 
 
