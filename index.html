@@ -30,6 +30,7 @@
   
 
   <main>
+<<<<<<< HEAD
     <section id="overview" class="section overview-split">
       <div class="container">
         <div class="overview-grid">
@@ -64,6 +65,51 @@
         </div>
       </div>
     </section>
+=======
+<section id="overview" class="section">
+  <h2 class="section-heading">Overview</h2>
+  <div class="container overview-block">
+
+    <h3 class="section-title">Aims and Goals</h3>
+        <p style="text-align: justify; color: #777;">
+      The Lightweight AI-Based Intrusion Detection System (LAIDS) Project aimed to propose a series of 
+      lightweight Intrusion Detection Systems (IDSs) to address security vulnerabilities found in 
+      resource-constrained networks, particularly within the context of Internet of Things (IoT) and edge devices. 
+      The project focused on the application deep learning based architectures in AI-based IDSs.
+    </p>
+
+    <h3 class="section-title">Proposed Architectures</h3>
+    <p style="text-align: justify;">
+      We proposed and investigated six model architectures:
+    </p>
+    <ul class="clean">
+      <li>A hybrid Convolutional Neural Network / Gated Recurrent Unit (CNN-GRU) model</li>
+      <li>A hybrid Generative Adversarial Network / Multilayer Perceptron (GAN-MLP) model</li>
+      <li>A 1D CNN model enhanced with Principal Component Analysis (PCA-CNN)</li>
+      <li>A hybrid Autoencoder / Multilayer Perceptron (AE-MLP) model</li>
+      <li>A hybrid Convolutional Neural Network / Long Short-Term Memory (CNN-LSTM) model</li>
+      <li>A Deep Belief Network (DBN) model</li>
+    </ul>
+
+    <h3 class="section-title">Evaluation</h3>
+    <p style="text-align: justify;">
+      These architectures underwent Post-Training Quantisation, specifically testing the precisions of both dynamic and full Float32, Float16, and INT8. The baseline architectures and their quantized variants were evaluated against a baseline 1D CNN. Models were trained and assessed on the CICIDS2017 dataset across three metrics:
+    </p>
+    <ul class="clean">
+      <li>Multi-classification performance such as accuracy and F1-score</li>
+      <li>Resource requirements including memory footprint, inference latency, and CPU processing time</li>
+      <li>The models’ ability to generalize to detect unknown (zero-day) attacks</li>
+    </ul>
+
+    <h3 class="section-title">Results</h3>
+    <p style="text-align: justify;">
+      From our evaluation, the LAIDS Project demonstrated that lightweight AI models can maintain a high level of security performance. The quantised CNN-LSTM, CNN-GRU, and 2D CNN models were identified as the most promising architectures, offering practical cybersecurity solutions suitable for deployment in resource-constrained network environments.
+    </p>
+
+  </div>
+</section>
+
+>>>>>>> 566e0197f55110693be5931e05e2cd449ca053c5
     
     <section id="project-docs" class="section">
       <!-- Centered heading OUTSIDE the box -->
@@ -77,7 +123,9 @@
           <article class="doc-card">
             <h3>Project Proposal (PDF)</h3>
             <p class="meta">
-              Short overview of the problem, objectives, baseline methods, datasets, and evaluation plan.
+              The LAIDS Project aimed to develop lightweight AI-based Intrusion Detection Systems (AI-IDSs) for 
+              resource-constrained networks. The project proposal outlines the motivation, research questions, 
+              proposed model architectures, resource trimming techniques and the evaluation plan of the proposed models.
             </p>
       
             <!-- PDF preview (use iframe OR embed; both work for PDFs) -->
@@ -96,9 +144,11 @@
           <!-- Poster card -->
           <article class="doc-card">
             <h3>Project Poster (PDF)</h3>
-            <p class="meta">
-              One-page visual summary covering motivation, approach, experiments, and key results.
-            </p>
+           <p class="meta" style="text-align: justify;">
+            Below is our research poster which provides an overview of the LAIDS project's objectives, methodology 
+            and results. 
+            The poster includes: model development & evaluation pipeline and the findings & conclusions of our research. 
+          </p>
       
             <!-- If your poster is PDF: -->
             <iframe
@@ -156,7 +206,7 @@
         </article>
     
         <article class="card person">
-          <img class="avatar" src="images/team/christopher.jpg" alt="Photo of Christopher Blignaut" />
+          <img class="avatar" src="images/chris_profile.jpg" alt="Photo of Christopher Blignaut" />
           <h3>Christopher Blignaut</h3>
           <p class="email"><a href="mailto:blgchr003@myuct.ac.za">blgchr003@myuct.ac.za</a></p>
           <p>Individual page with literature review and final paper.</p>

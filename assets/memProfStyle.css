@@ -1,0 +1,115 @@
+
+/* GLOBAL VARIABLES */
+:root{
+    --bg: #eff9f9; /* #f6f8fb — very light gray background color */
+    --card:#ffffff;
+    --ink:#334155;
+    --muted:#64748b;
+    --teal:#2e8b7c;
+    --mint:#7fd6c6;
+    --purple:#7b6dce;
+    --ring:rgba(46,139,124,.25);
+    --radius:16px;
+    --space:18px;
+  }
+  /* Apply border-box sizing to all elements*/
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Page setup: set margins, font, and base colors */
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);  /* Uses the light teal background defined above */
+    color: var(--ink);      /* Sets all text to the main ink color */
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 
+          "Apple Color Emoji","Segoe UI Emoji"; /* Sets font stack with fallbacks */
+  }
+
+  /* --- FOR LINKS ---*/
+  /* Make default link color and style */
+  a {
+    color: var(--teal);
+    text-decoration: none; /* remove underline */
+  }
+  /* Add underline on hover on links to improve accessibility */
+  a:hover {
+    text-decoration: underline;
+  }
+  /* --- FOR CONTAINERS ---*/
+  /* main content container:*/
+  .container {
+    max-width: 1100px;               /* Prevent wide lines */
+    margin: 0 auto;                  /* Center container */
+    padding: clamp(16px, 2.5vw, 32px); /* Responsive padding: min 16px, scales with viewport */
+  }
+
+  /* --- HEADER SECTION (HERO) ---*/
+  header.hero{
+    background: linear-gradient(-90deg, var(--mint), var(--teal));
+    color:white; /* White font */
+    padding: 48px 0;
+    margin:0 0 28px;
+  }
+  /* Title style*/
+  .hero .title {
+    font-size: clamp(28px, 5vw, 44px); /* Scales with viewport */
+    font-weight: 800;                  /* old */
+    letter-spacing: .3px;              /* letters slightly spaced */
+    margin: 0 0 8px;
+  }
+  /* Subtitle style */
+  .hero .subtitle {
+    opacity: .95;
+    margin: 0;
+  }
+
+  /* Navigation bar inside hero */
+  .nav {
+    display: flex;           /* Horizontally align nav links */
+    gap: 14px;               /* Add space between them */
+    flex-wrap: wrap;         /* Allow text wrapping on smaller screens */
+    margin-top: 14px;
+  }
+
+  /* individual navigation links */
+  .nav a {
+    background: rgba(255,255,255,.15); /* semi-transparent white background */
+    padding: 8px 12px;                 /* padding */
+    border-radius: 999px;              /* rounded pill shape */
+    color: white;                      /* white text */
+    border: 1px solid rgba(255,255,255,.3); /* white border */
+  }
+  
+  .grid{display:grid;grid-template-columns: repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 28px rgba(2, 8, 20, 0.06);padding:20px;border:1px solid #e5e7eb}
+  .card h3{margin:0 0 8px}
+  .card p{margin:0 0 12px;color:var(--muted)}
+  .card .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .tag{display:inline-block;background:var(--mint);color:#064e3b;padding:4px 10px;border-radius:999px;font-weight:600;font-size:12px;border:1px solid rgba(6,78,59,.15)}
+  .section-title{font-size:22px;margin:6px 0 14px;border-left:6px solid var(--teal);padding-left:10px}
+  footer{color:var(--muted);padding:24px 0;margin-top:24px}
+  .button{display:inline-block;background:var(--teal);color:white;padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,.05)}
+  .button.secondary{background:var(--purple)}
+  figure.poster{margin:0;display:flex;align-items:center;gap:16px}
+  figure.poster img{width:100%;max-width:360px;border-radius:12px;border:1px solid #e5e7eb;box-shadow:0 10px 20px rgba(2,8,20,.08)}
+  kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e1}
+  hr{border:none;height:1px;background:#e5e7eb;margin:18px 0}
+  ul.clean{padding-left:18px;margin:8px 0}
+  .card ul.clean,
+.card ul.clean li {
+    color: var(--muted); /* set all list items to be the ink colour */
+}
+  .notice{background:#f8fafc;border:1px dashed #cbd5e1;padding:12px;border-radius:12px}
+
+  .doc-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .doc-card a {
+    margin-top: auto;
+  }
