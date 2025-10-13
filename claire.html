@@ -45,9 +45,23 @@
           <p class="eyebrow">Abstract</p>
           <h2 class="display">Overview of my final paper</h2>
           <p class="prose">
-            Many Internet of Things (IoT) based edge devices remain constrained in compute, memory and energy and thus, their deployment of conventional, resource-intensive Artificial Intelligence (AI) based Intrusion Detection Systems is limited. This study investigates whether lightweight deep models can meet device constraints without sacrificing detection, and how post-training quantisation affects that trade-off. A Baseline Convolution Neural Network (CNN), a hybrid CNN-Long Short Term Memory (CNN-LSTM), and a Deep Belief Network (DBN) are evaluated on CICIDS2017 under edge-realistic conditions (batch size=1), reporting accuracy and F1 alongside latency, throughput, and memory footprint. Three post-training precisions, Float16, INT8 Dynamic (weight-only), and full INT8, are applied and zero-day generalisation is assessed by holding out one attack class and operating at a fixed false-positive rate (FPR) on Normal Traffic. Results demonstrate that Float16 presents as a safe, overall quantisation default. INT8 Dynamic achieves the largest reductions and, CNN-LSTM, improves speed with no accuracy loss, thus making it the most-balanced candidate. While INT8 degrades performance and requires Quantisation-Aware Training. Generalisation was strongly dependent on the false-positive rate selected. At $FPR=30 (Bots)$, the CNN is most sensitive and at $FPR=0.15 (DoS)$, the DBN is most sensitive. Overall, the CNN-LSTM INT8 Dynamic offers a strong balance between accuracy, latency, and size. 
+            My work focused on designing, quantising, and evaluating three compact intrusion-detection models for constrained devices. 
+            The goal was to see if they could equal or outperform a baseline model with less compute and memory, and to assess their 
+            ability to detect previously unseen attacks.
           </p>
+          <p class="prose">
+            <em>Note: </em> Convolutional Neural Network (CNN), Convolutional Neural Network Long Short-Term Memory (CNN-LSTM), Deep Belief Network (DBN).
+          </p>
+          <ul class="checklist light">
+            <li><strong>Problem.</strong> Many devices are constrained on compute, memory, and energy, limiting deployment of conventional AI-based intrusion detection.</li>
+            <li><strong>Aim.</strong> Test whether lightweight deep models meet device constraints without compromising detection, and assess how post-training quantisation affects that trade-off.</li>
+            <li><strong>Models.</strong> Baseline CNN, hybrid CNN–LSTM, and Deep Belief Network (DBN).</li>
+            <li><strong>Data & setup.</strong> CICIDS2017 used for training and evaluation.</li>
+            <li><strong>Metrics.</strong> Detection (Accuracy, F1) and compute efficiency (latency, throughput, memory footprint).</li>
+            <li><strong>Quantisation schemes.</strong> Float16, INT8 Dynamic (weights-only), and full INT8.</li>
+          </ul>
         </article>
+        
       </div>
     </section>
 
@@ -56,23 +70,55 @@
       <div class="container">
         <h2 class="section-heading">Model Designs</h2>
 
-        <div class="model-grid">
-          <article class="card">
-            <h3>DBN Architecture</h3>
-            <img class="model-img" src="images/DBN_arch.png" alt="DBN architecture">
-          </article>
-          <article class="card">
-            <h3>Baseline CNN</h3>
+        <!-- CNN -->
+        <figure class="card model-card reverse">
+          <h3>Baseline CNN</h3>
+          <div class="model-body">
             <img class="model-img" src="images/CNN_arch.png" alt="CNN architecture">
-          </article>
-          <article class="card">
-            <h3>CNN-LSTM</h3>
+            <figcaption class="model-notes">
+              <ul class="clean">
+                <li>Two convolutional blocks with batch normalisation and pooling to learn local patterns and progressively reduce features.</li>
+                <li>Global Average Pooling minimises overfitting.</li>
+                <li>Compact dense head (with optional dropout) maps the pooled features to class logits.</li>
+                <li>Softmax layer outputs the final multiclass probabilities.</li>
+              </ul>
+            </figcaption>
+          </div>
+        </figure>
+
+        <!-- CNN-LSTM -->
+        <figure class="card model-card reverse">
+          <h3>CNN-LSTM</h3>
+          <div class="model-body">
             <img class="model-img" src="images/CNN-LSTM_arch.png" alt="CNN-LSTM architecture">
-          </article>
-        </div>
+            <figcaption class="model-notes">
+              <ul class="clean">
+                <li>Two TimeDistributed convolutional blocks with pooling and batch normalisation learn local patterns at each timestep.</li>
+                <li>LSTM layer captures temporal dynamics across the window. </li>
+                <li>Dense head with dropout provides class logits.</li>
+                <li>Softmax layer produces the final multiclass output.</li>
+              </ul>
+            </figcaption>
+          </div>
+        </figure>
+
+        <!-- DBN -->
+        <figure class="card model-card reverse">
+          <h3>DBN Architecture</h3>
+          <div class="model-body">
+            <img class="model-img" src="images/DBN_arch.png" alt="DBN architecture">
+            <figcaption class="model-notes">
+              <ul class="clean">
+                <li>Unsupervised pretraining with stacked Restricted Boltzmann Machines (RBMs) followed by supervised fine-tuning.</li>
+                <li>Supervised head: ReLU → Dropout → Dense → Softmax.</li>
+                <li>Pretraining learns useful structure without labels, and the supervised head adapts those features to the multiclass classification.</li>
+              </ul>
+            </figcaption>
+          </div>
+        </figure>    
       </div>
     </section>
-
+    
     <!-- Experimentation: 3 tiles like your pipeline -->
     <section id="experiments" class="section">
       <div class="container">
@@ -80,15 +126,33 @@
         <div class="exp-tiles">
           <div class="exp-tile">
             <h4>Benchmarking</h4>
-            <p>Dataset, splits, metrics, early stopping.</p>
+            <p style="text-align: justify">
+              This experiment establishes a performance baseline by evaluating the full-precision 
+              (FP32) CNN–LSTM and DBN under the same protocol as the baseline CNN. 
+              Benchmarking enables a fair comparison across architectures and shows how well each model performs 
+              and how much computing resources it uses. It also provides the reference point for later 
+              checks on whether quantised versions maintain comparable performance 
+              while improving efficiency.
+            </p>
           </div>
           <div class="exp-tile">
             <h4>Quantisation</h4>
-            <p>FP16, INT8 dynamic/full; memory & latency deltas.</p>
+            <p style="text-align: justify;">
+              This experiment examines how post-training quantisation affects both accuracy and efficiency. 
+              Quantised variants include Float16, INT8 Dynamic, and full INT8 (where supported). These are produced for the CNN, 
+              CNN–LSTM, and DBN and compared against their FP32 counterparts. 
+              The analysis tests whether smaller, faster models can deliver 
+              similar detection quality with lower latency, higher throughput, and reduced memory.
+            </p>
           </div>
           <div class="exp-tile">
             <h4>Generalisation</h4>
-            <p>Zero-day holds; fixed FP budgets.</p>
+            <p style="text-align: justify;">
+              This experiment assesses the ability of the models and their quantised variants to handle unseen ("zero-day”) attacks. 
+              The setup simulates realistic scenarios by withholding entire attack families during training and evaluating detection 
+              on traffic that includes those previously unseen threats. This ensures the models learn 
+              general patterns of malicious behaviour rather than memorising known signatures. 
+            </p>
           </div>
         </div>
       </div>
