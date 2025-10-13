@@ -22,7 +22,7 @@
   </header>
 
   <!-- MAIN-->
-  <main class="container" style="background-color: #eff9f9;">
+  <main class="container" >
 
     <!-- OVERVIEW SECTION -->
     <section class="grid">
@@ -40,7 +40,7 @@
           classes in comparison to the baseline model.
         </p>
         <p style="font-weight: bold">These models developed were:</pp>
-        <ul class="clean">
+        <ul class="list">
           <li>A baseline one-dimensional Convolutional Neural Network model (CNN), which was co-developed with my fellow LAIDS project members</li>
           <li>A Principle Component Analysis enhanced Convolutional Neural Network model (PCA-CNN)</li>
           <li>A hybrid Autoencoder-Multilayer Perceptron (AE-MLP) model</li>
@@ -54,7 +54,7 @@
         <h2>Research Questions</h2>
         
         <p style="text-align: justify;">
-          <ol class="clean" style="text-align: justify; line-height: 1.8; margin-left: 20px;">
+          <ol class="list" style="text-align: justify; line-height: 1.8; margin-left: 20px;">
             <li>
               Can a PCA-CNN or AE-MLP IDS achieve higher resource efficiency 
               than a baseline 1D-CNN IDS, while maintaining comparable or 
@@ -160,6 +160,22 @@
             </p>
           </div>
         </div>
+      </article>
+    </section>
+
+    <!-- OVERVIEW SECTION -->
+    <section class="grid">
+      <article class="card">
+        
+        <h2>Conclusion</h2> 
+        <p style="text-align: justify">
+          The findings suggested that no model consistently outperformed the baseline in terms of detection performance and resource efficiency. 
+          However, each model demonstrated targeted performance gains over the baseline. Notably, the dynamically INT8-quantised PCA-CNN demonstrated 
+          the most promise for deployment as a lightweight intrusion detection system. The model achieved some of the lowest CPU processing times, 
+          inference latency, and false negative rates. Furthermore, the model attained one of the highest detection rate for DoS samples when 
+          they were given as zero-day attacks.
+          </p>
+        
       </article>
     </section>
 
