@@ -45,6 +45,36 @@ hr{border:none;height:1px;background:#e5e7eb;margin:18px 0}
 ul.clean{padding-left:18px;margin:8px 0}
 kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e1}
 
+/* === Shared headline helpers === */
+.eyebrow{
+  margin:0 0 6px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:13px;
+  color: var(--teal);               /* default for light sections */
+}
+
+.display{
+  margin:0 0 10px;
+  font-size: clamp(28px, 4.2vw, 48px);
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--ink);                /* default for light sections */
+}
+
+/* Dark sections override just the color */
+.overview-split .eyebrow,
+#proposal .eyebrow{ color:#48a3a3; }
+
+.overview-split .display,
+#proposal .display{ color:#fff; }
+
+/* Keep Background using ink (explicit, in case of later changes) */
+#background .eyebrow{ color: var(--teal); }
+#background .display{ color: var(--ink); }
+
+
 /* ========== Buttons, tags, cards ========== */
 .button{display:inline-block;background:var(--teal);color:#fff;padding:10px 14px;border-radius:10px;border:1px solid rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease}
 .button:hover{transform:translateY(-1px)}
@@ -117,8 +147,7 @@ header.hero{
 }
 .overview-grid{display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,48px);align-items:center}
 @media (min-width:980px){.overview-grid{grid-template-columns:1.1fr 1fr}}
-.overview-copy .eyebrow{margin:0 0 6px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:#48a3a3}
-.overview-copy .display{margin:0 0 10px;font-size:clamp(28px,4.2vw,48px);line-height:1.1;color:#fff}
+
 .overview-copy .lede{margin:0 0 14px;font-size:clamp(16px,1.4vw,18px);color:rgba(255,255,255,.88)}
 .checklist{list-style:none;padding:0;margin:14px 0 20px}
 .checklist li{position:relative;padding-left:34px;margin:8px 0;color:rgba(255,255,255,.9)}
@@ -158,8 +187,6 @@ header.hero{
 }
 .proposal-split .split-grid{display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,48px);align-items:center}
 @media (min-width:980px){.proposal-split .split-grid{grid-template-columns:1.1fr 1fr}}
-.proposal-split .copy .eyebrow{margin:0 0 6px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:var(--teal)}
-.proposal-split .copy .display{margin:0 0 10px;font-size:clamp(28px,4.2vw,48px);line-height:1.1}
 .proposal-split .copy .lede{margin:0 0 14px;font-size:clamp(16px,1.4vw,18px);color:rgba(255,255,255,.88)}
 .proposal-split .actions{display:flex;gap:12px;flex-wrap:wrap}
 .proposal-split .visual{margin:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:18px;box-shadow:0 18px 48px rgba(2,8,20,.35);padding:clamp(8px,1.2vw,14px)}
@@ -276,3 +303,36 @@ footer{margin-top:0}
   box-shadow:0 18px 48px rgba(2,8,20,.35);
 }
 .proposal-split .visual iframe{ background:#fff; }
+
+/* Buttons: no underline on hover/focus + glowy ring */
+a.button,
+.button { text-decoration: none; }
+
+/* Primary (teal) */
+a.button:hover,
+a.button:focus-visible,
+.button:hover,
+.button:focus-visible{
+  text-decoration: none !important;
+  transform: translateY(-1px);
+  outline: none;
+  /* inner ring + outer soft glow + existing drop shadow */
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--teal) 65%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--teal) 28%, transparent),
+    0 12px 28px rgba(2,8,20,.12);
+}
+
+/* Secondary (mauve) gets a mauve glow */
+a.button.secondary:hover,
+a.button.secondary:focus-visible,
+.button.secondary:hover,
+.button.secondary:focus-visible{
+  text-decoration: none !important;
+  transform: translateY(-1px);
+  outline: none;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--mauve) 65%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--mauve) 28%, transparent),
+    0 12px 28px rgba(2,8,20,.12);
+}
