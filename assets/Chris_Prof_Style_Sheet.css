@@ -3,7 +3,8 @@
     --card:#fff;
     --ink:#334155;
     --muted:#64748b;
-  
+    --mint:#7fd6c6;
+    --white:#fff;
     --teal:#48a3a3;
     --mauve:#c488ba;
     --lightmauve:rgba(249,239,247,.65);
@@ -249,18 +250,19 @@
   .doc-actions{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap }
   
 
+
+
   /* Footer */
-   .site-footer{background:
-       radial-gradient(1200px 600px at 20% 0%,rgba(10,28,32,0.35), rgba(10,31,32,0)),
-       linear-gradient(180deg, var(--ink) 0%, var(--ink) 100%);
-     border-top:1px solid var(--ink);padding:clamp(24px,4vw,40px) 0}
-   .footer-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:center}
-   .site-footer .footer-grid{justify-items:center;text-align:center}
-   .site-footer .footer-brand{display:flex;align-items:center;gap:12px;color:var(--white);justify-content:center}
-   .site-footer .footer-brand img{width:48px;height:auto}
-   .site-footer .footer-meta{display:grid;gap:6px;font-size:15px;color:var(--white);justify-items:center}
-   .site-footer .footer-meta a{color:var(--mint);text-decoration:none}
-   .site-footer .footer-meta a:hover{text-decoration:underline}
-   .site-footer .footer-copy{margin-top:12px;color:var(--white);font-size:14px}
-  
+.site-footer{background:
+    radial-gradient(1200px 600px at 20% 0%,rgba(10,28,32,0.35), rgba(10,31,32,0)),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink) 100%);
+  border-top:1px solid var(--ink);padding:clamp(24px,4vw,40px) 0}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:center}
+.site-footer .footer-grid{justify-items:center;text-align:center}
+.site-footer .footer-brand{display:flex;align-items:center;gap:12px;color:var(--white);justify-content:center}
+.site-footer .footer-brand img{width:48px;height:auto}
+.site-footer .footer-meta{display:grid;gap:6px;font-size:15px;color:var(--white);justify-items:center}
+.site-footer .footer-meta a{color:var(--mint);text-decoration:none}
+.site-footer .footer-meta a:hover{text-decoration:underline}
+.site-footer .footer-copy{margin-top:12px;color:var(--white);font-size:14px}
   
