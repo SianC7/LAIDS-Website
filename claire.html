@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Claire Campbell — LAIDS</title>
-  <link rel="stylesheet" href="assets/member.css" />
+  <link rel="stylesheet" href="assets/Claire_Prof_Style_Sheet.css" />
 </head>
 <body>
   <!-- Hero banner with image + mauve glass pill nav -->
@@ -44,22 +44,25 @@
         <article class="card">
           <p class="eyebrow">Summary</p>
           <h2 class="display">Final Paper Overview</h2>
-          <p class="prose">
-            My work focused on designing, quantising, and evaluating two compact intrusion-detection models for constrained devices. 
-            The goal was to see if they could equal or outperform the baseline Convolutional Neural Network (CNN) model in terms of 
-            performance and resource consumption, and to assess their ability to detect previously unseen attacks.
+          <p class="text-align: justify">
+            <p class="prose">
+              My work focused on designing, quantising, and evaluating two compact intrusion-detection models for constrained devices. 
+              The goal was to see if they could equal or outperform the baseline Convolutional Neural Network (CNN) model in terms of 
+              performance and resource consumption, and to assess their ability to detect previously unseen attacks.
+            </p>
+            <p class="prose">
+              <em>Note: </em> Convolutional Neural Network (CNN), Convolutional Neural Network Long Short-Term Memory (CNN-LSTM), Deep Belief Network (DBN).
+            </p>
+            <ul class="checklist light">
+              <li><strong>Problem.</strong> Many devices are constrained on compute, memory, and energy, limiting deployment of conventional AI-based intrusion detection.</li>
+              <li><strong>Aim.</strong> Test whether lightweight deep models meet device constraints without compromising detection, and assess how post-training quantisation affects that trade-off.</li>
+              <li><strong>Models.</strong> Baseline CNN, hybrid CNN–LSTM, and Deep Belief Network (DBN).</li>
+              <li><strong>Data & setup.</strong> CICIDS2017 used for training and evaluation.</li>
+              <li><strong>Metrics.</strong> Detection (Accuracy, F1) and compute efficiency (latency, throughput, memory footprint).</li>
+              <li><strong>Quantisation schemes.</strong> Float16, INT8 Dynamic (weights-only), and full INT8.</li>
+            </ul>
           </p>
-          <p class="prose">
-            <em>Note: </em> Convolutional Neural Network (CNN), Convolutional Neural Network Long Short-Term Memory (CNN-LSTM), Deep Belief Network (DBN).
-          </p>
-          <ul class="checklist light">
-            <li><strong>Problem.</strong> Many devices are constrained on compute, memory, and energy, limiting deployment of conventional AI-based intrusion detection.</li>
-            <li><strong>Aim.</strong> Test whether lightweight deep models meet device constraints without compromising detection, and assess how post-training quantisation affects that trade-off.</li>
-            <li><strong>Models.</strong> Baseline CNN, hybrid CNN–LSTM, and Deep Belief Network (DBN).</li>
-            <li><strong>Data & setup.</strong> CICIDS2017 used for training and evaluation.</li>
-            <li><strong>Metrics.</strong> Detection (Accuracy, F1) and compute efficiency (latency, throughput, memory footprint).</li>
-            <li><strong>Quantisation schemes.</strong> Float16, INT8 Dynamic (weights-only), and full INT8.</li>
-          </ul>
+          
         </article>
         
       </div>
@@ -76,12 +79,14 @@
           <div class="model-body">
             <img class="model-img" src="images/CNN_arch.png" alt="CNN architecture">
             <figcaption class="model-notes">
-              <ul class="clean">
-                <li>Two convolutional blocks with batch normalisation and pooling to learn local patterns and progressively reduce features.</li>
-                <li>Global Average Pooling minimises overfitting.</li>
-                <li>Compact dense head (with optional dropout) maps the pooled features to class logits.</li>
-                <li>Softmax layer outputs the final multiclass probabilities.</li>
-              </ul>
+              <p class="text-align: justify">
+                <ul class="clean">
+                  <li>Two convolutional blocks with batch normalisation and pooling to learn local patterns and progressively reduce features.</li>
+                  <li>Global Average Pooling minimises overfitting.</li>
+                  <li>Compact dense head (with optional dropout) maps the pooled features to class logits.</li>
+                  <li>Softmax layer outputs the final multiclass probabilities.</li>
+                </ul>
+              </p>
             </figcaption>
           </div>
         </figure>
@@ -92,12 +97,14 @@
           <div class="model-body">
             <img class="model-img" src="images/CNN-LSTM_arch.png" alt="CNN-LSTM architecture">
             <figcaption class="model-notes">
-              <ul class="clean">
-                <li>Two TimeDistributed convolutional blocks with pooling and batch normalisation learn local patterns at each timestep.</li>
-                <li>LSTM layer captures temporal dynamics across the window. </li>
-                <li>Dense head with dropout provides class logits.</li>
-                <li>Softmax layer produces the final multiclass output.</li>
-              </ul>
+              <p class="text-align: justify">
+                <ul class="clean">
+                  <li>Two TimeDistributed convolutional blocks with pooling and batch normalisation learn local patterns at each timestep.</li>
+                  <li>LSTM layer captures temporal dynamics across the window. </li>
+                  <li>Dense head with dropout provides class logits.</li>
+                  <li>Softmax layer produces the final multiclass output.</li>
+                </ul>
+              </p>
             </figcaption>
           </div>
         </figure>
@@ -108,11 +115,13 @@
           <div class="model-body">
             <img class="model-img" src="images/DBN_arch.png" alt="DBN architecture">
             <figcaption class="model-notes">
-              <ul class="clean">
-                <li>Unsupervised pretraining with stacked Restricted Boltzmann Machines (RBMs) followed by supervised fine-tuning.</li>
-                <li>Supervised head: ReLU → Dropout → Dense → Softmax.</li>
-                <li>Pretraining learns useful structure without labels, and the supervised head adapts those features to the multiclass classification.</li>
-              </ul>
+              <p class="text-align: justify">
+                <ul class="clean">
+                  <li>Unsupervised pretraining with stacked Restricted Boltzmann Machines (RBMs) followed by supervised fine-tuning.</li>
+                  <li>Supervised head: ReLU → Dropout → Dense → Softmax.</li>
+                  <li>Pretraining learns useful structure without labels, and the supervised head adapts those features to the multiclass classification.</li>
+                </ul>
+              </p>
             </figcaption>
           </div>
         </figure>    
@@ -177,12 +186,14 @@
                 <figcaption>Multiclassification performance of models.</figcaption>
               </figure>
               <div class="result-notes">
-                <ul class="clean">
-                  <li><strong>CNN-LSTM</strong>: strongest overall. Achieving a high accuracy, lower false alarms, and most stable across classes.</li>
-                  <li><strong>1D CNN</strong>: very sensitive. Achieving a high attack recall but a lot of Normal traffic misclassified as attacks.</li>
-                  <li><strong>DBN</strong>: strong detection on major classes but higher false-alarm rate.</li>
-                </ul>
-                <p class="muted-key">Takeaway: CNN-LSTM is the most reliable, while CNN/DBN need better Normal filtering.</p>
+                <p class="text-align: justify">
+                  <ul class="clean">
+                    <li><strong>CNN-LSTM</strong>: strongest overall. Achieving a high accuracy, lower false alarms, and most stable across classes.</li>
+                    <li><strong>1D CNN</strong>: very sensitive. Achieving a high attack recall but a lot of Normal traffic misclassified as attacks.</li>
+                    <li><strong>DBN</strong>: strong detection on major classes but higher false-alarm rate.</li>
+                  </ul>
+                  <p class="muted-key">Takeaway: CNN-LSTM is the most reliable, while CNN/DBN need better Normal filtering.</p>
+                </p>
               </div>
             </div>
           </article>
@@ -200,14 +211,16 @@
                 <figcaption>Normalised storage across Float32, Float16, INT8 Dynamic, INT8 Full.</figcaption>
               </figure>
               <div class="result-notes">
-                <ul class="clean">
-                  <li><strong>Float16 & INT8 Dynamic</strong> keep <em>CNN-LSTM</em> near-lossless; INT8 Dynamic, however, is faster.</li>
-                  <li><strong>DBN</strong> accuracy remains steady for Float32, Float16, and INT8 Dynamic. 
-                    Latency rises which is likely due to quant overheads on small layers.</li>
-                  <li><strong>CNN</strong> INT8 Dynamic lowers false negatives but increases false alarms.</li>
-                  <li><strong>INT8 Full</strong> causes the CNN to fail, a slight decline in the CNN-LSTM's detection, and is not supported for DBN in this stack.</li>
-                </ul>
-                <p class="muted-key">Takeaway: <strong>INT8 Dynamic</strong> is a strong candidate for lightweight deployment.</p>
+                <p class="text-align: justify">
+                  <ul class="clean">
+                    <li><strong>Float16 & INT8 Dynamic</strong> keep <em>CNN-LSTM</em> near-lossless; INT8 Dynamic, however, is faster.</li>
+                    <li><strong>DBN</strong> accuracy remains steady for Float32, Float16, and INT8 Dynamic. 
+                      Latency rises which is likely due to quant overheads on small layers.</li>
+                    <li><strong>CNN</strong> INT8 Dynamic lowers false negatives but increases false alarms.</li>
+                    <li><strong>INT8 Full</strong> causes the CNN to fail, a slight decline in the CNN-LSTM's detection, and is not supported for DBN in this stack.</li>
+                  </ul>
+                  <p class="muted-key">Takeaway: <strong>INT8 Dynamic</strong> is a strong candidate for lightweight deployment.</p>
+                </p>
               </div>
             </div>
           </article>
@@ -225,19 +238,20 @@
                 <figcaption>Unseen DoS and Bots detection.</figcaption>
               </figure>
               <div class="result-notes">
-                <ul class="clean">
-                  <li><strong>1D CNN</strong>: strong on Bots (~91%), weaker on DoS (~68%).</li>
-                  <li><strong>CNN-LSTM</strong>: less sensitive to detecting DoS and Bot attacks.</li>
-                  <li><strong>DBN</strong>: relatively better at detecting DoS than Bot attacks.</li>
-                  <li><strong>2D CNN (exploratory)</strong>: best unknown detection likely due to cross-feature filters.</li>
-                </ul>
-                <p class="muted-key">Takeaway: Unknown detection depends on both the model and the selected false positive rate threshold.</p>
+                <p class="text-align: justify">
+                  <ul class="clean">
+                    <li><strong>1D CNN</strong>: strong on Bots (~91%), weaker on DoS (~68%).</li>
+                    <li><strong>CNN-LSTM</strong>: less sensitive to detecting DoS and Bot attacks.</li>
+                    <li><strong>DBN</strong>: relatively better at detecting DoS than Bot attacks.</li>
+                    <li><strong>2D CNN (exploratory)</strong>: best unknown detection likely due to cross-feature filters.</li>
+                  </ul>
+                  <p class="muted-key">Takeaway: Unknown detection depends on both the model and the selected false positive rate threshold.</p>
+                </p>
+                
               </div>
             </div>
           </article>
       </div>
-    
-        
     
       </div>
     </section>
@@ -248,32 +262,34 @@
         <article class="card">
           <p class="eyebrow">Key Takeaways</p>
           <h2 class="display">Conclusion</h2>
-
-          <ul class="checklist light">
-            <li><strong>Best overall.</strong> Across full-precision and quantised variants, the <strong>CNN–LSTM</strong> offered the 
-              most reliable balance of detection quality, latency, and size. This was especially under <strong>Float16</strong> and 
-              <strong>INT8 Dynamic</strong>, which preserved accuracy while shrinking and speeding up the model.</li>
-
-            <li><strong>Quantisation policy.</strong> <strong>INT8 Dynamic</strong> is a strong default across models. 
-              <strong>Float16</strong> also allowed for size reduction with stable accuracy. 
-              <strong>Full INT8</strong> degraded performance in this stack and would likely require 
-              <em>quantisation-aware training (QAT)</em> to be dependable.</li>
-
-            <li><strong>Zero-day generalisation.</strong> Sensitivity to unseen attacks depended strongly on the 
-              chosen <strong>false-positive rate (FPR)</strong>. The exploratory <strong>2D CNN</strong> improved 
-              unknown-attack detection, suggesting value in architectures that capture cross-feature structure.</li>
-
-            <li><strong>Deployment guidance.</strong> For edge devices, deploy <strong>CNN–LSTM (INT8 Dynamic)</strong> 
-              and tune the decision threshold to the application’s FPR budget. Monitor both false positives and false negatives 
-              in production and recalibrate as traffic shifts.</li>
-
-              <li><strong>Overall.</strong> Lightweight AI-IDS is feasible and 2D CNN variants are promising for boosting 
-                unknown-attack detection.</li>
-
-            <li><strong>Future work.</strong> A 2D CNN-LSTM capable of unknown detected can be explored with 
-              <strong>Quantisation-aware training</strong> to allow for a full INT8 variant. 
-              The models can also be validated on-device with real traffic to improve latency/throughput targets.</li>
-          </ul>
+          <p class="text-align: justify">
+            <ul class="checklist light">
+              <li><strong>Best overall.</strong> Across full-precision and quantised variants, the <strong>CNN–LSTM</strong> offered the 
+                most reliable balance of detection quality, latency, and size. This was especially under <strong>Float16</strong> and 
+                <strong>INT8 Dynamic</strong>, which preserved accuracy while shrinking and speeding up the model.</li>
+  
+              <li><strong>Quantisation policy.</strong> <strong>INT8 Dynamic</strong> is a strong default across models. 
+                <strong>Float16</strong> also allowed for size reduction with stable accuracy. 
+                <strong>Full INT8</strong> degraded performance in this stack and would likely require 
+                <em>quantisation-aware training (QAT)</em> to be dependable.</li>
+  
+              <li><strong>Zero-day generalisation.</strong> Sensitivity to unseen attacks depended strongly on the 
+                chosen <strong>false-positive rate (FPR)</strong>. The exploratory <strong>2D CNN</strong> improved 
+                unknown-attack detection, suggesting value in architectures that capture cross-feature structure.</li>
+  
+              <li><strong>Deployment guidance.</strong> For edge devices, deploy <strong>CNN–LSTM (INT8 Dynamic)</strong> 
+                and tune the decision threshold to the application’s FPR budget. Monitor both false positives and false negatives 
+                in production and recalibrate as traffic shifts.</li>
+  
+                <li><strong>Overall.</strong> Lightweight AI-IDS is feasible and 2D CNN variants are promising for boosting 
+                  unknown-attack detection.</li>
+  
+              <li><strong>Future work.</strong> A 2D CNN-LSTM capable of unknown detected can be explored with 
+                <strong>Quantisation-aware training</strong> to allow for a full INT8 variant. 
+                The models can also be validated on-device with real traffic to improve latency/throughput targets.</li>
+            </ul>
+          </p>
+          
         </article>
       </div>
     </section>

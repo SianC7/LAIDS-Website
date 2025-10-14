@@ -167,7 +167,10 @@
     box-shadow:0 10px 28px rgba(2,8,20,.06);
     padding:clamp(18px,2.4vw,28px);
   }
-  .card .prose{ max-width:70ch }
+  .card .prose{ max-width:70ch; 
+    text-align: justify;
+    text-justify:inter-word;   
+    hyphens:auto;}
   
   .eyebrow{
     margin:0 0 6px;
@@ -186,9 +189,9 @@
   /* Let the abstract paragraph span full width if used */
   #abstract .prose{
     max-width:none;
-    text-align:justify;        /* optional */
-    text-justify:inter-word;   /* optional */
-    hyphens:auto;              /* optional */
+    text-align:justify;        
+    text-justify:inter-word;   
+    hyphens:auto;              
   }
   
   /* =========================
@@ -376,3 +379,14 @@
     display: grid;
     gap: clamp(16px, 2.6vw, 28px); /* space between tiles */
   }
+
+  /* === Site-wide body text justification === */
+:where(p, li, dd, figcaption, blockquote) {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    text-align-last: left;   /* keep the last line ragged-left */
+  }
+  
