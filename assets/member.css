@@ -46,7 +46,7 @@
   }
   
   /* =========================
-     Hero (short, full width)
+     Hero banner
      ========================= */
   .hero.hero--short{
     background:linear-gradient(180deg, var(--lightmauve) 0%, var(--mauve) 100%);
@@ -192,7 +192,7 @@
   }
   
   /* =========================
-     Checklist (matches index)
+     Checklist 
      ========================= */
   .checklist{ list-style:none; padding:0; margin:14px 0 }
   .checklist li{
@@ -371,6 +371,7 @@
 .doc-abs[open] > summary{ color: var(--ink); }
 .doc-teaser{ margin:10px 0 6px; color:var(--muted); } 
 
+/* Add spacing between results */
 .results-stack{
     display: grid;
     gap: clamp(16px, 2.6vw, 28px); /* space between tiles */

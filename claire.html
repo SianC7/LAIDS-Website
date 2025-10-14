@@ -45,9 +45,9 @@
           <p class="eyebrow">Summary</p>
           <h2 class="display">Final Paper Overview</h2>
           <p class="prose">
-            My work focused on designing, quantising, and evaluating three compact intrusion-detection models for constrained devices. 
-            The goal was to see if they could equal or outperform a baseline model with less compute and memory, and to assess their 
-            ability to detect previously unseen attacks.
+            My work focused on designing, quantising, and evaluating two compact intrusion-detection models for constrained devices. 
+            The goal was to see if they could equal or outperform the baseline Convolutional Neural Network (CNN) model in terms of 
+            performance and resource consumption, and to assess their ability to detect previously unseen attacks.
           </p>
           <p class="prose">
             <em>Note: </em> Convolutional Neural Network (CNN), Convolutional Neural Network Long Short-Term Memory (CNN-LSTM), Deep Belief Network (DBN).
@@ -122,7 +122,7 @@
     <!-- Experimentation: 3 tiles -->
     <section id="experiments" class="section">
       <div class="container">
-        <h2 class="section-heading">Experimentation</h2>
+        <h2 class="section-heading">Experimentation Overview</h2>
         <div class="exp-tiles">
           <div class="exp-tile">
             <h4>Benchmarking</h4>
@@ -243,7 +243,6 @@
     </section>
 
     <!-- Conclusion -->
-    <!-- Conclusion -->
     <section id="conclusion" class="section">
       <div class="container">
         <article class="card">
@@ -327,8 +326,8 @@
                 class and operating at a fixed false-positive rate (FPR) on Normal Traffic. Results demonstrate that Float16 presents
                 as a safe, overall quantisation default. INT8 Dynamic achieves the largest reductions and, CNN-LSTM, improves speed with no 
                 accuracy loss, thus making it the most-balanced candidate. While INT8 degrades performance and requires Quantisation-Aware 
-                Training. Generalisation was strongly dependent on the false-positive rate selected. At 𝐹𝑃𝑅= 30(𝐵𝑜𝑡𝑠), the CNN is most 
-                sensitive and at 𝐹𝑃𝑅= 0.15(𝐷𝑜𝑆), the DBN is most sensitive. Overall, the CNN-LSTM INT8 Dynamic offers 
+                Training. Generalisation was strongly dependent on the false-positive rate selected. At FPR= 30(Bots), the CNN is most 
+                sensitive and at FPR= 0.15(DoS), the DBN is most sensitive. Overall, the CNN-LSTM INT8 Dynamic offers 
                 a strong balance between accuracy, latency, and size.
 
               </p>
@@ -341,9 +340,7 @@
         </div>
       </div>
     </section>
-    
-
-
+  
   </main>
 
   <footer class="site-footer">

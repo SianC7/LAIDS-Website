@@ -70,7 +70,6 @@ kbd{background:#e2e8f0;border-radius:6px;padding:2px 6px;border:1px solid #cbd5e
 .overview-split .display,
 #proposal .display{ color:#fff; }
 
-/* Keep Background using ink (explicit, in case of later changes) */
 #background .eyebrow{ color: var(--teal); }
 #background .display{ color: var(--ink); }
 
@@ -137,7 +136,7 @@ header.hero{
   text-underline-offset:6px;
 }
 
-/* ========== Overview (dark split) ========== */
+/* ========== Overview ========== */
 .overview-split{
   background:
     radial-gradient(1200px 600px at 20% 0%, rgba(10, 28, 32, 0.35), rgba(10, 31, 32, 0)),
@@ -161,7 +160,7 @@ header.hero{
 .checklist.light li{color:var(--ink)}
 .checklist.light li::before{background:#338989;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.12)}
 
-/* ========== Background section (light teal wash) ========== */
+/* ========== Background section ========== */
 #background{
   background:
     radial-gradient(900px 420px at 15% -10%, rgba(123,185,185,.18), rgba(123,185,185,0) 60%),
@@ -179,7 +178,7 @@ header.hero{
   color:var(--ink);
 }
 
-/* ========== Proposal (team gradient + layout from .proposal-split) ========== */
+/* ========== Proposal ========== */
 #proposal{
   background:linear-gradient(180deg, var(--lightmauve) 0%, var(--mauve) 100%);
   color:#fff;
@@ -243,7 +242,6 @@ header.hero{
 .doc-card p.meta{margin:0 0 12px;color:var(--muted);font-size:.95rem}
 
 /* ========== Footer ========== */
-/* Member pages use a plain <footer> */
 footer{color:var(--muted);padding:24px 0;margin-top:24px}
 
 /* Main site footer */
@@ -260,7 +258,7 @@ footer{color:var(--muted);padding:24px 0;margin-top:24px}
 .site-footer .footer-meta a:hover{text-decoration:underline}
 .site-footer .footer-copy{margin-top:12px;color:var(--white);font-size:14px}
 
-/* small tidies */
+/* tidying margins */
 .section:last-of-type{padding-bottom:clamp(12px,2vw,28px)}
 hr{display:none}
 footer{margin-top:0}
@@ -296,7 +294,7 @@ footer{margin-top:0}
   box-shadow:0 18px 48px rgba(2,8,20,.35);
 }
 
-/* Make the Proposal PDF box white too */
+/* Make the Proposal PDF box white */
 .proposal-split .visual{
   background:#fff;
   border:1px solid #e5e7eb;
@@ -371,5 +369,3 @@ a.button.secondary:focus-visible,
 
 /* (optional) make plain links in proposal copy still ink */
 #proposal .copy a:not(.button){ color: var(--ink); }
-
-
